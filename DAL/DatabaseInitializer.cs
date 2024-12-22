@@ -1,31 +1,70 @@
-﻿using DbUp;
+﻿using System.Data;
+using DAL.Model;
+using DbUp;
 using DbUp.Engine;
 using Microsoft.Extensions.Logging;
-using Microsoft.IdentityModel.Tokens;
 
 namespace DAL;
 
-public class DatabaseInitializer(ILoggerFactory loggerFactory)
+public class DatabaseInitializer
 {
-    private readonly ILogger<DatabaseInitializer> _logger = loggerFactory.CreateLogger<DatabaseInitializer>();
+    private readonly IDbConnectionFactory _connectionFactory;
+    private readonly ILogger<DatabaseInitializer> _logger;
+    private readonly IGenericRepository<Migration> _migrationRepository;
 
-    public void Initialize(string? connectionString)
+    public DatabaseInitializer(ILoggerFactory loggerFactory, IDbConnectionFactory connectionFactory, IGenericRepository<Migration> migrationRepository)
     {
-        if (connectionString.IsNullOrEmpty())
-        {
-            throw new ArgumentNullException(nameof(connectionString));
-        }
-        
+        _logger = loggerFactory.CreateLogger<DatabaseInitializer>();
+        _connectionFactory = connectionFactory;
+        _migrationRepository = migrationRepository;
+    }
+
+    public void Initialize()
+    {
+        var connectionString = _connectionFactory.CreateConnection().ConnectionString;
+
+        if (string.IsNullOrEmpty(connectionString)) throw new ArgumentNullException(nameof(connectionString));
+
         try
         {
             _logger.LogInformation("Datenbank-Initialisierung gestartet...");
 
-            var scripts = GetMigrationScripts();
+            ApplyMigrations(connectionString).Wait();
+
+            _logger.LogInformation("Datenbank erfolgreich aktualisiert.");
+        }
+        catch (Exception ex)
+        {
+            _logger.LogCritical(ex, "Fehler während der Datenbank-Initialisierung.");
+            throw;
+        }
+    }
+
+    private async Task ApplyMigrations(string connectionString)
+    {
+        using (var connection = _connectionFactory.CreateConnection())
+        {
+            connection.Open();
+
+            EnsureMigrationTableExists(connection);
+
+            var appliedMigrations = await GetAppliedMigrations();
+
+            var scripts = GetMigrationScripts()
+                .Where(s => !appliedMigrations.Contains(s.Name))
+                .OrderBy(s => s.Name)
+                .ToList();
+
+            if (scripts.Count == 0)
+            {
+                _logger.LogInformation("Keine neuen Migrationen erforderlich.");
+                return;
+            }
 
             var upgrader = DeployChanges.To
                 .SqliteDatabase(connectionString)
                 .WithScripts(scripts)
-                .LogTo(_logger) 
+                .LogTo(_logger)
                 .Build();
 
             var result = upgrader.PerformUpgrade();
@@ -36,40 +75,73 @@ public class DatabaseInitializer(ILoggerFactory loggerFactory)
                 throw result.Error;
             }
 
-            _logger.LogInformation("Migration erfolgreich abgeschlossen!");
-        }
-        catch (Exception ex)
-        {
-            _logger.LogCritical(ex, "Fehler während der Datenbank-Initialisierung.");
-            throw;
+            foreach (var script in scripts)
+                await _migrationRepository.InsertAsync(new Migration
+                {
+                    Version = script.Name,
+                    AppliedAt = DateTime.Now
+                });
         }
     }
-    
+
+    private static void EnsureMigrationTableExists(IDbConnection connection)
+    {
+        const string tableExistsQuery = "SELECT name FROM sqlite_master WHERE type='table' AND name='Migrations';";
+        using (var command = connection.CreateCommand())
+        {
+            command.CommandText = tableExistsQuery;
+            var result = command.ExecuteScalar();
+            if (result != null) return;
+
+            const string createTableQuery = @"
+                        CREATE TABLE Migrations (
+                            Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                            Version TEXT NOT NULL,
+                            AppliedAt DATETIME DEFAULT CURRENT_TIMESTAMP
+                        );";
+            using (var createCmd = connection.CreateCommand())
+            {
+                createCmd.CommandText = createTableQuery;
+                createCmd.ExecuteNonQuery();
+            }
+        }
+    }
+
+    private async Task<List<string>> GetAppliedMigrations()
+    {
+        var migrations = await _migrationRepository.GetAllAsync();
+        return migrations.Select(m => m.Version).ToList();
+    }
+
     private static IEnumerable<SqlScript> GetMigrationScripts()
     {
         return new List<SqlScript>
         {
-            new SqlScript("CreateQuestionsTable", @"
-            CREATE TABLE IF NOT EXISTS Questions (
-                Id TEXT PRIMARY KEY NOT NULL,              -- GUID als Primärschlüssel
-                QuestionText TEXT NOT NULL,                -- Text der Frage
-                Points INTEGER NOT NULL,                   -- Punkte für die Frage
-                LastAskedDate DATETIME,                    -- Datum der letzten Abfrage
-                IncorrectAnswerCount INTEGER DEFAULT 0,    -- Anzahl der falschen Antworten
-                LastIncorrectAnswerDate DATETIME,          -- Datum der letzten falschen Antwort
-                QuestionType TEXT NOT NULL,                -- Fragetyp (z. B. 'Multiple Choice', 'True/False')
-                CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP -- Erstellungsdatum der Frage
-            );"),
-            
-            new SqlScript("CreateAnswersTable", @"
-            CREATE TABLE IF NOT EXISTS Answers (
-                Id INTEGER PRIMARY KEY AUTOINCREMENT,     -- Automatisch inkrementierte ID für die Antwort
-                QuestionId TEXT NOT NULL,                  -- Fremdschlüssel auf die Frage
-                AnswerText TEXT NOT NULL,                  -- Text der Antwort
-                IsCorrect INTEGER NOT NULL,                -- Flag, ob die Antwort korrekt ist (1 = richtig, 0 = falsch)
-                CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP, -- Erstellungsdatum der Antwort
-                FOREIGN KEY (QuestionId) REFERENCES Questions(Id) ON DELETE CASCADE -- Verknüpfung zur Frage
-            );")
+            new("241222_01_CreateQuestionsTable", @"
+                CREATE TABLE IF NOT EXISTS Questions (
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                    QuestionText TEXT NOT NULL,
+                    Points INTEGER NOT NULL,
+                    LastAskedDate DATETIME,
+                    IncorrectAnswerCount INTEGER DEFAULT 0,
+                    LastIncorrectAnswerDate DATETIME,
+                    QuestionType INTEGER NOT NULL,
+                    CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP
+                );"),
+
+            new("241222_02_CreateAnswersTable", @"
+                CREATE TABLE IF NOT EXISTS Answers (
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                    QuestionId INTEGER NOT NULL,
+                    AnswerText TEXT NOT NULL,
+                    IsCorrect INTEGER NOT NULL,
+                    CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+                    FOREIGN KEY (QuestionId) REFERENCES Questions(Id) ON DELETE CASCADE
+                );"),
+
+            new("241222_03_AddIsDeletedColumnToQuestions", @"
+                        ALTER TABLE Questions ADD COLUMN IsDeleted INTEGER DEFAULT 0;
+                    ")
         };
     }
 }
