@@ -12,10 +12,19 @@ public partial class Form1 : Form
     private readonly QuestionService _questionService;
     private readonly Dictionary<string, QuestionType> _typeMapping;
     private ComboBox _cmbQuestionType;
+    private int _currentQuestions;
     private int _currentY;
+    private int _maxQuestions;
+
+    private decimal _score;
+    private decimal _totalPoints;
 
     public Form1(QuestionService questionService)
     {
+        _score = 0;
+        _totalPoints = 0;
+        _maxQuestions = 30;
+        _currentQuestions = 0;
         _questionService = questionService ?? throw new ArgumentNullException(nameof(questionService));
         _typeMapping = EnumExtensions.GetDescriptionMapping<QuestionType>();
         InitializeComponent();
@@ -30,12 +39,37 @@ public partial class Form1 : Form
     {
         Reset();
 
+        // TextBox für die Eingabe der maximalen Fragenanzahl
+        var questionCountLabel = CreateLabel("Maximale Fragen pro Runde:", 12);
+        questionCountLabel.Location = new Point(10, _currentY);
+        _dynamicPanel.Controls.Add(questionCountLabel);
+
+        var questionCountTextBox = new TextBox
+        {
+            Text = _maxQuestions.ToString(),
+            Width = 100,
+            Location = new Point(200, _currentY)
+        };
+        _dynamicPanel.Controls.Add(questionCountTextBox);
+        _currentY += questionCountTextBox.Height + 10;
+
         var newQuestionButton = CreateButton("Neue Fragen Hinzufügen", 150, 30, (ClientSize.Width - 150) / 2, (ClientSize.Height - 30) / 2);
         newQuestionButton.Click += (_, _) => CreateQuestionPage();
         _dynamicPanel.Controls.Add(newQuestionButton);
 
         var startQuizButton = CreateButton("Start", 50, 30, (ClientSize.Width - 50) / 2, (ClientSize.Height + 35) / 2);
-        startQuizButton.Click += async (_, _) => await QuizPageAsync();
+        startQuizButton.Click += async (_, _) =>
+        {
+            if (int.TryParse(questionCountTextBox.Text, out var maxQuestions) && maxQuestions > 0)
+            {
+                _maxQuestions = maxQuestions;
+                await QuizPageAsync();
+            }
+            else
+            {
+                MessageBox.Show("Bitte geben Sie eine gültige Anzahl von Fragen ein (positive Zahl).", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        };
         _dynamicPanel.Controls.Add(startQuizButton);
     }
 
@@ -53,6 +87,7 @@ public partial class Form1 : Form
     private async Task QuizPageAsync()
     {
         Reset();
+        _currentQuestions++;
 
         var questionResult = await _questionService.GetWeightedRandomQuestionAsync();
 
@@ -63,6 +98,7 @@ public partial class Form1 : Form
         }
 
         var question = questionResult.Value;
+        _totalPoints += question.Points;
         var answersResult = await _questionService.GetQuestionAnswersAsync(question.Id);
 
         if (answersResult.IsFailure || answersResult.Value == null)
@@ -105,26 +141,96 @@ public partial class Form1 : Form
             _currentY += answerCheckbox.Height + 5;
         }
 
-        var btnSubmit = new Button
+        if (_currentQuestions < _maxQuestions)
         {
-            Text = "Antworten Abgeben",
-            Width = _dynamicPanel.Width - 20,
-            Height = 40,
-            Location = new Point(10, _dynamicPanel.Height - 50),
-            Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom
-        };
+            var btnSubmit = new Button
+            {
+                Text = "Antworten Abgeben",
+                Width = _dynamicPanel.Width - 20,
+                Height = 40,
+                Location = new Point(10, _dynamicPanel.Height - 50),
+                Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom
+            };
 
-        btnSubmit.Click += (_, _) =>
+            btnSubmit.Click += async (_, _) =>
+            {
+                var totalCorrectAnswers = answers.Count(a => a.IsCorrect);
+                var pointsPerAnswer = question.Points / (decimal)totalCorrectAnswers;
+
+                decimal totalScore = 0;
+
+                foreach (var answer in answers)
+                {
+                    var selectedAnswer = _dynamicPanel.Controls.OfType<CheckBox>()
+                        .FirstOrDefault(cb => cb.Text == answer.AnswerText); // Suche die CheckBox mit dem entsprechenden Text
+
+                    if (selectedAnswer != null)
+                        switch (answer.IsCorrect)
+                        {
+                            case true when selectedAnswer.Checked:
+                                totalScore += pointsPerAnswer;
+                                break;
+                            case false when selectedAnswer.Checked:
+                                totalScore -= pointsPerAnswer;
+                                break;
+                        }
+                }
+
+                totalScore = Math.Max(0, totalScore);
+                _score += totalScore;
+                await QuizPageAsync();
+            };
+
+            _dynamicPanel.Controls.Add(btnSubmit);
+            _currentY += btnSubmit.Height + 10;
+        }
+        else
         {
-            // Antworten verarbeiten (Logik hier einfügen)
-            MessageBox.Show("Antworten wurden abgegeben!", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        };
+            var btnSubmit = new Button
+            {
+                Text = "Endergebnis Anzeigen",
+                Width = _dynamicPanel.Width - 20,
+                Height = 40,
+                Location = new Point(10, _dynamicPanel.Height - 50),
+                Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom
+            };
 
-        _dynamicPanel.Controls.Add(btnSubmit);
-        _currentY += btnSubmit.Height + 10;
+            btnSubmit.Click += async (_, _) =>
+            {
+                var totalCorrectAnswers = answers.Count(a => a.IsCorrect);
+                var pointsPerAnswer = question.Points / (decimal)totalCorrectAnswers;
+
+                decimal totalScore = 0;
+
+                foreach (var answer in answers)
+                {
+                    var selectedAnswer = _dynamicPanel.Controls.OfType<CheckBox>()
+                        .FirstOrDefault(cb => cb.Text == answer.AnswerText); // Suche die CheckBox mit dem entsprechenden Text
+
+                    if (selectedAnswer != null)
+                        switch (answer.IsCorrect)
+                        {
+                            case true when selectedAnswer.Checked:
+                                totalScore += pointsPerAnswer;
+                                break;
+                            case false when selectedAnswer.Checked:
+                                totalScore -= pointsPerAnswer;
+                                break;
+                        }
+                }
+
+                totalScore = Math.Max(0, totalScore);
+                _score += totalScore;
+
+                MessageBox.Show($"DU hast {_score}/ {_totalPoints} Punkte erreicht!", "Fertig :)", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            };
+
+            _dynamicPanel.Controls.Add(btnSubmit);
+            _currentY += btnSubmit.Height + 10;
+        }
     }
 
-    private Label CreateLabel(string text, int x)
+    private static Label CreateLabel(string text, int x)
     {
         return new Label
         {
@@ -145,7 +251,7 @@ public partial class Form1 : Form
         };
     }
 
-    private Panel CreatePanel(Point location, int width, int height)
+    private static Panel CreatePanel(Point location, int width, int height)
     {
         return new Panel
         {
