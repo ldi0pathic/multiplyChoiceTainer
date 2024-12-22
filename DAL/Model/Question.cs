@@ -1,4 +1,5 @@
-﻿using Dapper.Contrib.Extensions;
+﻿using DAL.Model.Enum;
+using Dapper.Contrib.Extensions;
 
 namespace DAL.Model;
 
@@ -13,11 +14,4 @@ public class Question
     public int IncorrectAnswerCount { get; set; }
     public DateTime? LastIncorrectAnswerDate { get; set; }
     public DateTime CreatedAt { get; set; }
-}
-
-public enum QuestionType
-{
-    Auswahl,
-    Pick,
-    Kreuz
 }

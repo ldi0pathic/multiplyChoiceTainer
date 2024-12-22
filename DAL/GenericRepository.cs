@@ -1,10 +1,12 @@
 ﻿using DAL;
+using Dapper;
 using Dapper.Contrib.Extensions;
 using Microsoft.Extensions.Logging;
 
 public interface IGenericRepository<T> where T : class
 {
     Task<IEnumerable<T>> GetAllAsync();
+    Task<IEnumerable<T>> GetAllAsync(string filter);
     Task<T> GetByIdAsync(int id);
     Task<long> InsertAsync(T entity);
     Task<bool> UpdateAsync(T entity);
@@ -20,6 +22,21 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         _dbConnectionFactory = dbConnectionFactory;
         _logger = loggerFactory.CreateLogger<GenericRepository<T>>();
+    }
+
+    public async Task<IEnumerable<T>> GetAllAsync(string whereClause)
+    {
+        using var connection = _dbConnectionFactory.CreateConnection();
+        try
+        {
+            var sql = $"SELECT * FROM {typeof(T).Name}s {(!string.IsNullOrEmpty(whereClause) ? "WHERE " + whereClause : "")}";
+            return await connection.QueryAsync<T>(sql);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Fehler beim Abrufen der Datensätze von {TableName} mit WHERE-Klausel {WhereClause}.", typeof(T).Name, whereClause);
+            throw;
+        }
     }
 
     public async Task<IEnumerable<T>> GetAllAsync()

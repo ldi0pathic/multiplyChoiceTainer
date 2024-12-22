@@ -1,5 +1,7 @@
 ﻿using BL;
+using BL.Utils;
 using DAL.Model;
+using DAL.Model.Enum;
 
 namespace multiplyChoiceTainer;
 
@@ -8,175 +10,315 @@ public partial class Form1 : Form
     private readonly List<(TextBox AnswerTextBox, CheckBox IsCorrectCheckBox)> _answerFields = new();
     private readonly Panel _dynamicPanel;
     private readonly QuestionService _questionService;
-
-    private int currentY;
+    private readonly Dictionary<string, QuestionType> _typeMapping;
+    private ComboBox _cmbQuestionType;
+    private int _currentY;
 
     public Form1(QuestionService questionService)
     {
         _questionService = questionService ?? throw new ArgumentNullException(nameof(questionService));
+        _typeMapping = EnumExtensions.GetDescriptionMapping<QuestionType>();
         InitializeComponent();
-        _dynamicPanel = new Panel { Dock = DockStyle.Fill }; // Dock an das gesamte Fenster
+
+        _dynamicPanel = new Panel { Dock = DockStyle.Fill };
         Controls.Add(_dynamicPanel);
+
         StartPage();
     }
 
     private void StartPage()
     {
-        _dynamicPanel.Controls.Clear();
+        Reset();
 
-        var newQuestion = new Button
-        {
-            Text = "Neue Fragen Hinzufügen",
-            Size = new Size(150, 30),
-            Location = new Point(
-                (ClientSize.Width - 150) / 2,
-                (ClientSize.Height - 30) / 2
-            ),
-            Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right // An allen Rändern verankern
-        };
-        newQuestion.Click += (sender, e) => CreateQuestionPage();
-        _dynamicPanel.Controls.Add(newQuestion);
+        var newQuestionButton = CreateButton("Neue Fragen Hinzufügen", 150, 30, (ClientSize.Width - 150) / 2, (ClientSize.Height - 30) / 2);
+        newQuestionButton.Click += (_, _) => CreateQuestionPage();
+        _dynamicPanel.Controls.Add(newQuestionButton);
 
-        var startQuiz = new Button
-        {
-            Text = "Start",
-            Size = new Size(50, 30),
-            Location = new Point(
-                (ClientSize.Width - 50) / 2,
-                (ClientSize.Height + 35) / 2
-            ),
-            Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right
-        };
-        startQuiz.Click += (sender, e) => QuizPage();
-        _dynamicPanel.Controls.Add(startQuiz);
+        var startQuizButton = CreateButton("Start", 50, 30, (ClientSize.Width - 50) / 2, (ClientSize.Height + 35) / 2);
+        startQuizButton.Click += async (_, _) => await QuizPageAsync();
+        _dynamicPanel.Controls.Add(startQuizButton);
     }
 
-    private void QuizPage()
+    private Button CreateButton(string text, int width, int height, int x, int y)
+    {
+        return new Button
+        {
+            Text = text,
+            Size = new Size(width, height),
+            Location = new Point(x, y),
+            Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right
+        };
+    }
+
+    private async Task QuizPageAsync()
+    {
+        Reset();
+
+        var questionResult = await _questionService.GetWeightedRandomQuestionAsync();
+
+        if (questionResult.IsFailure || questionResult.Value == null)
+        {
+            MessageBox.Show("Keine Frage verfügbar: " + questionResult.Message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return;
+        }
+
+        var question = questionResult.Value;
+        var answersResult = await _questionService.GetQuestionAnswersAsync(question.Id);
+
+        if (answersResult.IsFailure || answersResult.Value == null)
+        {
+            MessageBox.Show("Keine Antworten verfügbar: " + answersResult.Message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return;
+        }
+
+        var answers = answersResult.Value;
+
+        var questionHeaderPanel = CreatePanel(new Point(10, _currentY), _dynamicPanel.Width - 20, 30);
+        questionHeaderPanel.Controls.Add(CreateLabel($"Typ: {question.QuestionType.GetDescription()}", questionHeaderPanel.Width - 200));
+        questionHeaderPanel.Controls.Add(CreateLabel($"Punkte: {question.Points}", questionHeaderPanel.Width - 100));
+
+        _dynamicPanel.Controls.Add(questionHeaderPanel);
+        _currentY += questionHeaderPanel.Height + 10;
+
+        var questionTextLabel = CreateLabel(question.QuestionText, 12, FontStyle.Bold);
+        questionTextLabel.Location = new Point(10, _currentY);
+        questionTextLabel.Width = _dynamicPanel.Width - 20;
+        questionTextLabel.TextAlign = ContentAlignment.MiddleLeft;
+        _dynamicPanel.Controls.Add(questionTextLabel);
+        _currentY += questionTextLabel.Height + 10;
+
+        var separator = CreateSeparator();
+        _dynamicPanel.Controls.Add(separator);
+        _currentY += separator.Height + 10;
+
+        foreach (var answer in answers)
+        {
+            var answerCheckbox = new CheckBox
+            {
+                Text = answer.AnswerText,
+                AutoSize = true,
+                Location = new Point(10, _currentY),
+                Padding = new Padding(5)
+            };
+            _dynamicPanel.Controls.Add(answerCheckbox);
+
+            _currentY += answerCheckbox.Height + 5;
+        }
+
+        var btnSubmit = new Button
+        {
+            Text = "Antworten Abgeben",
+            Width = _dynamicPanel.Width - 20,
+            Height = 40,
+            Location = new Point(10, _dynamicPanel.Height - 50),
+            Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom
+        };
+
+        btnSubmit.Click += (_, _) =>
+        {
+            // Antworten verarbeiten (Logik hier einfügen)
+            MessageBox.Show("Antworten wurden abgegeben!", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        };
+
+        _dynamicPanel.Controls.Add(btnSubmit);
+        _currentY += btnSubmit.Height + 10;
+    }
+
+    private Label CreateLabel(string text, int x)
+    {
+        return new Label
+        {
+            Text = text,
+            AutoSize = true,
+            Location = new Point(x, 0),
+            TextAlign = ContentAlignment.MiddleRight
+        };
+    }
+
+    private Label CreateLabel(string text, int fontSize, FontStyle fontStyle)
+    {
+        return new Label
+        {
+            Text = text,
+            Font = new Font(Font.FontFamily, fontSize, fontStyle),
+            AutoSize = true
+        };
+    }
+
+    private Panel CreatePanel(Point location, int width, int height)
+    {
+        return new Panel
+        {
+            Location = location,
+            Width = width,
+            Height = height,
+            Dock = DockStyle.Top
+        };
+    }
+
+    private Label CreateSeparator()
+    {
+        return new Label
+        {
+            Height = 2,
+            Width = _dynamicPanel.Width - 20,
+            Location = new Point(10, _currentY),
+            BorderStyle = BorderStyle.Fixed3D
+        };
+    }
+
+    private void Reset()
     {
         _dynamicPanel.Controls.Clear();
+        _answerFields.Clear();
+        _currentY = 10;
     }
 
     private void CreateQuestionPage()
     {
-        _dynamicPanel.Controls.Clear();
-
-        currentY = 10;
+        Reset();
 
         var lblQuestion = new Label
         {
-            Location = new Point(12, currentY),
+            Location = new Point(12, _currentY),
             Text = "Frage:",
-            Width = 100,
-            Anchor = AnchorStyles.Top | AnchorStyles.Left
+            Width = 100
         };
-        currentY += lblQuestion.Height + 10;
+        _currentY += lblQuestion.Height + 10;
 
         var txtQuestion = new TextBox
         {
-            Location = new Point(30, currentY),
+            Location = new Point(30, _currentY),
             Multiline = true,
             Height = 60,
             ScrollBars = ScrollBars.Vertical,
-            Width = _dynamicPanel.Width - 60,
-            Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right // Verankerung für horizontale Anpassung
+            Width = _dynamicPanel.Width - 60
         };
-        currentY += txtQuestion.Height + 10;
+        _currentY += txtQuestion.Height + 10;
 
+        var lblQuestionType = new Label
+        {
+            Location = new Point(12, _currentY),
+            Text = "Typ:",
+            Width = 30
+        };
+
+        _cmbQuestionType = new ComboBox
+        {
+            Location = new Point(55, _currentY),
+            Width = 100,
+            DropDownStyle = ComboBoxStyle.DropDownList
+        };
+
+        _cmbQuestionType.DataSource = new BindingSource { DataSource = _typeMapping };
+        _cmbQuestionType.DisplayMember = "Key";
+        _cmbQuestionType.ValueMember = "Value";
 
         var lblPoints = new Label
         {
-            Location = new Point(12, currentY),
+            Location = new Point(175, _currentY),
             Text = "Punkte:",
-            Width = 50,
-            Anchor = AnchorStyles.Top | AnchorStyles.Left
+            Width = 50
         };
 
         var txtPoints = new TextBox
         {
-            Location = new Point(70, currentY),
-            Width = 100,
-            Anchor = AnchorStyles.Top | AnchorStyles.Left
+            Location = new Point(225, _currentY),
+            Width = 100
         };
 
         var btnAddAnswerField = new Button
         {
-            Location = new Point(_dynamicPanel.Width - 60, currentY),
+            Location = new Point(_dynamicPanel.Width - 60, _currentY),
             Text = "+",
-            Width = 30,
-            Anchor = AnchorStyles.Top | AnchorStyles.Right // Verankerung für rechts
+            Width = 30
         };
         btnAddAnswerField.Click += BtnAddAnswerField_Click;
-        currentY += btnAddAnswerField.Height + 10;
+        _currentY += btnAddAnswerField.Height + 10;
 
         var btnAddQuestion = new Button
         {
             Text = "Sichern",
-            Anchor = AnchorStyles.Bottom | AnchorStyles.Right // Verankerung für den unteren rechten Rand
+            Anchor = AnchorStyles.Bottom | AnchorStyles.Right
         };
         btnAddQuestion.Location = new Point(_dynamicPanel.Width - btnAddQuestion.Width - 12, _dynamicPanel.Height - btnAddQuestion.Height - 12);
-        btnAddQuestion.Click += async (sender, e) => await SaveQuestionAsync(txtQuestion, txtPoints);
-
+        btnAddQuestion.Click += async (_, _) => await SaveQuestionAsync(txtQuestion, txtPoints);
 
         _dynamicPanel.Controls.Add(lblQuestion);
         _dynamicPanel.Controls.Add(txtQuestion);
+        _dynamicPanel.Controls.Add(lblQuestionType);
+        _dynamicPanel.Controls.Add(_cmbQuestionType);
         _dynamicPanel.Controls.Add(lblPoints);
         _dynamicPanel.Controls.Add(txtPoints);
         _dynamicPanel.Controls.Add(btnAddAnswerField);
         _dynamicPanel.Controls.Add(btnAddQuestion);
     }
 
-    private void BtnAddAnswerField_Click(object sender, EventArgs e)
+    private void BtnAddAnswerField_Click(object? sender, EventArgs e)
     {
-        // TextBox für die Antwort erstellen
         var answerTextBox = new TextBox
         {
-            Location = new Point(60, currentY), // x=30, y=aktuelle Y-Position
-            Width = _dynamicPanel.Width - 90, // Breite über das komplette Panel mit Rand
-            Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right // Verankerung für horizontale Anpassung
+            Location = new Point(60, _currentY),
+            Width = _dynamicPanel.Width - 70
         };
 
-        // Checkbox für die richtige Antwort erstellen
-        var isCorrectAnswerCheckBox = new CheckBox
+        var answerCheckBox = new CheckBox
         {
-            Location = new Point(30, currentY), // Etwas unterhalb der TextBox
-            Anchor = AnchorStyles.Top | AnchorStyles.Left
+            Location = new Point(10, _currentY)
         };
+
+        _answerFields.Add((answerTextBox, answerCheckBox));
 
         _dynamicPanel.Controls.Add(answerTextBox);
-        _dynamicPanel.Controls.Add(isCorrectAnswerCheckBox);
+        _dynamicPanel.Controls.Add(answerCheckBox);
 
-        _answerFields.Add((answerTextBox, isCorrectAnswerCheckBox));
-
-        currentY += answerTextBox.Height + 15; // Position anpassen
+        _currentY += answerTextBox.Height + 10;
     }
 
     private async Task SaveQuestionAsync(TextBox txtQuestion, TextBox txtPoints)
     {
+        var errorMessages = new List<string>();
+
+        if (string.IsNullOrWhiteSpace(txtQuestion.Text)) errorMessages.Add("Bitte geben Sie eine Frage ein.");
+        if (!int.TryParse(txtPoints.Text, out var points) || points <= 0) errorMessages.Add("Bitte geben Sie eine gültige Punktzahl größer als 0 ein.");
+
+        foreach (var (answerTextBox, _) in _answerFields)
+            if (string.IsNullOrWhiteSpace(answerTextBox.Text))
+            {
+                errorMessages.Add("Alle Antworttexte müssen ausgefüllt werden.");
+                break;
+            }
+
+
+        if (errorMessages.Count != 0)
+        {
+            MessageBox.Show(string.Join(Environment.NewLine, errorMessages), "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return;
+        }
+
         var question = new Question
         {
             QuestionText = txtQuestion.Text,
-            Points = int.TryParse(txtPoints.Text, out var points) ? points : 0,
-            QuestionType = QuestionType.Auswahl, // Hier kannst du den Typ anpassen
-            CreatedAt = DateTime.Now
+            QuestionType = (QuestionType)(_cmbQuestionType.SelectedValue ?? QuestionType.Auswahl),
+            Points = points
         };
 
-        var answers = new List<Answer>();
-        foreach (var (answerTextBox, isCorrectCheckBox) in _answerFields)
+        var answers = _answerFields.Select(field => new Answer
         {
-            var answer = new Answer
-            {
-                AnswerText = answerTextBox.Text,
-                IsCorrect = isCorrectCheckBox.Checked,
-                CreatedAt = DateTime.Now
-            };
-            answers.Add(answer);
-        }
+            AnswerText = field.AnswerTextBox.Text,
+            IsCorrect = field.IsCorrectCheckBox.Checked
+        }).ToList();
 
         var result = await _questionService.SaveQuestionAsync(question, answers);
 
-        if (result.IsSuccess)
-            StartPage();
+        if (result.IsFailure)
+        {
+            MessageBox.Show($"Fehler beim Hinzufügen der Frage und Antworten: {result.Message}", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
         else
-            MessageBox.Show(result.Message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        {
+            MessageBox.Show("Frage und Antworten erfolgreich gespeichert.", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            CreateQuestionPage();
+        }
     }
 }
