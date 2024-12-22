@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "multiplyChoiceTainer", "multiplyChoiceTainer.csproj", "{B9E6B576-67DF-49E3-9D20-A7ADB9D74AE3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{BDAC9FFA-4DCA-4CE7-A3BB-0777CA532080}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "multiplyChoiceTainer", "UI\multiplyChoiceTainer.csproj", "{999F3959-E607-497D-806E-3E5DA4F34F4D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,9 +10,13 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B9E6B576-67DF-49E3-9D20-A7ADB9D74AE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B9E6B576-67DF-49E3-9D20-A7ADB9D74AE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B9E6B576-67DF-49E3-9D20-A7ADB9D74AE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B9E6B576-67DF-49E3-9D20-A7ADB9D74AE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDAC9FFA-4DCA-4CE7-A3BB-0777CA532080}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDAC9FFA-4DCA-4CE7-A3BB-0777CA532080}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDAC9FFA-4DCA-4CE7-A3BB-0777CA532080}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDAC9FFA-4DCA-4CE7-A3BB-0777CA532080}.Release|Any CPU.Build.0 = Release|Any CPU
+		{999F3959-E607-497D-806E-3E5DA4F34F4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{999F3959-E607-497D-806E-3E5DA4F34F4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{999F3959-E607-497D-806E-3E5DA4F34F4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{999F3959-E607-497D-806E-3E5DA4F34F4D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
