@@ -7,7 +7,7 @@ public interface IGenericRepository<T> where T : class
 {
     Task<IEnumerable<T>> GetAllAsync();
     Task<IEnumerable<T>> GetAllAsync(string filter);
-    Task<T> GetByIdAsync(int id);
+    Task<T?> GetByIdAsync(long id);
     Task<long> InsertAsync(T entity);
     Task<bool> UpdateAsync(T entity);
     Task<bool> DeleteAsync(T entity);
@@ -53,7 +53,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         }
     }
 
-    public async Task<T> GetByIdAsync(int id)
+    public async Task<T?> GetByIdAsync(long id)
     {
         using var connection = _dbConnectionFactory.CreateConnection();
         try

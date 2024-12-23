@@ -16,6 +16,10 @@ public class Result
         };
     }
 
+    public static Result Fail(string? error = null)
+    {
+        return Fail([error ?? string.Empty]);
+    }
 
     public static Result Exception(Exception? exception = null)
     {

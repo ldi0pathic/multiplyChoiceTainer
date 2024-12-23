@@ -72,6 +72,29 @@ public class QuestionService
             : Result.Success();
     }
 
+    public async Task<Result> IncrementIncorrectAnswerCountAsync(long questionId)
+    {
+        try
+        {
+            var question = await _questionRepository.GetByIdAsync(questionId);
+
+            if (question == null)
+                return Result.Fail("Frage konnte nicht gefunden werden.");
+
+            question.IncorrectAnswerCount++;
+            question.LastIncorrectAnswerDate = DateTime.Now;
+
+            await _questionRepository.UpdateAsync(question);
+
+            return Result.Success();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Fehler beim Erhöhen des Zählers für falsche Antworten für Frage mit Id {questionId}", questionId);
+            return Result.Exception(ex);
+        }
+    }
+
 
     public async Task<Result<Question>> GetWeightedRandomQuestionAsync()
     {
@@ -146,6 +169,29 @@ public class QuestionService
         {
             _logger.LogError(ex, "Fehler beim Abrufen der Antwortmöglichkeiten der Frage mit id {questionId}", questionId);
             return Result<IEnumerable<Answer>>.Exception(ex);
+        }
+    }
+
+    public async Task<Result<IEnumerable<Question>>> GetMostIncorrectlyAnsweredQuestionsAsync()
+    {
+        try
+        {
+            const string whereClause = "IncorrectAnswerCount > 0";
+            var questions = await _questionRepository.GetAllAsync(whereClause);
+
+
+            var sortedQuestions = questions
+                .OrderByDescending(q => q.IncorrectAnswerCount)
+                .ToList();
+
+            return sortedQuestions.Count == 0
+                ? Result<IEnumerable<Question>>.Fail("Es gibt keine häufig falsch beantworteten Fragen.")
+                : Result<IEnumerable<Question>>.Success(sortedQuestions);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Fehler beim Abrufen der häufigsten Fehler");
+            return Result<IEnumerable<Question>>.Exception(ex);
         }
     }
 }

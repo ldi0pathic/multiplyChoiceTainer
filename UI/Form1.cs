@@ -51,13 +51,21 @@ public partial class Form1 : Form
             Location = new Point(200, _currentY)
         };
         _dynamicPanel.Controls.Add(questionCountTextBox);
-        _currentY += questionCountTextBox.Height + 10;
+        _currentY += questionCountTextBox.Height + 10; // Update _currentY nach der TextBox
 
-        var newQuestionButton = CreateButton("Neue Fragen Hinzufügen", 150, 30, (ClientSize.Width - 150) / 2, (ClientSize.Height - 30) / 2);
+        var newQuestionButton = CreateButton("Neue Fragen Hinzufügen", 150, 30, (ClientSize.Width - 150) / 2, _currentY);
         newQuestionButton.Click += (_, _) => CreateQuestionPage();
         _dynamicPanel.Controls.Add(newQuestionButton);
 
-        var startQuizButton = CreateButton("Start", 50, 30, (ClientSize.Width - 50) / 2, (ClientSize.Height + 35) / 2);
+        _currentY += newQuestionButton.Height + 10; // Update _currentY nach dem Button
+
+        var showFrequentMistakesButton = CreateButton("Häufige Fehler anzeigen", 150, 30, (ClientSize.Width - 150) / 2, _currentY);
+        showFrequentMistakesButton.Click += async (_, _) => await ShowFrequentMistakesPageAsync();
+        _dynamicPanel.Controls.Add(showFrequentMistakesButton);
+
+        _currentY += showFrequentMistakesButton.Height + 10; // Update _currentY nach dem Button
+
+        var startQuizButton = CreateButton("Start", 50, 30, (ClientSize.Width - 50) / 2, _currentY);
         startQuizButton.Click += async (_, _) =>
         {
             if (int.TryParse(questionCountTextBox.Text, out var maxQuestions) && maxQuestions > 0)
@@ -71,6 +79,49 @@ public partial class Form1 : Form
             }
         };
         _dynamicPanel.Controls.Add(startQuizButton);
+    }
+
+    private async Task ShowFrequentMistakesPageAsync()
+    {
+        Reset();
+
+        var frequentMistakesResult = await _questionService.GetMostIncorrectlyAnsweredQuestionsAsync();
+        if (frequentMistakesResult.IsFailure || frequentMistakesResult.Value == null)
+        {
+            MessageBox.Show("Fehler beim Abrufen der häufigsten Fehler: " + frequentMistakesResult.Message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            StartPage();
+            return;
+        }
+
+        var frequentMistakes = frequentMistakesResult.Value;
+
+        var titleLabel = CreateLabel("Häufige Fehler", 16, FontStyle.Bold);
+        titleLabel.Location = new Point(10, _currentY);
+        _dynamicPanel.Controls.Add(titleLabel);
+        _currentY += titleLabel.Height + 20;
+
+        var enumerable = frequentMistakes as Question[] ?? frequentMistakes.ToArray();
+        if (enumerable.Length != 0)
+        {
+            foreach (var question in enumerable)
+            {
+                var questionLabel = CreateLabel($"Frage: {question.QuestionText} (Fehler: {question.IncorrectAnswerCount})", 12);
+                questionLabel.Width = _dynamicPanel.Width - 20;
+                questionLabel.Location = new Point(10, _currentY);
+                _dynamicPanel.Controls.Add(questionLabel);
+                _currentY += questionLabel.Height + 10;
+            }
+        }
+        else
+        {
+            var noMistakesLabel = CreateLabel("Keine häufig falsch beantworteten Fragen vorhanden.", 12);
+            noMistakesLabel.Location = new Point(10, _currentY);
+            _dynamicPanel.Controls.Add(noMistakesLabel);
+        }
+
+        var backButton = CreateButton("Zurück", 100, 30, 10, _dynamicPanel.Height - 40);
+        backButton.Click += (_, _) => StartPage();
+        _dynamicPanel.Controls.Add(backButton);
     }
 
     private Button CreateButton(string text, int width, int height, int x, int y)
@@ -158,26 +209,40 @@ public partial class Form1 : Form
                 var pointsPerAnswer = question.Points / (decimal)totalCorrectAnswers;
 
                 decimal totalScore = 0;
+                var hasIncorrectAnswers = false;
 
                 foreach (var answer in answers)
                 {
                     var selectedAnswer = _dynamicPanel.Controls.OfType<CheckBox>()
-                        .FirstOrDefault(cb => cb.Text == answer.AnswerText); // Suche die CheckBox mit dem entsprechenden Text
+                        .FirstOrDefault(cb => cb.Text == answer.AnswerText);
 
                     if (selectedAnswer != null)
-                        switch (answer.IsCorrect)
+                    {
+                        if (answer.IsCorrect && !selectedAnswer.Checked)
                         {
-                            case true when selectedAnswer.Checked:
-                                totalScore += pointsPerAnswer;
-                                break;
-                            case false when selectedAnswer.Checked:
-                                totalScore -= pointsPerAnswer;
-                                break;
+                            hasIncorrectAnswers = true;
                         }
+                        else if (!answer.IsCorrect && selectedAnswer.Checked)
+                        {
+                            hasIncorrectAnswers = true;
+                            totalScore -= pointsPerAnswer;
+                        }
+                        else if (answer.IsCorrect && selectedAnswer.Checked)
+                        {
+                            totalScore += pointsPerAnswer;
+                        }
+                    }
+                    else if (answer.IsCorrect)
+                    {
+                        hasIncorrectAnswers = true;
+                    }
                 }
 
                 totalScore = Math.Max(0, totalScore);
                 _score += totalScore;
+
+                if (hasIncorrectAnswers) await _questionService.IncrementIncorrectAnswerCountAsync(question.Id);
+
                 await QuizPageAsync();
             };
 
@@ -201,26 +266,39 @@ public partial class Form1 : Form
                 var pointsPerAnswer = question.Points / (decimal)totalCorrectAnswers;
 
                 decimal totalScore = 0;
+                var hasIncorrectAnswers = false;
 
                 foreach (var answer in answers)
                 {
                     var selectedAnswer = _dynamicPanel.Controls.OfType<CheckBox>()
-                        .FirstOrDefault(cb => cb.Text == answer.AnswerText); // Suche die CheckBox mit dem entsprechenden Text
+                        .FirstOrDefault(cb => cb.Text == answer.AnswerText);
 
                     if (selectedAnswer != null)
-                        switch (answer.IsCorrect)
+                    {
+                        if (answer.IsCorrect && !selectedAnswer.Checked)
                         {
-                            case true when selectedAnswer.Checked:
-                                totalScore += pointsPerAnswer;
-                                break;
-                            case false when selectedAnswer.Checked:
-                                totalScore -= pointsPerAnswer;
-                                break;
+                            hasIncorrectAnswers = true;
                         }
+                        else if (!answer.IsCorrect && selectedAnswer.Checked)
+                        {
+                            hasIncorrectAnswers = true;
+                            totalScore -= pointsPerAnswer;
+                        }
+                        else if (answer.IsCorrect && selectedAnswer.Checked)
+                        {
+                            totalScore += pointsPerAnswer;
+                        }
+                    }
+                    else if (answer.IsCorrect)
+                    {
+                        hasIncorrectAnswers = true;
+                    }
                 }
 
                 totalScore = Math.Max(0, totalScore);
                 _score += totalScore;
+
+                if (hasIncorrectAnswers) await _questionService.IncrementIncorrectAnswerCountAsync(question.Id);
 
                 MessageBox.Show($"DU hast {_score}/ {_totalPoints} Punkte erreicht!", "Fertig :)", MessageBoxButtons.OK, MessageBoxIcon.Information);
             };
