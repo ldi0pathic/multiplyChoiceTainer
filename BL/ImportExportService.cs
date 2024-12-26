@@ -30,23 +30,16 @@ public class ImportExportService
 
             var exportData = questions.Select(question => new
             {
-                question.Id,
                 question.QuestionText,
                 question.Points,
                 QuestionType = question.QuestionType.ToString(),
-                question.LastAskedDate,
-                question.IncorrectAnswerCount,
-                question.LastIncorrectAnswerDate,
-                question.CreatedAt,
                 question.Header1,
                 question.Header2,
                 Answers = answers.Where(a => a.QuestionId == question.Id)
                     .Select(answer => new
                     {
-                        answer.Id,
                         answer.AnswerText,
                         answer.IsCorrect,
-                        answer.CreatedAt
                     })
             });
 
@@ -84,10 +77,6 @@ public class ImportExportService
                     QuestionText = item.QuestionText,
                     Points = item.Points,
                     QuestionType = Enum.Parse<QuestionType>(item.QuestionType),
-                    LastAskedDate = item.LastAskedDate,
-                    IncorrectAnswerCount = item.IncorrectAnswerCount,
-                    LastIncorrectAnswerDate = item.LastIncorrectAnswerDate,
-                    CreatedAt = item.CreatedAt,
                     Header1 = item.Header1,
                     Header2 = item.Header2
                 };
@@ -96,7 +85,6 @@ public class ImportExportService
                 {
                     AnswerText = a.AnswerText,
                     IsCorrect = a.IsCorrect,
-                    CreatedAt = a.CreatedAt
                 }).ToList());
 
                 if (result.IsFailure)
