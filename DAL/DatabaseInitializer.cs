@@ -141,6 +141,13 @@ public class DatabaseInitializer
 
             new("241222_03_AddIsDeletedColumnToQuestions", @"
                         ALTER TABLE Questions ADD COLUMN IsDeleted INTEGER DEFAULT 0;
+                    "),
+
+            new("241226_01_AddHeadersToQuestions", @"
+                        ALTER TABLE Questions ADD COLUMN Header1 TEXT NULL
+                    "),
+            new("241226_02_AddHeadersToQuestions", @"
+                        ALTER TABLE Questions ADD COLUMN Header2 TEXT NULL
                     ")
         };
     }

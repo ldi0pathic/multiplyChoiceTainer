@@ -14,4 +14,10 @@ public class Question
     public int IncorrectAnswerCount { get; set; }
     public DateTime? LastIncorrectAnswerDate { get; set; }
     public DateTime CreatedAt { get; set; }
+
+    public bool IsDeleted { get; set; }
+
+    // Neue Felder für die Überschriften von Kreuzfragen
+    public string? Header1 { get; set; }
+    public string? Header2 { get; set; }
 }

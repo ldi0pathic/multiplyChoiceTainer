@@ -35,6 +35,7 @@ internal static class Program
             .AddScoped<IGenericRepository<Answer>, GenericRepository<Answer>>()
             .AddScoped<IGenericRepository<Migration>, GenericRepository<Migration>>() // Migration Repository hinzufügen
             .AddScoped<QuestionService>()
+            .AddScoped<ImportExportService>()
             .AddScoped<DatabaseInitializer>() // DatabaseInitializer im DI-Container registrieren
             .BuildServiceProvider();
 
@@ -44,7 +45,8 @@ internal static class Program
 
         // QuestionService und Form1 instanziieren
         var questionService = serviceProvider.GetRequiredService<QuestionService>();
-        var form = new Form1(questionService);
+        var importExportService = serviceProvider.GetRequiredService<ImportExportService>();
+        var form = new Form1(questionService, importExportService);
 
         Application.Run(form);
     }

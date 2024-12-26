@@ -2,12 +2,15 @@
 using DAL.Model;
 using DAL.Model.Enum;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 
 namespace BL;
 
 public class QuestionService
 {
     private readonly IGenericRepository<Answer> _answerRepository;
+
+    private readonly HashSet<long> _askedQuestions = new();
     private readonly ILogger<QuestionService> _logger;
     private readonly IGenericRepository<Question> _questionRepository;
 
@@ -27,11 +30,13 @@ public class QuestionService
 
         try
         {
+            question.CreatedAt = DateTime.Now;
             var key = await _questionRepository.InsertAsync(question);
 
             foreach (var answer in answers)
             {
                 answer.QuestionId = key;
+                answer.CreatedAt = DateTime.Now;
                 await _answerRepository.InsertAsync(answer);
             }
 
@@ -65,6 +70,11 @@ public class QuestionService
                 if (answers.Count(a => a.IsCorrect) < 2)
                     msg.Add("Eine P-Frage muss mindestens zwei richtige Antworten haben.");
                 break;
+
+            case QuestionType.Kreuz:
+                if (question.Header1.IsNullOrEmpty() || question.Header2.IsNullOrEmpty())
+                    msg.Add("Eine K-Frage Benötigt Überschriften für die Auswahl");
+                break;
         }
 
         return msg.Count != 0
@@ -95,6 +105,10 @@ public class QuestionService
         }
     }
 
+    public void ResetAskedQuestions()
+    {
+        _askedQuestions.Clear();
+    }
 
     public async Task<Result<Question>> GetWeightedRandomQuestionAsync()
     {
@@ -102,9 +116,13 @@ public class QuestionService
         {
             var questions = await _questionRepository.GetAllAsync();
 
-            IEnumerable<Question> enumerable = questions.ToList();
+            // Filtere Fragen, die bereits gestellt wurden oder die als gelöscht markiert sind
+            IEnumerable<Question> enumerable = questions
+                .Where(q => !_askedQuestions.Contains(q.Id) && !q.IsDeleted)
+                .ToList();
+
             if (!enumerable.Any())
-                return Result<Question>.Fail("Keine Fragen in der Datenbank verfügbar.");
+                return Result<Question>.Fail("Keine neuen Fragen in der Datenbank verfügbar.");
 
             var weightedQuestions = enumerable.Select(q =>
             {
@@ -117,7 +135,6 @@ public class QuestionService
                 var lastIncorrectAnswerDate = q.LastIncorrectAnswerDate ?? DateTime.MinValue;
                 var timeSinceLastIncorrectAnswer = (DateTime.Now - lastIncorrectAnswerDate).TotalDays;
 
-                // Je länger die falsche Antwort her ist, desto weniger Einfluss hat sie
                 var incorrectAnswerWeightFactor = Math.Max(0, 1 - timeSinceLastIncorrectAnswer / 30);
 
                 weight *= incorrectAnswerWeightFactor;
@@ -125,7 +142,6 @@ public class QuestionService
                 return new { Question = q, Weight = weight };
             }).ToList();
 
-            // Zufällige Auswahl basierend auf Gewicht
             var totalWeight = weightedQuestions.Sum(wq => wq.Weight);
             var randomValue = new Random().NextDouble() * totalWeight;
 
@@ -140,6 +156,8 @@ public class QuestionService
 
                 selectedQuestion.LastAskedDate = DateTime.Now;
                 await _questionRepository.UpdateAsync(selectedQuestion);
+
+                _askedQuestions.Add(selectedQuestion.Id);
 
                 return Result<Question>.Success(selectedQuestion);
             }
@@ -176,9 +194,8 @@ public class QuestionService
     {
         try
         {
-            const string whereClause = "IncorrectAnswerCount > 0";
+            const string whereClause = "IncorrectAnswerCount > 0 AND IsDeleted != true";
             var questions = await _questionRepository.GetAllAsync(whereClause);
-
 
             var sortedQuestions = questions
                 .OrderByDescending(q => q.IncorrectAnswerCount)
@@ -192,6 +209,31 @@ public class QuestionService
         {
             _logger.LogError(ex, "Fehler beim Abrufen der häufigsten Fehler");
             return Result<IEnumerable<Question>>.Exception(ex);
+        }
+    }
+
+    public async Task<Result> DeleteQuestionAsync(long questionId)
+    {
+        try
+        {
+            // Frage aus der Datenbank abrufen
+            var question = await _questionRepository.GetByIdAsync(questionId);
+
+            if (question == null)
+                return Result.Fail("Frage konnte nicht gefunden werden.");
+
+            // Frage als gelöscht markieren
+            question.IsDeleted = true;
+
+            // Update in der Datenbank durchführen
+            await _questionRepository.UpdateAsync(question);
+
+            return Result.Success();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Fehler beim Löschen der Frage mit Id {questionId}", questionId);
+            return Result.Exception(ex);
         }
     }
 }

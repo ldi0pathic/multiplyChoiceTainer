@@ -9,6 +9,7 @@ public partial class Form1 : Form
 {
     private readonly List<(TextBox AnswerTextBox, CheckBox IsCorrectCheckBox)> _answerFields = new();
     private readonly Panel _dynamicPanel;
+    private readonly ImportExportService _importExportService;
     private readonly QuestionService _questionService;
     private readonly Dictionary<string, QuestionType> _typeMapping;
     private ComboBox _cmbQuestionType;
@@ -19,13 +20,14 @@ public partial class Form1 : Form
     private decimal _score;
     private decimal _totalPoints;
 
-    public Form1(QuestionService questionService)
+    public Form1(QuestionService questionService, ImportExportService importExportService)
     {
         _score = 0;
         _totalPoints = 0;
         _maxQuestions = 30;
         _currentQuestions = 0;
         _questionService = questionService ?? throw new ArgumentNullException(nameof(questionService));
+        _importExportService = importExportService;
         _typeMapping = EnumExtensions.GetDescriptionMapping<QuestionType>();
         InitializeComponent();
 
@@ -38,6 +40,7 @@ public partial class Form1 : Form
     private void StartPage()
     {
         Reset();
+        _questionService.ResetAskedQuestions();
 
         // TextBox für die Eingabe der maximalen Fragenanzahl
         var questionCountLabel = CreateLabel("Maximale Fragen pro Runde:", 12);
@@ -65,6 +68,20 @@ public partial class Form1 : Form
 
         _currentY += showFrequentMistakesButton.Height + 10; // Update _currentY nach dem Button
 
+        // Button für Export
+        var exportButton = CreateButton("Exportieren", 150, 30, (ClientSize.Width - 150) / 2, _currentY);
+        exportButton.Click += btnExport_Click; // Verwendet die vorhandene btnExport_Click-Methode
+        _dynamicPanel.Controls.Add(exportButton);
+
+        _currentY += exportButton.Height + 10; // Update _currentY nach dem Button
+
+        // Button für Import
+        var importButton = CreateButton("Importieren", 150, 30, (ClientSize.Width - 150) / 2, _currentY);
+        importButton.Click += btnImport_Click; // Verwendet die vorhandene btnImport_Click-Methode
+        _dynamicPanel.Controls.Add(importButton);
+
+        _currentY += importButton.Height + 10; // Update _currentY nach dem Button
+
         var startQuizButton = CreateButton("Start", 50, 30, (ClientSize.Width - 50) / 2, _currentY);
         startQuizButton.Click += async (_, _) =>
         {
@@ -80,6 +97,7 @@ public partial class Form1 : Form
         };
         _dynamicPanel.Controls.Add(startQuizButton);
     }
+
 
     private async Task ShowFrequentMistakesPageAsync()
     {
@@ -110,6 +128,24 @@ public partial class Form1 : Form
                 questionLabel.Location = new Point(10, _currentY);
                 _dynamicPanel.Controls.Add(questionLabel);
                 _currentY += questionLabel.Height + 10;
+
+                // Löschen-Button für jede Frage hinzufügen
+                var deleteButton = CreateButton("Löschen", 100, 30, _dynamicPanel.Width - 110, _currentY);
+                deleteButton.Click += async (_, _) =>
+                {
+                    var result = await _questionService.DeleteQuestionAsync(question.Id);
+                    if (result.IsSuccess)
+                    {
+                        MessageBox.Show("Frage wurde erfolgreich gelöscht.", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        await ShowFrequentMistakesPageAsync(); // Seite nach Löschen aktualisieren
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fehler beim Löschen der Frage: " + result.Message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                };
+                _dynamicPanel.Controls.Add(deleteButton);
+                _currentY += deleteButton.Height + 10;
             }
         }
         else
@@ -118,11 +154,8 @@ public partial class Form1 : Form
             noMistakesLabel.Location = new Point(10, _currentY);
             _dynamicPanel.Controls.Add(noMistakesLabel);
         }
-
-        var backButton = CreateButton("Zurück", 100, 30, 10, _dynamicPanel.Height - 40);
-        backButton.Click += (_, _) => StartPage();
-        _dynamicPanel.Controls.Add(backButton);
     }
+
 
     private Button CreateButton(string text, int width, int height, int x, int y)
     {
@@ -144,7 +177,15 @@ public partial class Form1 : Form
 
         if (questionResult.IsFailure || questionResult.Value == null)
         {
-            MessageBox.Show("Keine Frage verfügbar: " + questionResult.Message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (_totalPoints > 0)
+            {
+                if (MessageBox.Show($"Keine weiteren Fragen verfügbar\r\nDU hast {_score}/ {_totalPoints} Punkte ({_score / _totalPoints * 100}%) erreicht!", "Fertig :)", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK) StartPage();
+            }
+            else
+            {
+                if (MessageBox.Show("Keine weiteren Fragen verfügbar", "Fertig :)", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK) StartPage();
+            }
+
             return;
         }
 
@@ -178,19 +219,88 @@ public partial class Form1 : Form
         _dynamicPanel.Controls.Add(separator);
         _currentY += separator.Height + 10;
 
+        // Erstellung eines dynamischen TableLayoutPanel
+        var answerTable = new TableLayoutPanel
+        {
+            Location = new Point(10, _currentY),
+            AutoSize = true,
+            ColumnCount = question.QuestionType == QuestionType.Kreuz ? 3 : 2, // Eine Spalte für die Checkbox, eine für das Label
+            RowCount = answers.Count() + (question.QuestionType == QuestionType.Kreuz ? 1 : 0),
+            AutoSizeMode = AutoSizeMode.GrowAndShrink,
+            Padding = new Padding(5),
+            ColumnStyles = { new ColumnStyle(SizeType.AutoSize), new ColumnStyle(SizeType.AutoSize) }
+        };
+
+        if (question.QuestionType == QuestionType.Kreuz)
+        {
+            answerTable.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+            answerTable.Controls.Add(CreateLabel(question.Header1 ?? ""));
+            answerTable.Controls.Add(CreateLabel(question.Header2 ?? ""));
+            answerTable.Controls.Add(CreateLabel(""));
+        }
+
         foreach (var answer in answers)
         {
-            var answerCheckbox = new CheckBox
+            var checkbox = new CheckBox
+            {
+                AutoSize = true,
+                Padding = new Padding(5),
+                Anchor = AnchorStyles.Left,
+                Name = $"checkbox_{answer.Id}" // Setze den Namen basierend auf der Antwort-ID
+            };
+
+            var label = new Label
             {
                 Text = answer.AnswerText,
                 AutoSize = true,
-                Location = new Point(10, _currentY),
-                Padding = new Padding(5)
+                Padding = new Padding(5),
+                Anchor = AnchorStyles.Left
             };
-            _dynamicPanel.Controls.Add(answerCheckbox);
 
-            _currentY += answerCheckbox.Height + 5;
+            if (question.QuestionType == QuestionType.Kreuz)
+            {
+                var firstCheckbox = new CheckBox
+                {
+                    AutoSize = true,
+                    Anchor = AnchorStyles.Left,
+                    Name = $"checkbox_{answer.Id}_first" // Eindeutiger Name für die erste Checkbox
+                };
+
+                var secondCheckbox = new CheckBox
+                {
+                    AutoSize = true,
+                    Anchor = AnchorStyles.Left,
+                    Name = $"checkbox_{answer.Id}_second" // Eindeutiger Name für die zweite Checkbox
+                };
+
+                // Hinzufügen der Eventhandler
+                firstCheckbox.CheckedChanged += (_, _) =>
+                {
+                    if (firstCheckbox.Checked)
+                        secondCheckbox.Checked = false;
+                };
+
+                secondCheckbox.CheckedChanged += (_, _) =>
+                {
+                    if (secondCheckbox.Checked)
+                        firstCheckbox.Checked = false;
+                };
+
+                // Kreuz-Typ spezifische Einträge
+                answerTable.Controls.Add(firstCheckbox);
+                answerTable.Controls.Add(secondCheckbox);
+                answerTable.Controls.Add(CreateLabel(answer.AnswerText));
+            }
+            else
+            {
+                // Andere Frage-Typen
+                answerTable.Controls.Add(checkbox);
+                answerTable.Controls.Add(label);
+            }
         }
+
+        _dynamicPanel.Controls.Add(answerTable);
+        _currentY += answerTable.Height + 10;
 
         if (_currentQuestions < _maxQuestions)
         {
@@ -210,36 +320,80 @@ public partial class Form1 : Form
 
                 decimal totalScore = 0;
                 var hasIncorrectAnswers = false;
-
+                var ok = 0;
                 foreach (var answer in answers)
-                {
-                    var selectedAnswer = _dynamicPanel.Controls.OfType<CheckBox>()
-                        .FirstOrDefault(cb => cb.Text == answer.AnswerText);
-
-                    if (selectedAnswer != null)
+                    if (question.QuestionType == QuestionType.Kreuz)
                     {
-                        if (answer.IsCorrect && !selectedAnswer.Checked)
+                        var firstCheckbox = answerTable.Controls
+                            .OfType<CheckBox>()
+                            .FirstOrDefault(cb => cb.Name == $"checkbox_{answer.Id}_first");
+
+                        var secondCheckbox = answerTable.Controls
+                            .OfType<CheckBox>()
+                            .FirstOrDefault(cb => cb.Name == $"checkbox_{answer.Id}_second");
+
+                        if (firstCheckbox != null && secondCheckbox != null)
+                        {
+                            if (answer.IsCorrect)
+                            {
+                                if (firstCheckbox.Checked)
+                                {
+                                    totalScore += pointsPerAnswer;
+                                    ok++;
+                                }
+                                else if (secondCheckbox.Checked)
+                                {
+                                    hasIncorrectAnswers = true;
+                                    totalScore -= pointsPerAnswer;
+                                }
+                            }
+                            else
+                            {
+                                if (secondCheckbox.Checked)
+                                {
+                                    totalScore += pointsPerAnswer;
+                                    ok++;
+                                }
+                                else if (firstCheckbox.Checked)
+                                {
+                                    hasIncorrectAnswers = true;
+                                    totalScore -= pointsPerAnswer;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        var selectedAnswer = answerTable.Controls.OfType<CheckBox>()
+                            .FirstOrDefault(cb => cb.Name == $"checkbox_{answer.Id}");
+
+                        if (selectedAnswer != null)
+                        {
+                            if (answer.IsCorrect && !selectedAnswer.Checked)
+                            {
+                                hasIncorrectAnswers = true;
+                            }
+                            else if (!answer.IsCorrect && selectedAnswer.Checked)
+                            {
+                                hasIncorrectAnswers = true;
+                                totalScore -= pointsPerAnswer;
+                            }
+                            else if (answer.IsCorrect && selectedAnswer.Checked)
+                            {
+                                totalScore += pointsPerAnswer;
+                                ok++;
+                            }
+                        }
+                        else if (answer.IsCorrect)
                         {
                             hasIncorrectAnswers = true;
                         }
-                        else if (!answer.IsCorrect && selectedAnswer.Checked)
-                        {
-                            hasIncorrectAnswers = true;
-                            totalScore -= pointsPerAnswer;
-                        }
-                        else if (answer.IsCorrect && selectedAnswer.Checked)
-                        {
-                            totalScore += pointsPerAnswer;
-                        }
                     }
-                    else if (answer.IsCorrect)
-                    {
-                        hasIncorrectAnswers = true;
-                    }
-                }
 
-                totalScore = Math.Max(0, totalScore);
-                _score += totalScore;
+                totalScore = Math.Min(Math.Max(0, totalScore), question.Points);
+                if (totalCorrectAnswers == ok) totalScore = question.Points;
+
+                _score += Math.Round(totalScore, 2);
 
                 if (hasIncorrectAnswers) await _questionService.IncrementIncorrectAnswerCountAsync(question.Id);
 
@@ -267,40 +421,82 @@ public partial class Form1 : Form
 
                 decimal totalScore = 0;
                 var hasIncorrectAnswers = false;
-
+                var ok = 0;
                 foreach (var answer in answers)
-                {
-                    var selectedAnswer = _dynamicPanel.Controls.OfType<CheckBox>()
-                        .FirstOrDefault(cb => cb.Text == answer.AnswerText);
-
-                    if (selectedAnswer != null)
+                    if (question.QuestionType == QuestionType.Kreuz)
                     {
-                        if (answer.IsCorrect && !selectedAnswer.Checked)
+                        var firstCheckbox = _dynamicPanel.Controls.OfType<CheckBox>()
+                            .FirstOrDefault(cb => cb.Name == $"checkbox_{answer.Id}_first");
+
+                        var secondCheckbox = _dynamicPanel.Controls.OfType<CheckBox>()
+                            .FirstOrDefault(cb => cb.Name == $"checkbox_{answer.Id}_second");
+
+                        if (firstCheckbox != null && secondCheckbox != null)
+                        {
+                            if (answer.IsCorrect)
+                            {
+                                if (firstCheckbox.Checked)
+                                {
+                                    totalScore += pointsPerAnswer;
+                                    ok++;
+                                }
+                                else if (secondCheckbox.Checked)
+                                {
+                                    hasIncorrectAnswers = true;
+                                    totalScore -= pointsPerAnswer;
+                                }
+                            }
+                            else
+                            {
+                                if (secondCheckbox.Checked)
+                                {
+                                    totalScore += pointsPerAnswer;
+                                    ok++;
+                                }
+                                else if (firstCheckbox.Checked)
+                                {
+                                    hasIncorrectAnswers = true;
+                                    totalScore -= pointsPerAnswer;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        var selectedAnswer = _dynamicPanel.Controls.OfType<CheckBox>()
+                            .FirstOrDefault(cb => cb.Name == $"checkbox_{answer.Id}");
+
+                        if (selectedAnswer != null)
+                        {
+                            if (answer.IsCorrect && !selectedAnswer.Checked)
+                            {
+                                hasIncorrectAnswers = true;
+                            }
+                            else if (!answer.IsCorrect && selectedAnswer.Checked)
+                            {
+                                hasIncorrectAnswers = true;
+                                totalScore -= pointsPerAnswer;
+                            }
+                            else if (answer.IsCorrect && selectedAnswer.Checked)
+                            {
+                                totalScore += pointsPerAnswer;
+                                ok++;
+                            }
+                        }
+                        else if (answer.IsCorrect)
                         {
                             hasIncorrectAnswers = true;
                         }
-                        else if (!answer.IsCorrect && selectedAnswer.Checked)
-                        {
-                            hasIncorrectAnswers = true;
-                            totalScore -= pointsPerAnswer;
-                        }
-                        else if (answer.IsCorrect && selectedAnswer.Checked)
-                        {
-                            totalScore += pointsPerAnswer;
-                        }
                     }
-                    else if (answer.IsCorrect)
-                    {
-                        hasIncorrectAnswers = true;
-                    }
-                }
 
-                totalScore = Math.Max(0, totalScore);
-                _score += totalScore;
+                totalScore = Math.Min(Math.Max(0, totalScore), question.Points);
+                if (totalCorrectAnswers == ok) totalScore = question.Points;
+
+                _score += Math.Round(totalScore, 2);
 
                 if (hasIncorrectAnswers) await _questionService.IncrementIncorrectAnswerCountAsync(question.Id);
 
-                MessageBox.Show($"DU hast {_score}/ {_totalPoints} Punkte erreicht!", "Fertig :)", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (MessageBox.Show($"DU hast {_score}/ {_totalPoints} Punkte ({_score / _totalPoints * 100}%) erreicht!", "Fertig :)", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK) StartPage();
             };
 
             _dynamicPanel.Controls.Add(btnSubmit);
@@ -308,7 +504,8 @@ public partial class Form1 : Form
         }
     }
 
-    private static Label CreateLabel(string text, int x)
+
+    private static Label CreateLabel(string text, int x = 0)
     {
         return new Label
         {
@@ -356,6 +553,10 @@ public partial class Form1 : Form
         _dynamicPanel.Controls.Clear();
         _answerFields.Clear();
         _currentY = 10;
+
+        var backButton = CreateButton("Zurück", 100, 30, 10, _dynamicPanel.Height - 40);
+        backButton.Click += (_, _) => StartPage();
+        _dynamicPanel.Controls.Add(backButton);
     }
 
     private void CreateQuestionPage()
@@ -397,6 +598,7 @@ public partial class Form1 : Form
         _cmbQuestionType.DataSource = new BindingSource { DataSource = _typeMapping };
         _cmbQuestionType.DisplayMember = "Key";
         _cmbQuestionType.ValueMember = "Value";
+        _cmbQuestionType.SelectedIndexChanged += CmbQuestionType_SelectedIndexChanged; // Event hinzufügen
 
         var lblPoints = new Label
         {
@@ -409,6 +611,39 @@ public partial class Form1 : Form
         {
             Location = new Point(225, _currentY),
             Width = 100
+        };
+
+        // TextBoxen für Checkbox links und rechts (initial deaktiviert)
+        var lblCheckboxLeft = new Label
+        {
+            Name = "lblCheckboxLeft",
+            Location = new Point(350, _currentY),
+            Text = "links:",
+            Width = 40,
+            Enabled = false
+        };
+        var txtCheckboxLeft = new TextBox
+        {
+            Name = "txtCheckboxLeft",
+            Location = new Point(390, _currentY),
+            Width = 100,
+            Enabled = false
+        };
+
+        var lblCheckboxRight = new Label
+        {
+            Name = "lblCheckboxRight",
+            Location = new Point(500, _currentY),
+            Text = "rechts:",
+            Width = 45,
+            Enabled = false
+        };
+        var txtCheckboxRight = new TextBox
+        {
+            Name = "txtCheckboxRight",
+            Location = new Point(545, _currentY),
+            Width = 100,
+            Enabled = false
         };
 
         var btnAddAnswerField = new Button
@@ -426,7 +661,8 @@ public partial class Form1 : Form
             Anchor = AnchorStyles.Bottom | AnchorStyles.Right
         };
         btnAddQuestion.Location = new Point(_dynamicPanel.Width - btnAddQuestion.Width - 12, _dynamicPanel.Height - btnAddQuestion.Height - 12);
-        btnAddQuestion.Click += async (_, _) => await SaveQuestionAsync(txtQuestion, txtPoints);
+        btnAddQuestion.Click += async (_, _) => await SaveQuestionAsync(txtQuestion, txtPoints, txtCheckboxLeft, txtCheckboxRight);
+
 
         _dynamicPanel.Controls.Add(lblQuestion);
         _dynamicPanel.Controls.Add(txtQuestion);
@@ -436,7 +672,30 @@ public partial class Form1 : Form
         _dynamicPanel.Controls.Add(txtPoints);
         _dynamicPanel.Controls.Add(btnAddAnswerField);
         _dynamicPanel.Controls.Add(btnAddQuestion);
+
+        // Füge die Checkbox-Felder hinzu, aber mache sie unsichtbar
+        _dynamicPanel.Controls.Add(lblCheckboxLeft);
+        _dynamicPanel.Controls.Add(txtCheckboxLeft);
+        _dynamicPanel.Controls.Add(lblCheckboxRight);
+        _dynamicPanel.Controls.Add(txtCheckboxRight);
     }
+
+    private void CmbQuestionType_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        var selectedType = (QuestionType)_cmbQuestionType.SelectedValue!;
+
+        // Überprüfe, ob der ausgewählte Typ 'Kreuz' ist
+        var isKreuz = selectedType == QuestionType.Kreuz;
+
+        // Steuere die Sichtbarkeit und Aktivierung der TextBoxen für Checkboxen
+        foreach (Control control in _dynamicPanel.Controls)
+        {
+            if (control is TextBox { Name: "txtCheckboxLeft" or "txtCheckboxRight" } txt) txt.Enabled = isKreuz; // Aktivieren/Deaktivieren der TextBoxen
+
+            if (control is Label { Name: "lblCheckboxLeft" or "lblCheckboxRight" } lbl) lbl.Enabled = isKreuz; // Sichtbarkeit der Labels steuern
+        }
+    }
+
 
     private void BtnAddAnswerField_Click(object? sender, EventArgs e)
     {
@@ -459,7 +718,7 @@ public partial class Form1 : Form
         _currentY += answerTextBox.Height + 10;
     }
 
-    private async Task SaveQuestionAsync(TextBox txtQuestion, TextBox txtPoints)
+    private async Task SaveQuestionAsync(TextBox txtQuestion, TextBox txtPoints, TextBox links, TextBox rechts)
     {
         var errorMessages = new List<string>();
 
@@ -484,7 +743,9 @@ public partial class Form1 : Form
         {
             QuestionText = txtQuestion.Text,
             QuestionType = (QuestionType)(_cmbQuestionType.SelectedValue ?? QuestionType.Auswahl),
-            Points = points
+            Points = points,
+            Header1 = links.Text,
+            Header2 = rechts.Text
         };
 
         var answers = _answerFields.Select(field => new Answer
@@ -503,6 +764,36 @@ public partial class Form1 : Form
         {
             MessageBox.Show("Frage und Antworten erfolgreich gespeichert.", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
             CreateQuestionPage();
+        }
+    }
+
+    private async void btnExport_Click(object sender, EventArgs e)
+    {
+        using var saveFileDialog = new SaveFileDialog
+        {
+            Filter = "JSON files (*.json)|*.json",
+            Title = "Exportieren von Fragen und Antworten"
+        };
+
+        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+        {
+            await _importExportService.ExportQuestionsToJsonAsync(saveFileDialog.FileName);
+            MessageBox.Show("Export abgeschlossen!", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+    }
+
+    private async void btnImport_Click(object sender, EventArgs e)
+    {
+        using var openFileDialog = new OpenFileDialog
+        {
+            Filter = "JSON files (*.json)|*.json",
+            Title = "Importieren von Fragen und Antworten"
+        };
+
+        if (openFileDialog.ShowDialog() == DialogResult.OK)
+        {
+            await _importExportService.ImportQuestionsFromJsonAsync(openFileDialog.FileName);
+            MessageBox.Show("Import abgeschlossen!", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
