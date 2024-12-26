@@ -43,7 +43,7 @@ public partial class Form1 : Form
         _questionService.ResetAskedQuestions();
 
         // TextBox für die Eingabe der maximalen Fragenanzahl
-        var questionCountLabel = CreateLabel("Maximale Fragen pro Runde:", 12);
+        var questionCountLabel = CreateLabel("Maximale Fragen pro Runde:", 12, FontStyle.Regular, 12);
         questionCountLabel.Location = new Point(10, _currentY);
         _dynamicPanel.Controls.Add(questionCountLabel);
 
@@ -123,7 +123,7 @@ public partial class Form1 : Form
         {
             foreach (var question in enumerable)
             {
-                var questionLabel = CreateLabel($"Frage: {question.QuestionText} (Fehler: {question.IncorrectAnswerCount})", 12);
+                var questionLabel = CreateLabel($"Frage: {question.QuestionText} (Fehler: {question.IncorrectAnswerCount})", 12, FontStyle.Regular, 12);
                 questionLabel.Width = _dynamicPanel.Width - 20;
                 questionLabel.Location = new Point(10, _currentY);
                 _dynamicPanel.Controls.Add(questionLabel);
@@ -150,7 +150,7 @@ public partial class Form1 : Form
         }
         else
         {
-            var noMistakesLabel = CreateLabel("Keine häufig falsch beantworteten Fragen vorhanden.", 12);
+            var noMistakesLabel = CreateLabel("Keine häufig falsch beantworteten Fragen vorhanden.", 12, FontStyle.Regular, 12);
             noMistakesLabel.Location = new Point(10, _currentY);
             _dynamicPanel.Controls.Add(noMistakesLabel);
         }
@@ -202,8 +202,8 @@ public partial class Form1 : Form
         var answers = answersResult.Value;
 
         var questionHeaderPanel = CreatePanel(new Point(10, _currentY), _dynamicPanel.Width - 20, 30);
-        questionHeaderPanel.Controls.Add(CreateLabel($"Typ: {question.QuestionType.GetDescription()}", questionHeaderPanel.Width - 200));
-        questionHeaderPanel.Controls.Add(CreateLabel($"Punkte: {question.Points}", questionHeaderPanel.Width - 100));
+        questionHeaderPanel.Controls.Add(CreateLabel($"Typ: {question.QuestionType.GetDescription()}", 10, FontStyle.Regular, questionHeaderPanel.Width - 200));
+        questionHeaderPanel.Controls.Add(CreateLabel($"Punkte: {question.Points}", 10, FontStyle.Regular, questionHeaderPanel.Width - 100));
 
         _dynamicPanel.Controls.Add(questionHeaderPanel);
         _currentY += questionHeaderPanel.Height + 10;
@@ -230,15 +230,17 @@ public partial class Form1 : Form
             Padding = new Padding(5),
             ColumnStyles = { new ColumnStyle(SizeType.AutoSize), new ColumnStyle(SizeType.AutoSize) }
         };
+        answerTable.CellPaint += (sender, e) => { e.Graphics.FillRectangle(e.Row % 2 == 1 ? Brushes.LightGray : Brushes.Transparent, e.CellBounds); };
 
         if (question.QuestionType == QuestionType.Kreuz)
         {
             answerTable.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
-            answerTable.Controls.Add(CreateLabel(question.Header1 ?? ""));
-            answerTable.Controls.Add(CreateLabel(question.Header2 ?? ""));
-            answerTable.Controls.Add(CreateLabel(""));
+            answerTable.Controls.Add(CreateLabel(question.Header1 ?? "", 12, FontStyle.Regular));
+            answerTable.Controls.Add(CreateLabel(question.Header2 ?? "", 12, FontStyle.Regular));
+            answerTable.Controls.Add(CreateLabel("", 12, FontStyle.Regular));
         }
 
+        var rowIndex = 0;
         foreach (var answer in answers)
         {
             var checkbox = new CheckBox
@@ -246,16 +248,13 @@ public partial class Form1 : Form
                 AutoSize = true,
                 Padding = new Padding(5),
                 Anchor = AnchorStyles.Left,
+                BackColor = Color.Transparent,
                 Name = $"checkbox_{answer.Id}" // Setze den Namen basierend auf der Antwort-ID
             };
 
-            var label = new Label
-            {
-                Text = answer.AnswerText,
-                AutoSize = true,
-                Padding = new Padding(5),
-                Anchor = AnchorStyles.Left
-            };
+            var label = CreateLabel(answer.AnswerText, 12, FontStyle.Regular, 0, checkbox.Width);
+            label.Click += (_, _) => checkbox.Checked = !checkbox.Checked;
+
 
             if (question.QuestionType == QuestionType.Kreuz)
             {
@@ -263,6 +262,7 @@ public partial class Form1 : Form
                 {
                     AutoSize = true,
                     Anchor = AnchorStyles.Left,
+                    BackColor = Color.Transparent,
                     Name = $"checkbox_{answer.Id}_first" // Eindeutiger Name für die erste Checkbox
                 };
 
@@ -270,6 +270,7 @@ public partial class Form1 : Form
                 {
                     AutoSize = true,
                     Anchor = AnchorStyles.Left,
+                    BackColor = Color.Transparent,
                     Name = $"checkbox_{answer.Id}_second" // Eindeutiger Name für die zweite Checkbox
                 };
 
@@ -289,7 +290,7 @@ public partial class Form1 : Form
                 // Kreuz-Typ spezifische Einträge
                 answerTable.Controls.Add(firstCheckbox);
                 answerTable.Controls.Add(secondCheckbox);
-                answerTable.Controls.Add(CreateLabel(answer.AnswerText));
+                answerTable.Controls.Add(CreateLabel(answer.AnswerText, 12, FontStyle.Regular, 0, firstCheckbox.Width + secondCheckbox.Width + 10));
             }
             else
             {
@@ -307,9 +308,9 @@ public partial class Form1 : Form
             var btnSubmit = new Button
             {
                 Text = "Antworten Abgeben",
-                Width = _dynamicPanel.Width - 20,
-                Height = 40,
-                Location = new Point(10, _dynamicPanel.Height - 50),
+                Width = _dynamicPanel.Width - 120,
+                Height = 30,
+                Location = new Point(110, _dynamicPanel.Height - 40),
                 Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom
             };
 
@@ -345,6 +346,7 @@ public partial class Form1 : Form
                                 {
                                     hasIncorrectAnswers = true;
                                     totalScore -= pointsPerAnswer;
+                                    ok--;
                                 }
                             }
                             else
@@ -358,6 +360,7 @@ public partial class Form1 : Form
                                 {
                                     hasIncorrectAnswers = true;
                                     totalScore -= pointsPerAnswer;
+                                    ok--;
                                 }
                             }
                         }
@@ -372,21 +375,19 @@ public partial class Form1 : Form
                             if (answer.IsCorrect && !selectedAnswer.Checked)
                             {
                                 hasIncorrectAnswers = true;
+                                ok--;
                             }
                             else if (!answer.IsCorrect && selectedAnswer.Checked)
                             {
                                 hasIncorrectAnswers = true;
                                 totalScore -= pointsPerAnswer;
+                                ok--;
                             }
                             else if (answer.IsCorrect && selectedAnswer.Checked)
                             {
                                 totalScore += pointsPerAnswer;
                                 ok++;
                             }
-                        }
-                        else if (answer.IsCorrect)
-                        {
-                            hasIncorrectAnswers = true;
                         }
                     }
 
@@ -408,9 +409,9 @@ public partial class Form1 : Form
             var btnSubmit = new Button
             {
                 Text = "Endergebnis Anzeigen",
-                Width = _dynamicPanel.Width - 20,
-                Height = 40,
-                Location = new Point(10, _dynamicPanel.Height - 50),
+                Width = _dynamicPanel.Width - 120,
+                Height = 30,
+                Location = new Point(110, _dynamicPanel.Height - 40),
                 Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom
             };
 
@@ -505,24 +506,17 @@ public partial class Form1 : Form
     }
 
 
-    private static Label CreateLabel(string text, int x = 0)
+    private Label CreateLabel(string text, int fontSize, FontStyle fontStyle, int x = 0, int checkboxwith = 0)
     {
         return new Label
         {
             Text = text,
             AutoSize = true,
             Location = new Point(x, 0),
-            TextAlign = ContentAlignment.MiddleRight
-        };
-    }
-
-    private Label CreateLabel(string text, int fontSize, FontStyle fontStyle)
-    {
-        return new Label
-        {
-            Text = text,
+            TextAlign = ContentAlignment.MiddleLeft,
             Font = new Font(Font.FontFamily, fontSize, fontStyle),
-            AutoSize = true
+            BackColor = Color.Transparent,
+            MaximumSize = new Size(_dynamicPanel.Width - checkboxwith, 0)
         };
     }
 
@@ -672,8 +666,6 @@ public partial class Form1 : Form
         _dynamicPanel.Controls.Add(txtPoints);
         _dynamicPanel.Controls.Add(btnAddAnswerField);
         _dynamicPanel.Controls.Add(btnAddQuestion);
-
-        // Füge die Checkbox-Felder hinzu, aber mache sie unsichtbar
         _dynamicPanel.Controls.Add(lblCheckboxLeft);
         _dynamicPanel.Controls.Add(txtCheckboxLeft);
         _dynamicPanel.Controls.Add(lblCheckboxRight);
@@ -769,11 +761,9 @@ public partial class Form1 : Form
 
     private async void btnExport_Click(object sender, EventArgs e)
     {
-        using var saveFileDialog = new SaveFileDialog
-        {
-            Filter = "JSON files (*.json)|*.json",
-            Title = "Exportieren von Fragen und Antworten"
-        };
+        using var saveFileDialog = new SaveFileDialog();
+        saveFileDialog.Filter = "JSON files (*.json)|*.json";
+        saveFileDialog.Title = "Exportieren von Fragen und Antworten";
 
         if (saveFileDialog.ShowDialog() == DialogResult.OK)
         {
@@ -784,11 +774,9 @@ public partial class Form1 : Form
 
     private async void btnImport_Click(object sender, EventArgs e)
     {
-        using var openFileDialog = new OpenFileDialog
-        {
-            Filter = "JSON files (*.json)|*.json",
-            Title = "Importieren von Fragen und Antworten"
-        };
+        using var openFileDialog = new OpenFileDialog();
+        openFileDialog.Filter = "JSON files (*.json)|*.json";
+        openFileDialog.Title = "Importieren von Fragen und Antworten";
 
         if (openFileDialog.ShowDialog() == DialogResult.OK)
         {
