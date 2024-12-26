@@ -13,11 +13,13 @@ public class QuestionService
     private readonly HashSet<long> _askedQuestions = new();
     private readonly ILogger<QuestionService> _logger;
     private readonly IGenericRepository<Question> _questionRepository;
+    private readonly Random _random;
 
     public QuestionService(ILoggerFactory loggerFactory, IGenericRepository<Question> questionRepository, IGenericRepository<Answer> answerRepository)
     {
         _questionRepository = questionRepository;
         _answerRepository = answerRepository;
+        _random = new Random(DateTime.Now.Millisecond);
         _logger = loggerFactory.CreateLogger<QuestionService>();
     }
 
@@ -133,17 +135,17 @@ public class QuestionService
                 var weight = (incorrectCount + 1) * (timeSinceLastAsked + 1);
 
                 var lastIncorrectAnswerDate = q.LastIncorrectAnswerDate ?? DateTime.MinValue;
-                var timeSinceLastIncorrectAnswer = (DateTime.Now - lastIncorrectAnswerDate).TotalDays;
+                var timeSinceLastIncorrectAnswer = (DateTime.Now - lastIncorrectAnswerDate).TotalDays * _random.NextDouble();
 
                 var incorrectAnswerWeightFactor = Math.Max(0, 1 - timeSinceLastIncorrectAnswer / 30);
 
                 weight *= incorrectAnswerWeightFactor;
 
                 return new { Question = q, Weight = weight };
-            }).ToList();
+            }).OrderBy(_ => Guid.NewGuid()).ToList();
 
             var totalWeight = weightedQuestions.Sum(wq => wq.Weight);
-            var randomValue = new Random().NextDouble() * totalWeight;
+            var randomValue = _random.NextDouble() * totalWeight;
 
             foreach (var weightedQuestion in weightedQuestions)
             {

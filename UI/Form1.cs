@@ -694,7 +694,8 @@ public partial class Form1 : Form
         var answerTextBox = new TextBox
         {
             Location = new Point(60, _currentY),
-            Width = _dynamicPanel.Width - 70
+            Width = _dynamicPanel.Width - 70,
+            Multiline = true
         };
 
         var answerCheckBox = new CheckBox
@@ -733,16 +734,16 @@ public partial class Form1 : Form
 
         var question = new Question
         {
-            QuestionText = txtQuestion.Text,
+            QuestionText = txtQuestion.Text.Trim().Replace("\r", " ").Replace("\n", "").Replace("  ", " "),
             QuestionType = (QuestionType)(_cmbQuestionType.SelectedValue ?? QuestionType.Auswahl),
             Points = points,
-            Header1 = links.Text,
-            Header2 = rechts.Text
+            Header1 = links.Text.Trim().Replace("\r", " ").Replace("\n", "").Replace("  ", " "),
+            Header2 = rechts.Text.Trim().Replace("\r", " ").Replace("\n", "").Replace("  ", " ")
         };
 
         var answers = _answerFields.Select(field => new Answer
         {
-            AnswerText = field.AnswerTextBox.Text,
+            AnswerText = field.AnswerTextBox.Text.Trim().Replace("\r", " ").Replace("\n", "").Replace("  ", " "),
             IsCorrect = field.IsCorrectCheckBox.Checked
         }).ToList();
 
