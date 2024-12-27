@@ -1,0 +1,1372 @@
+[
+  {
+    "QuestionText": "Was definiert der Architekturstil?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Das Datenformat der Schnittstellen aller Bausteine",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Das Datenformat der Schnittstellen bestimmter Bausteintypen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Die Bausteine und ihre Beziehungen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Grunds\u00E4tzliche Regeln f\u00FCr die Basisstrukturierung eines Systems",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Strukturelle Eigenschaften eines Bausteins",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche DREI Aussagen bzgl. des Zusammenhang von Projekt / Projektleitung und Softwarearchitektur / Softwarearchitekt sind richtig",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Projektleitung und Architektur m\u00FCssen stetig im Wechsel aufeinander zugehen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Die Softwarearchitektur kann vom Softwarearchitekten nach Vorliegen s\u00E4mtlicher Anforderungen entworfen werden",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Softwarearchitektur wirkt i.d.R. deutlich l\u00E4nger als die Projektlaufzeit",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Im vgl. zu einem Softwarearchitekt im Architekturentwurf verfolgt die Projektleitung eher kurzfristige Ziele",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Softwarearchitekten haben hinsichtlich Architekturarbeiten freie Hand im Projektplan",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welchen Nutzen verschafft eine Softwarearchitektur?",
+    "Points": 2,
+    "QuestionType": "Kreuz",
+    "Header1": "Geeignet",
+    "Header2": "Nicht geeignet",
+    "Answers": [
+      {
+        "AnswerText": "Vermeidet \u00C4nderungen an tragenden Elementen und somit unangemessene Kosten-Nutzen-Verh\u00E4ltnisse",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Erm\u00F6glicht und vereinfacht Wiederverwendung",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Stellt konzeptionelle Integrit\u00E4t sicher",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Stellt den Einsatz von Standardprodukten sicher",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "In der Greyboxsicht eines Bausteins werden die folgenden Elemente gezeigt:",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Schnittstellen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Schnittstellen und Attribute eines Bausteins",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Schnittstellen und technische Schnittstellen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Schnittstellen und innerer Aufbau",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Was sind die vier Aufgaben des Softwarearchitekten",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Analysieren / Pr\u00FCfen / Testen / Beschreiben",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Planen / Designen / Review / Implementierung",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Anforderungen und Randbedingungen / Entwurf und Konzeption / Architekturentscheidung / Umsetzung",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Anforderungen und Randbedingungen / Entwurf und Konzeption / Umsetzung / Test",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Was sind die Architekturebenen des Architekturentwurfs",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Fachliche Architerebene, Technische Architekturebene, Technische Infrastruktur, Architekturstil",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "IT-Infrastruktur, Business-Architektur, Informationsarchitektur, Softwarearchitektur",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Architekturmuster, Entwurfsmuster, Implementierung, Technische Infrastruktur",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Business-Architektur, Architekturstil, Informationsarchitektur, Technische Architekturebene",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Was sind die Architekturebenen einer Enterprise IT Architektur",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Fachliche Architerebene, Technische Architekturebene, Technische Infrastruktur, Architekturstil",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "IT-Infrastruktur, Business-Architektur, Informationsarchitektur, Softwarearchitektur",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Architekturmuster, Entwurfsmuster, Implementierung, Technische Infrastruktur",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Business-Architektur, Architekturstil, Informationsarchitektur, Technische Architekturebene",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Architekturziele sind",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Kurzfristig, weil die Architektur den Projektleiter unterst\u00FCtzt",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Sind nur zu Beginn des Projektes relevant, bis die Implementierung startet",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Wirken \u00FCber den gesamten Lebenszyklus eines Systemsund sind von langfristiger Natur",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "ein F\u00FChrungsinstrument f\u00FCr die F\u00FChrungskr\u00E4fte von Softwarearchitekt:innen / Softwarearchitektur Team / Softwarearchitektur Abteilung",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Architekt:innen brauchen sehr gute F\u00E4higkeiten (5 Antworten)",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "In Kryptografie und Verschl\u00FCsselungen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Im Umgang mit Menschen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Datenbankadministration und Performanceoptimierung",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Hacking von IT-Systemen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Soft Skills, Kommunikation und Teamf\u00FChrung",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Im Themengebiet IT Management",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "In ihrer fachlichen und technischen Dom\u00E4ne",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "In der Analyse und Abstraktion",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Im Entwurf von Business-Architekturen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Im Erstellen von Architektursichten",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Schnittstellenarten gibt es? (2 Antworten)",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Nach Innen gerichtete Schnittstelle",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Standardsschnittstelle",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "HTTP Schnittstelle",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Unabh\u00E4ngige Schnittstelle",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Angebotene Schnittstelle",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "\u00DCbertragene Schnittstelle",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Technische Schnittstelle",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Angeforderte Schnittstelle",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Eingeschr\u00E4nkte Schnittstelle",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Port-basierte Schnittstelle",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Aussagen bzgl. Bausteine und Schnittstelle sind wahr? (4 Antworten)",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Schnittstellen managen Bausteine",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Schnittstellen tragen die Verantwortung eines Baustein nach aussen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Ein Baustein kann eine odere mehrere Schnittstellen haben",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Eine Schnittstelle definiert einen Vertrag",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Bausteine kommunizieren \u00FCber Schnittstellen mit anderen Bausteinen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Schnittstellen sind Subbausteine des Bausteins",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Softwarearchitekt:innen (4 Antworten)",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "sind hauptverantwortlich f\u00FCr den Projektplan",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "m\u00FCssen mit vielen Stakeholder effektiv interagieren k\u00F6nnen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "treffen alle Entscheidung im Bereich der Architektur als Experten alleine",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "sind Ansprechpartner f\u00FCr das Entwicklungsteam",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "implementieren niemals im Entwicklungsprojekt, da diese Rollen strikt getrennt werden sollten",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "f\u00FChren das Entwicklungsteam und f\u00F6rdert effektive Architekturarbeit im Team",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "beraten die Projektleitung bei der Erstellung des Projektplans",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Aussage bez\u00FCglich Qualit\u00E4t trifft zu (3 Antworten)",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "F\u00F6rdert die Erweiterbarkeit und \u00C4nderbarkeit eines Systems",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Ist einfach zu implementieren, da die meisten Themen durch Frameworks abgenommen wird",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Erleichtert das Verstehen der Software",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Ist i.d.R. jedem Stakeholder wichtig und elementarer Bestandteil eines Projektes",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Gew\u00FCnschte Qualit\u00E4tseigenschaften k\u00F6nnen durch Qualit\u00E4tszenarien anschaulich gemacht werden",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Qualit\u00E4t muss von Softwarearchitektur oft explizit gemacht werden, da Qualit\u00E4tsanforderungen selten formuliert werden aber indirekt erwartet werden.",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Ein Baustein mit Schnittstellen wird bezeichnet als",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Blackbox",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Invisiblebox",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Greybox",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Darkbox",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Zu welchen andere Rollen steht Architekt:innen in Interaktion w\u00E4hrend des Projektgesch\u00E4fts?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Security / Anwendende / Projektleitung / Analyst / Personal / Technische Mitarbeitende Support",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Tester:in / Security / Entwickler:in / Betrieb / Vertrieb",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Entwickler:in / Projektleitung / Betrieb / Analyst / Security / Anwender:in",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Betrieb / Security / Tester:in / Personal / Entwickler:in / Vertrieb",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welches Prinzip beschreibt, dass in Softwaresystemen nur Abh\u00E4ngigkeiten zu Schnittstellen (Interfaces) bestehen sollen.",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Das Dependency-Inversion Prinzip",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Das Dependency-Injection Prinzip",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Das Liskovsche Substitutionsprinzip",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Begriffe sind Bestandteile einer Whitebox-Sicht eines Bausteins",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Beschreibung",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Nicht-funktionale-Anforderungen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Interne Struktur",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Implementierungstechnologie",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Schnittstelle",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Kommunikationsprotokolle",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welchen Aussagen \u00FCber das Proxy Pattern sind korrekt?",
+    "Points": 1,
+    "QuestionType": "Kreuz",
+    "Header1": "Richtig",
+    "Header2": "Falsch",
+    "Answers": [
+      {
+        "AnswerText": "Das Pattern kann f\u00FCr den Remote-Aufruf verwendet werden, so dass der Proxy diese vor dem Aufrufer verbirgt.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Das Pattern kann f\u00FCr Caching verwendet werden, indem Aufrufe einmal durchgef\u00FChrt werden und anschlie\u00DFend aus dem Cache bedient werden.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Das Pattern kann eingesetzt werden, um komplexe Schnittstellen f\u00FCr den Aufrufer zu vereinfachen.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Das Pattern kann zur Zugriffskontrolle eingesetzt werden, um vor einem Aufruf die Rechtepr\u00FCfung durchzuf\u00FChren.",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Services sind am engsten gekoppelt:",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Synchrone Aufrufe",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Asynchrone Aufrufe",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Die Kopplung ist unabh\u00E4ngig von der Art des Aufrufs",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Code-Duplizierung ist ein Zeichen schwacher Koh\u00E4sion.",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Wahr",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Falsch",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Was beinhaltet die Abk\u00FCrzung SOLID?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Single Responsibility Principle (SRP), Open Closed Principle (OCP), Liskov Substitution Principle (LSP), Interface Segregation Principle (ISP), Dependency Inversion Principle (DIP)",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Single Responsibility Principle (SRP), Open Closed Principle (OCP), Lose coupling (LC), Interface Segregation Principle (ISP), Dependency Inversion Principle (DIP)",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Single Responsibility Principle (SRP), Open Closed Principle (OCP), Liskov Substitution Principle (LSP), Interface Segregation Principle (ISP), Don\u0027t Repeat Yourself (DRY)",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Single Responsibility Principle (SRP), Open Closed Principle (OCP), Lose coupling (LC), Interface Segregation Principle (ISP), Don\u0027t Repeat Yourself (DRY)",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Das \u0022Law of Demeter\u0022 hilft die Kopplung zwischen Klassen zu reduzieren.",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Wahr",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Falsch",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Bei folgende drei Mustern handelt es sich um Strukturmuster:",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Adapter, Fassade, Proxy",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Fassade, Observer, Adapter",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Adapter, Mediator, Fassade",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Mediator ist ein Strukturmuster.",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Wahr",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Falsch",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche der vier Sichten sollte eine gute Architekturbeschreibung umfassen?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Kontextsicht, Fachliche Sicht, Technische Sicht, Infrastruktursicht",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Kontextsicht, Bausteinsicht, Laufzeitsicht, Verteilungssicht",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Kontextsicht, Bausteinsicht, Schnittstellensicht, Verteilungssicht",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Bausteinsicht, Schnittstellensicht, Verteilungssicht,Infrastruktursicht",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Kontextsicht, Technische Sicht, Schnittstellensicht, Verteilungssicht",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche dieser DREI Informationen sind Teil der Schablone f\u00FCr die Blackboxsicht eines Bausteins?",
+    "Points": 3,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Kurzbeschreibung",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Diagramm",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Elementkatalog",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Schnittstellen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Variabilit\u00E4ten",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welchen Aussagen zur Modellierung und Dokumentation stimmen Sie zu?",
+    "Points": 2,
+    "QuestionType": "Kreuz",
+    "Header1": "Richtig",
+    "Header2": "Falsch",
+    "Answers": [
+      {
+        "AnswerText": "Als Architekt:in bin ich alleine f\u00FCr die Modellierung und Dokumentation zust\u00E4ndig",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Dokumentation und Modellierung sind das gleiche, werden nur zu einem anderen Zeitpunkt erledigt",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Ein Diagramm ben\u00F6tigt in der Regel keinen Text",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Im arc42 Template muss nicht alles ausgef\u00FCllt werden",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Wer ist kein Stakeholder der Architekturdokumentation:",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Entwickler:innen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Auftraggeber:innen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Endbenutzer:innen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Betrieb",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welches ist kein g\u00FCltiges UML-Diagramm:",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Paketdiagramm",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Verteilungsdiagramm",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Prozessdiagramm",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Anwendungsfalldiagramm",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Wer ist kein Stakeholder der Kontextsicht:",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Unternehmensarchitekt:innen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Auftraggeber:innen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "UI-Expert:innen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Betrieb",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Keine der genannten Rollen",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Wer ist kein Stakeholder der Bausteinsicht:",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Unternehmensarchitekt:innen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Projektleiter:innen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Entwickler:innen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Keine der genannten Rollen",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Informationen sich nicht Teil der Bausteinsicht:",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Interner Aufbau der Bausteine",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Schnittstellen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Entwurfsentscheidungen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Platzierung der Bausteine innerhalb der Infrastruktur",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Wer ist kein Stakeholder der Laufzeitsicht:",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Tester:innen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Projektleiter:innen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Entwickler:innen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Keine der genannten Rollen",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche der folgenden Elemente sollte eine Schablone zur Schnittstellenbeschreibung enthalten:",
+    "Points": 2,
+    "QuestionType": "Kreuz",
+    "Header1": "enthaltren",
+    "Header2": "nicht enthalten",
+    "Answers": [
+      {
+        "AnswerText": "Interaktionen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Qualit\u00E4tsmerkmale",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Entwurfsentscheidungen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Fehlerbehandlung",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Datentypen",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Wer ist kein Stakeholder der Verteilungssicht:",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Tester:innen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Unternehmensarchitekt:innen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Betrieb",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Entwickler:innen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Keine der genannten Rollen",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welches sind keine relevanten Fragestellungen im Hinblick auf eine Architekturentscheidung:",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Auswahl des UI-Frameworks",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Auswahl der Methodik f\u00FCr den Softwareentwicklungsprozess (agil versus iterativ / inkrementell)",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Auswahl der Programmiersprache",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Auswahl der Betriebsform (on-premise versus Cloud-basiert)",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Zu welchem Zeitpunkt kann ATAM angewendet werden?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Vor Beginn eines Projektes, um grunds\u00E4tzliche Designfehler zu verhindern",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Nach Abschluss eines Projektes, um die Umsetzung der Qualit\u00E4tsziele zu bewerten",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Der Einsatz ist zu jeder beliebigen Phase eines Projektes m\u00F6glich",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche DREI Begriffe sind Bestandteile eines Qualit\u00E4tsszenarios",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Frage",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Antwort",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Ausl\u00F6ser",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Ziel",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Quelle",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Ausfall",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welchen Aussagen \u00FCber Skalierbarkeit sind korrekt?",
+    "Points": 1,
+    "QuestionType": "Kreuz",
+    "Header1": "Richtig",
+    "Header2": "Falsch",
+    "Answers": [
+      {
+        "AnswerText": "Der Einsatz von horizontaler \u2013 und vertikaler Skalierung ist f\u00FCr jede Art von Softwaresystem sinnvoll.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Insbesondere bei schreibenden Zugriffen sollte horizontale Skalierbarkeit eingesetzt werden.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Je h\u00F6her die Skalierbarkeit eines Softwaresystems ist, desto h\u00F6her ist auch die Wahrscheinlichkeit eines Ausfalls",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Skalierbarkeit eines Systems bedeutet, dass sich bei Einsatz von mehr Ressourcen (CPU, Speicher) die Antwortzeit verbessert",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Qualit\u00E4tsmerkmale geh\u00F6ren zu DIN/ISO IEC 25010",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Sicherheit, Kompatibilit\u00E4t, Benutzbarkeit, Zuverl\u00E4ssigkeit, \u00DCbertragbarkeit, Effizienz, \u00C4nderbarkeit, Funktionalit\u00E4t",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Benutzbarkeit, Zuverl\u00E4ssigkeit, \u00DCbertragbarkeit, Effizienz, \u00C4nderbarkeit, Funktionalit\u00E4t, Skalierbarkeit, Testbarkeit",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Zuverl\u00E4ssigkeit, \u00DCbertragbarkeit, Effizienz, \u00C4nderbarkeit, Funktionalit\u00E4t, Sicherheit, Skalierbarkeit, Benutzbarkeit",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Funktionalit\u00E4t, Benutzbarkeit, Zuverl\u00E4ssigkeit, Performance, Supportf\u00E4higkeit",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Funktionalit\u00E4t, Benutzbarkeit, Nachvollziehbarkeit, Zuverl\u00E4ssigkeit, Performance",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Aussage bzgl. Qualit\u00E4tsmerkmalen ist wahr",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Qualit\u00E4tsmerkmale haben keine Wechselwirkung",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Qualit\u00E4tsmerkmale beeinflussen sich ausschlie\u00DFlich negativ",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Qualit\u00E4tsmerkmale k\u00F6nnen sich positiv und negativ beeinflussen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Qualit\u00E4tsmerkmale k\u00F6nnen sich in der Theorie beeinflussen, in der Praxis haben Systeme jedoch ein Ziel, sodass automatisch klar ist welche Merkmale ber\u00FCcksichtigt priorisiert ber\u00FCcksichtigt werden m\u00FCssen.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche VIER Punkte sind m\u00F6gliche Ma\u00DFnahmen zur Effizienzsteigerung?",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Einf\u00FChrung von Abstraktionsstufen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Erh\u00F6hung der Hardwareleistung",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Verwendung von Skriptsprachen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Verwendung von Hardware-nahen Sprachen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Einf\u00FChrung von Datenredundanzen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Implementierung von Prototypen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Verteilung der Systemkomponenten",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Einsatz des Proxy-Pattern",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welches sind typsiche Konflikte zwischen Qualit\u00E4tsmerkmalen? (ZWEI Antworten)",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Verst\u00E4ndlichkeit vs. Wartbarkeit",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Wartbarkeit vs. Effizienz",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Benutzbarkeit vs. Sicherheit",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Flexibilit\u00E4t vs. Testbarkeit",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Analysierbarkeit vs. Wiederherstellbarkeit",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welches sind die Phasen von ATAM?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Plan / Estimate / Evaluate / Communicate",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Analyse / Bewerten / Verbessern / Nutzerkommunikation",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Kick-off / Stakeholder / Abschluss / Bewerten",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Bewerten / Kick-off / Stakeholder / Verbessern \u25AA",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Aim / Plan / Build / Check",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche ZWEI Aussagen bzgl. Qualit\u00E4tsszenarien sind wahr?",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Ist das Paket aus fachlichem Testfall und Anwendungsszenario",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Sind Unterkategorien von Qualit\u00E4tsmerkmalen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Konkretisieren Qualit\u00E4tsanforderungen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Stakeholder-orientierte Beschreibung von Architekturzielen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Beschreiben Taktiken zur Erreichung von Qualit\u00E4tseigenschaften",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Arten von Qualit\u00E4tszenarien gibt es? (ZWEI Antworten)",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Anwendungsfallszenario / Stressszenario / \u00C4nderungsszenario",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Anwendungsfallszenario / Grenzszenario / Wachstumszenario",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Grenzszenario / Flexibilit\u00E4tszenario / Eigenschaftszenario",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Gebotszenario / Verbotszenario / Elementszenario",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Userszenario / Testszenario / Betriebszenario",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Quantitative Bewertung (2 Antworten)",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Bewertet die Qualit\u00E4tseigenschaft eines Systems anhand Szenarien",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Besteht aus statischer Codeanalyse",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Erfasst Metriken",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Pr\u00FCft Architekturregeln",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Bewertet die fachliche Systemfunktionalit\u00E4t",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Zyklomatische Komplexit\u00E4t",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Beschreibt eine indirekte Abh\u00E4ngigkeit eines Elements zu sich selbst \u00FCber beliebige viele andere Elemente",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Beschreibt die Anzahl der Pfade durch eine Klasse",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Ist ein Idikator f\u00FCr Komplexit\u00E4t ermittelt anhand der Gr\u00F6\u00DFe des Elements, wie z.B. die Anzahl der Methoden oder die Azahl der Codezeilen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Beschreibt die Ein- und Ausgehender Beziehungen eines Elements",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Hohe zyklomatische Komplexit\u00E4t ist negativ zu bewerten, da dies ein Anzeichen f\u00FCr (2 Antworten)",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "hohe Testaufw\u00E4nde ist",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "nicht optimale Speicherausnutzung ist",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "ein nicht-benutzerunfreundliches Webdesign ist",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "komplizierten und schlecht wartbaren Code ist",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Eine Testabdeckung ist positiv zu bewerten,",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Wenn sie m\u00F6glichst hoch ist, da dies die Robustheit des Systems erh\u00F6ht",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Wenn sie m\u00F6glichst niedrig ist, da dies eine geringe Fehlerdichte beweist",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Wenn sie m\u00F6glichst hoch ist, da dies die Ausgewogenheit zwischen den Lines of Code des Testfalls und des produktiven Codes zeigt",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Wenn sie 1 ist, da dies ein fehlerfreies System garantiert",
+        "IsCorrect": false
+      }
+    ]
+  }
+]
