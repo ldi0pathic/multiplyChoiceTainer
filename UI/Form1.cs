@@ -18,6 +18,7 @@ public partial class Form1 : Form
     private int _maxQuestions;
 
     private decimal _score;
+    private DateTime _startTime;
     private decimal _totalPoints;
 
     public Form1(QuestionService questionService, ImportExportService importExportService)
@@ -50,8 +51,8 @@ public partial class Form1 : Form
         var questionCountTextBox = new TextBox
         {
             Text = _maxQuestions.ToString(),
-            Width = 100,
-            Location = new Point(200, _currentY)
+            Width = 50,
+            Location = new Point(20 + questionCountLabel.Width, _currentY)
         };
         _dynamicPanel.Controls.Add(questionCountTextBox);
         _currentY += questionCountTextBox.Height + 10; // Update _currentY nach der TextBox
@@ -88,6 +89,7 @@ public partial class Form1 : Form
             if (int.TryParse(questionCountTextBox.Text, out var maxQuestions) && maxQuestions > 0)
             {
                 _maxQuestions = maxQuestions;
+                _startTime = DateTime.Now;
                 await QuizPageAsync();
             }
             else
@@ -200,9 +202,10 @@ public partial class Form1 : Form
         }
 
         var answers = answersResult.Value;
-
+        var usedTime = DateTime.Now - _startTime;
         var questionHeaderPanel = CreatePanel(new Point(10, _currentY), _dynamicPanel.Width - 20, 30);
-        questionHeaderPanel.Controls.Add(CreateLabel($"Typ: {question.QuestionType.GetDescription()}", 10, FontStyle.Regular, questionHeaderPanel.Width - 200));
+        questionHeaderPanel.Controls.Add(CreateLabel($"Zeit: {usedTime.Minutes}m", 10, FontStyle.Regular, 50));
+        questionHeaderPanel.Controls.Add(CreateLabel($"Typ: {question.QuestionType.GetDescription()}", 10, FontStyle.Regular, questionHeaderPanel.Width - 210));
         questionHeaderPanel.Controls.Add(CreateLabel($"Punkte: {question.Points}", 10, FontStyle.Regular, questionHeaderPanel.Width - 100));
 
         _dynamicPanel.Controls.Add(questionHeaderPanel);
