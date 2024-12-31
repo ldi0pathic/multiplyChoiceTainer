@@ -11,7 +11,7 @@
         "IsCorrect": false
       },
       {
-        "AnswerText": "Softwarearchitektur beschreibt die fundamentale Organisation eines Systems, verkörpert in seinen Komponenten, deren Beziehungen untereinander und zur Umgebung sowie den Prinzipien, die sein Design und seine Evolution leiten.",
+        "AnswerText": "Softwarearchitektur beschreibt die fundamentale Organisation eines Systems, verk\u00F6rpert in seinen Komponenten, deren Beziehungen untereinander und zur Umgebung sowie den Prinzipien, die sein Design und seine Evolution leiten.",
         "IsCorrect": true
       },
       {
@@ -19,7 +19,7 @@
         "IsCorrect": false
       },
       {
-        "AnswerText": "Softwarearchitektur definiert lediglich die Oberfläche eines Systems.",
+        "AnswerText": "Softwarearchitektur definiert lediglich die Oberfl\u00E4che eines Systems.",
         "IsCorrect": false
       }
     ]
@@ -32,25 +32,25 @@
     "Header2": "",
     "Answers": [
       {
-        "AnswerText": "Sie unterstützt den Entwurf, die Implementierung, die Pflege und den Betrieb von Systemen.",
+        "AnswerText": "Sie unterst\u00FCtzt den Entwurf, die Implementierung, die Pflege und den Betrieb von Systemen.",
         "IsCorrect": false
       },
       {
-        "AnswerText": "Sie sorgt dafür, dass Software nicht getestet werden muss.",
+        "AnswerText": "Sie sorgt daf\u00FCr, dass Software nicht getestet werden muss.",
         "IsCorrect": true
       },
       {
-        "AnswerText": "Sie hilft, die Komplexität eines Systems zu reduzieren.",
+        "AnswerText": "Sie hilft, die Komplexit\u00E4t eines Systems zu reduzieren.",
         "IsCorrect": false
       },
       {
-        "AnswerText": "Sie vermittelt ein Verständnis für die Strukturen und Konzepte des Systems.",
+        "AnswerText": "Sie vermittelt ein Verst\u00E4ndnis f\u00FCr die Strukturen und Konzepte des Systems.",
         "IsCorrect": false
       }
     ]
   },
   {
-    "QuestionText": "Welche Aufgabe übernimmt eine Softwarearchitekt:in in der Entwicklungsphase?",
+    "QuestionText": "Welche Aufgabe \u00FCbernimmt eine Softwarearchitekt:in in der Entwicklungsphase?",
     "Points": 1,
     "QuestionType": "Auswahl",
     "Header1": "",
@@ -75,7 +75,7 @@
     ]
   },
   {
-    "QuestionText": "Welche ZWEI der folgenden Aufgaben gehört zur Verantwortung einer Softwarearchitekt:in?",
+    "QuestionText": "Welche ZWEI der folgenden Aufgaben geh\u00F6rt zur Verantwortung einer Softwarearchitekt:in?",
     "Points": 1,
     "QuestionType": "Pick",
     "Header1": "",
@@ -90,11 +90,11 @@
         "IsCorrect": true
       },
       {
-        "AnswerText": "Erstellung von Marketingplänen.",
+        "AnswerText": "Erstellung von Marketingpl\u00E4nen.",
         "IsCorrect": false
       },
       {
-        "AnswerText": "Vermeidung der Konsistenzprüfung von Quellcode.",
+        "AnswerText": "Vermeidung der Konsistenzpr\u00FCfung von Quellcode.",
         "IsCorrect": false
       }
     ]
@@ -115,7 +115,7 @@
         "IsCorrect": true
       },
       {
-        "AnswerText": "Gäste des Unternehmens",
+        "AnswerText": "G\u00E4ste des Unternehmens",
         "IsCorrect": false
       },
       {
@@ -125,7 +125,7 @@
     ]
   },
   {
-    "QuestionText": "Warum müssen Softwarearchitekt:innen iterativ arbeiten?",
+    "QuestionText": "Warum m\u00FCssen Softwarearchitekt:innen iterativ arbeiten?",
     "Points": 1,
     "QuestionType": "Auswahl",
     "Header1": "",
@@ -136,7 +136,7 @@
         "IsCorrect": false
       },
       {
-        "AnswerText": "Aufgrund inhärenter Unsicherheiten müssen sie bei Stakeholdern systematisch Rückmeldung einholen.",
+        "AnswerText": "Aufgrund inh\u00E4renter Unsicherheiten m\u00FCssen sie bei Stakeholdern systematisch R\u00FCckmeldung einholen.",
         "IsCorrect": true
       },
       {
@@ -150,7 +150,7 @@
     ]
   },
   {
-    "QuestionText": "Was ist ein Beispiel für ein langfristiges Ziel in der Softwarearchitektur?",
+    "QuestionText": "Was ist ein Beispiel f\u00FCr ein langfristiges Ziel in der Softwarearchitektur?",
     "Points": 1,
     "QuestionType": "Auswahl",
     "Header1": "",
@@ -161,11 +161,11 @@
         "IsCorrect": false
       },
       {
-        "AnswerText": "Investition in die funktionale Stabilität durch Tests.",
+        "AnswerText": "Investition in die funktionale Stabilit\u00E4t durch Tests.",
         "IsCorrect": true
       },
       {
-        "AnswerText": "Verkürzung der Time-to-Market.",
+        "AnswerText": "Verk\u00FCrzung der Time-to-Market.",
         "IsCorrect": false
       },
       {
@@ -186,7 +186,7 @@
         "IsCorrect": false
       },
       {
-        "AnswerText": "Sie können zu Missverständnissen zwischen Projektakteuren und Stakeholdern führen.",
+        "AnswerText": "Sie k\u00F6nnen zu Missverst\u00E4ndnissen zwischen Projektakteuren und Stakeholdern f\u00FChren.",
         "IsCorrect": true
       },
       {
@@ -207,11 +207,11 @@
     "Header2": "",
     "Answers": [
       {
-        "AnswerText": "SEI definiert Softwarearchitektur als Struktur oder Strukturen eines Systems, während IEEE 1471 den Fokus auf die Organisation eines Systems und die Prinzipien legt, die dessen Evolution leiten.",
+        "AnswerText": "SEI definiert Softwarearchitektur als Struktur oder Strukturen eines Systems, w\u00E4hrend IEEE 1471 den Fokus auf die Organisation eines Systems und die Prinzipien legt, die dessen Evolution leiten.",
         "IsCorrect": true
       },
       {
-        "AnswerText": "IEEE 1471 beschreibt Softwarearchitektur ausschließlich als ein Modell, während SEI Schnittstellen ignoriert.",
+        "AnswerText": "IEEE 1471 beschreibt Softwarearchitektur ausschlie\u00DFlich als ein Modell, w\u00E4hrend SEI Schnittstellen ignoriert.",
         "IsCorrect": false
       },
       {
@@ -219,13 +219,13 @@
         "IsCorrect": false
       },
       {
-        "AnswerText": "SEI legt den Schwerpunkt auf die Umgebung, während IEEE 1471 nur die internen Komponenten betrachtet.",
+        "AnswerText": "SEI legt den Schwerpunkt auf die Umgebung, w\u00E4hrend IEEE 1471 nur die internen Komponenten betrachtet.",
         "IsCorrect": false
       }
     ]
   },
   {
-    "QuestionText": "Welche der folgenden Ziele einer Softwarearchitektur würde als langfristig gelten?",
+    "QuestionText": "Welche der folgenden Ziele einer Softwarearchitektur w\u00FCrde als langfristig gelten?",
     "Points": 1,
     "QuestionType": "Auswahl",
     "Header1": "",
@@ -240,7 +240,7 @@
         "IsCorrect": true
       },
       {
-        "AnswerText": "Verkürzung der Time-to-Market.",
+        "AnswerText": "Verk\u00FCrzung der Time-to-Market.",
         "IsCorrect": false
       },
       {
@@ -257,25 +257,25 @@
     "Header2": "",
     "Answers": [
       {
-        "AnswerText": "Die Einhaltung von CI/CD-Pipelines ignorieren, da sie nur für die Entwicklungsphase gelten.",
+        "AnswerText": "Die Einhaltung von CI/CD-Pipelines ignorieren, da sie nur f\u00FCr die Entwicklungsphase gelten.",
         "IsCorrect": false
       },
       {
-        "AnswerText": "Sicherstellen, dass regelmäßig Softwareupdates durchgeführt und Schwachstellen behoben werden.",
+        "AnswerText": "Sicherstellen, dass regelm\u00E4\u00DFig Softwareupdates durchgef\u00FChrt und Schwachstellen behoben werden.",
         "IsCorrect": true
       },
       {
-        "AnswerText": "Entwicklung neuer Features ausschließlich der Projektleitung überlassen.",
+        "AnswerText": "Entwicklung neuer Features ausschlie\u00DFlich der Projektleitung \u00FCberlassen.",
         "IsCorrect": false
       },
       {
-        "AnswerText": "Hauptsächlich auf die Erstellung von Benutzerhandbüchern fokussieren.",
+        "AnswerText": "Haupts\u00E4chlich auf die Erstellung von Benutzerhandb\u00FCchern fokussieren.",
         "IsCorrect": false
       }
     ]
   },
   {
-    "QuestionText": "Was sind ZWEI wichtige Konsequenzen der Entscheidung für eine spezifische Bausteinstruktur in der Softwarearchitektur?",
+    "QuestionText": "Was sind ZWEI wichtige Konsequenzen der Entscheidung f\u00FCr eine spezifische Bausteinstruktur in der Softwarearchitektur?",
     "Points": 1,
     "QuestionType": "Pick",
     "Header1": "",
@@ -286,11 +286,11 @@
         "IsCorrect": false
       },
       {
-        "AnswerText": "Die Struktur beeinflusst möglicherweise die Kosten und den Zeitaufwand in späteren Entwicklungsphasen.",
+        "AnswerText": "Die Struktur beeinflusst m\u00F6glicherweise die Kosten und den Zeitaufwand in sp\u00E4teren Entwicklungsphasen.",
         "IsCorrect": true
       },
       {
-        "AnswerText": "Sie bestimmt ausschließlich die visuelle Darstellung des Systems.",
+        "AnswerText": "Sie bestimmt ausschlie\u00DFlich die visuelle Darstellung des Systems.",
         "IsCorrect": false
       },
       {
@@ -300,7 +300,7 @@
     ]
   },
   {
-    "QuestionText": "Welche Risiken entstehen, wenn Architekturentscheidungen zu früh getroffen werden?",
+    "QuestionText": "Welche ZWEI Risiken entstehen, wenn Architekturentscheidungen zu fr\u00FCh getroffen werden?",
     "Points": 1,
     "QuestionType": "Pick",
     "Header1": "",
@@ -311,7 +311,7 @@
         "IsCorrect": false
       },
       {
-        "AnswerText": "Es können unnötige Einschränkungen entstehen, die spätere Anpassungen erschweren.",
+        "AnswerText": "Es k\u00F6nnen unn\u00F6tige Einschr\u00E4nkungen entstehen, die sp\u00E4tere Anpassungen erschweren.",
         "IsCorrect": true
       },
       {
@@ -319,28 +319,28 @@
         "IsCorrect": false
       },
       {
-        "AnswerText": "Stakeholder könnten ihre Anforderungen nicht ausreichend berücksichtigt sehen.",
+        "AnswerText": "Stakeholder k\u00F6nnten ihre Anforderungen nicht ausreichend ber\u00FCcksichtigt sehen.",
         "IsCorrect": true
       }
     ]
   },
   {
-    "QuestionText": "Welche der folgenden Maßnahmen dient der Balance zwischen kurzfristigen und langfristigen Zielen in der Softwarearchitektur?",
+    "QuestionText": "Welche der folgenden Ma\u00DFnahmen dient der Balance zwischen kurzfristigen und langfristigen Zielen in der Softwarearchitektur?",
     "Points": 1,
     "QuestionType": "Auswahl",
     "Header1": "",
     "Header2": "",
     "Answers": [
       {
-        "AnswerText": "Ausschließlich auf kurzfristige Features fokussieren, um Time-to-Market zu verkürzen.",
+        "AnswerText": "Ausschlie\u00DFlich auf kurzfristige Features fokussieren, um Time-to-Market zu verk\u00FCrzen.",
         "IsCorrect": false
       },
       {
-        "AnswerText": "Investition in Tests, die langfristige Stabilität gewährleisten.",
+        "AnswerText": "Investition in Tests, die langfristige Stabilit\u00E4t gew\u00E4hrleisten.",
         "IsCorrect": true
       },
       {
-        "AnswerText": "Das Budget für Architekturentscheidungen minimieren.",
+        "AnswerText": "Das Budget f\u00FCr Architekturentscheidungen minimieren.",
         "IsCorrect": false
       },
       {
@@ -361,15 +361,15 @@
         "IsCorrect": false
       },
       {
-        "AnswerText": "Bausteine sind spezifische Ausprägungen von Komponenten.",
+        "AnswerText": "Bausteine sind spezifische Auspr\u00E4gungen von Komponenten.",
         "IsCorrect": false
       },
       {
-        "AnswerText": "Komponenten sind spezielle Ausprägungen von Bausteinen mit der Eigenschaft der Austauschbarkeit.",
+        "AnswerText": "Komponenten sind spezielle Auspr\u00E4gungen von Bausteinen mit der Eigenschaft der Austauschbarkeit.",
         "IsCorrect": true
       },
       {
-        "AnswerText": "Bausteine definieren ausschließlich die visuelle Darstellung des Systems.",
+        "AnswerText": "Bausteine definieren ausschlie\u00DFlich die visuelle Darstellung des Systems.",
         "IsCorrect": false
       }
     ]
@@ -386,11 +386,11 @@
         "IsCorrect": true
       },
       {
-        "AnswerText": "Eliminierung von Abhängigkeiten zwischen den verschiedenen Systemkomponenten.",
+        "AnswerText": "Eliminierung von Abh\u00E4ngigkeiten zwischen den verschiedenen Systemkomponenten.",
         "IsCorrect": false
       },
       {
-        "AnswerText": "Erstellung von Benutzerhandbüchern für die Endnutzer.",
+        "AnswerText": "Erstellung von Benutzerhandb\u00FCchern f\u00FCr die Endnutzer.",
         "IsCorrect": false
       },
       {
@@ -415,7 +415,7 @@
         "IsCorrect": false
       },
       {
-        "AnswerText": "Sie zeigt die Funktionalität und Schnittstellen des Bausteins, ohne dessen inneren Aufbau zu offenbaren.",
+        "AnswerText": "Sie zeigt die Funktionalit\u00E4t und Schnittstellen des Bausteins, ohne dessen inneren Aufbau zu offenbaren.",
         "IsCorrect": true
       },
       {
@@ -432,7 +432,7 @@
     "Header2": "",
     "Answers": [
       {
-        "AnswerText": "Sie erhöhen die Verständlichkeit und erleichtern die Wiederverwendung.",
+        "AnswerText": "Sie erh\u00F6hen die Verst\u00E4ndlichkeit und erleichtern die Wiederverwendung.",
         "IsCorrect": true
       },
       {
@@ -457,11 +457,11 @@
     "Header2": "",
     "Answers": [
       {
-        "AnswerText": "Die Blackbox-Sicht zeigt die internen Abläufe, während die Greybox-Sicht nur die Schnittstellen betrachtet.",
+        "AnswerText": "Die Blackbox-Sicht zeigt die internen Abl\u00E4ufe, w\u00E4hrend die Greybox-Sicht nur die Schnittstellen betrachtet.",
         "IsCorrect": false
       },
       {
-        "AnswerText": "Die Whitebox-Sicht beschreibt den inneren Aufbau, während die Blackbox-Sicht nur die Funktionalität und Schnittstellen zeigt.",
+        "AnswerText": "Die Whitebox-Sicht beschreibt den inneren Aufbau, w\u00E4hrend die Blackbox-Sicht nur die Funktionalit\u00E4t und Schnittstellen zeigt.",
         "IsCorrect": true
       },
       {
@@ -475,14 +475,14 @@
     ]
   },
   {
-    "QuestionText": "Welches Prinzip wird bei der Reduktion von Komplexität angewendet, um unnötige Abstraktionen zu vermeiden?",
+    "QuestionText": "Welches Prinzip wird bei der Reduktion von Komplexit\u00E4t angewendet, um unn\u00F6tige Abstraktionen zu vermeiden?",
     "Points": 1,
     "QuestionType": "Auswahl",
     "Header1": "",
     "Header2": "",
     "Answers": [
       {
-        "AnswerText": "DRY (Don't Repeat Yourself)",
+        "AnswerText": "DRY (Don\u0027t Repeat Yourself)",
         "IsCorrect": false
       },
       {
@@ -500,7 +500,7 @@
     ]
   },
   {
-    "QuestionText": "Wie kann die Schichtenarchitektur zur Reduktion der Komplexität beitragen?",
+    "QuestionText": "Wie kann die Schichtenarchitektur zur Reduktion der Komplexit\u00E4t beitragen? (ZWEI Antworten)",
     "Points": 2,
     "QuestionType": "Pick",
     "Header1": "",
@@ -511,7 +511,7 @@
         "IsCorrect": true
       },
       {
-        "AnswerText": "Indem sie redundante Funktionalitäten in den Schichten kombiniert.",
+        "AnswerText": "Indem sie redundante Funktionalit\u00E4ten in den Schichten kombiniert.",
         "IsCorrect": false
       },
       {
@@ -519,7 +519,7 @@
         "IsCorrect": true
       },
       {
-        "AnswerText": "Indem alle Schichten denselben Code ausführen.",
+        "AnswerText": "Indem alle Schichten denselben Code ausf\u00FChren.",
         "IsCorrect": false
       }
     ]
@@ -532,32 +532,32 @@
     "Header2": "",
     "Answers": [
       {
-        "AnswerText": "Sie eliminieren die Notwendigkeit, neue Funktionen hinzuzufügen.",
+        "AnswerText": "Sie eliminieren die Notwendigkeit, neue Funktionen hinzuzuf\u00FCgen.",
         "IsCorrect": false
       },
       {
-        "AnswerText": "Sie erhöhen die Verständlichkeit und fördern die Wiederverwendbarkeit.",
+        "AnswerText": "Sie erh\u00F6hen die Verst\u00E4ndlichkeit und f\u00F6rdern die Wiederverwendbarkeit.",
         "IsCorrect": true
       },
       {
-        "AnswerText": "Sie reduzieren die Notwendigkeit für Tests.",
+        "AnswerText": "Sie reduzieren die Notwendigkeit f\u00FCr Tests.",
         "IsCorrect": false
       },
       {
-        "AnswerText": "Sie vermeiden jegliche Abhängigkeiten zwischen Komponenten.",
+        "AnswerText": "Sie vermeiden jegliche Abh\u00E4ngigkeiten zwischen Komponenten.",
         "IsCorrect": false
       }
     ]
   },
   {
-    "QuestionText": "Welches der folgenden Prinzipien hilft bei der Reduktion von Komplexität, indem es darauf abzielt, die einfachste Lösung für ein Problem umzusetzen?",
+    "QuestionText": "Welches der folgenden Prinzipien hilft bei der Reduktion von Komplexit\u00E4t, indem es darauf abzielt, die einfachste L\u00F6sung f\u00FCr ein Problem umzusetzen?",
     "Points": 1,
     "QuestionType": "Auswahl",
     "Header1": "",
     "Header2": "",
     "Answers": [
       {
-        "AnswerText": "DRY (Don't Repeat Yourself)",
+        "AnswerText": "DRY (Don\u0027t Repeat Yourself)",
         "IsCorrect": false
       },
       {
@@ -575,7 +575,7 @@
     ]
   },
   {
-    "QuestionText": "Was ist eine der Hauptfunktionen einer Referenzarchitektur in Bezug auf die Komplexitätsreduktion?",
+    "QuestionText": "Was ist eine der Hauptfunktionen einer Referenzarchitektur in Bezug auf die Komplexit\u00E4tsreduktion?",
     "Points": 1,
     "QuestionType": "Auswahl",
     "Header1": "",
@@ -586,21 +586,21 @@
         "IsCorrect": false
       },
       {
-        "AnswerText": "Sie macht verschiedene Typen von Softwareartefakten sichtbar und erklärt deren Zusammenspiel.",
+        "AnswerText": "Sie macht verschiedene Typen von Softwareartefakten sichtbar und erkl\u00E4rt deren Zusammenspiel.",
         "IsCorrect": true
       },
       {
-        "AnswerText": "Sie sorgt dafür, dass keine Änderungen während der Entwicklung notwendig sind.",
+        "AnswerText": "Sie sorgt daf\u00FCr, dass keine \u00C4nderungen w\u00E4hrend der Entwicklung notwendig sind.",
         "IsCorrect": false
       },
       {
-        "AnswerText": "Sie definiert die Hardwareanforderungen für alle Module.",
+        "AnswerText": "Sie definiert die Hardwareanforderungen f\u00FCr alle Module.",
         "IsCorrect": false
       }
     ]
   },
   {
-    "QuestionText": "Welches der folgenden Prinzipien sollte verwendet werden, um zu verhindern, dass unnötige Funktionalitäten vorzeitig implementiert werden?",
+    "QuestionText": "Welches der folgenden Prinzipien sollte verwendet werden, um zu verhindern, dass unn\u00F6tige Funktionalit\u00E4ten vorzeitig implementiert werden?",
     "Points": 1,
     "QuestionType": "Auswahl",
     "Header1": "",
@@ -611,11 +611,11 @@
         "IsCorrect": false
       },
       {
-        "AnswerText": "YAGNI (You Ain't Gonna Need It)",
+        "AnswerText": "YAGNI (You Ain\u0027t Gonna Need It)",
         "IsCorrect": true
       },
       {
-        "AnswerText": "DRY (Don't Repeat Yourself)",
+        "AnswerText": "DRY (Don\u0027t Repeat Yourself)",
         "IsCorrect": false
       },
       {
@@ -632,7 +632,7 @@
     "Header2": "",
     "Answers": [
       {
-        "AnswerText": "Die Verfügbarkeit von qualifiziertem Personal für die Entwicklung.",
+        "AnswerText": "Die Verf\u00FCgbarkeit von qualifiziertem Personal f\u00FCr die Entwicklung.",
         "IsCorrect": false
       },
       {
@@ -650,7 +650,7 @@
     ]
   },
   {
-    "QuestionText": "Wie sollten Softwarearchitekt:innen mit regulatorischen Randbedingungen umgehen?",
+    "QuestionText": "Wie sollten Softwarearchitekt:innen mit regulatorischen Randbedingungen umgehen? (zwei Antworten)",
     "Points": 2,
     "QuestionType": "Pick",
     "Header1": "",
@@ -661,15 +661,15 @@
         "IsCorrect": false
       },
       {
-        "AnswerText": "Sie berücksichtigen Datenschutzgesetze und lokale sowie internationale rechtliche Einschränkungen.",
+        "AnswerText": "Sie ber\u00FCcksichtigen Datenschutzgesetze und lokale sowie internationale rechtliche Einschr\u00E4nkungen.",
         "IsCorrect": true
       },
       {
-        "AnswerText": "Sie definieren neue gesetzliche Vorgaben für das Projekt.",
+        "AnswerText": "Sie definieren neue gesetzliche Vorgaben f\u00FCr das Projekt.",
         "IsCorrect": false
       },
       {
-        "AnswerText": "Sie prüfen vertragliche Haftungsfragen und Verpflichtungen zur Beweislast.",
+        "AnswerText": "Sie pr\u00FCfen vertragliche Haftungsfragen und Verpflichtungen zur Beweislast.",
         "IsCorrect": true
       }
     ]
@@ -690,7 +690,7 @@
         "IsCorrect": false
       },
       {
-        "AnswerText": "Persönliche Präferenzen einzelner Stakeholder.",
+        "AnswerText": "Pers\u00F6nliche Pr\u00E4ferenzen einzelner Stakeholder.",
         "IsCorrect": true
       },
       {
@@ -715,7 +715,7 @@
         "IsCorrect": true
       },
       {
-        "AnswerText": "Es zielt darauf ab, Anforderungen vollständig zu definieren, bevor Architekturentscheidungen getroffen werden.",
+        "AnswerText": "Es zielt darauf ab, Anforderungen vollst\u00E4ndig zu definieren, bevor Architekturentscheidungen getroffen werden.",
         "IsCorrect": false
       },
       {
@@ -725,14 +725,14 @@
     ]
   },
   {
-    "QuestionText": "Welche ZWEI der folgenden Maßnahmen hilft Softwarearchitekt:innen, Anforderungen und Randbedingungen zu klären?",
+    "QuestionText": "Welche ZWEI der folgenden Ma\u00DFnahmen hilft Softwarearchitekt:innen, Anforderungen und Randbedingungen zu kl\u00E4ren?",
     "Points": 1,
     "QuestionType": "Pick",
     "Header1": "",
     "Header2": "",
     "Answers": [
       {
-        "AnswerText": "Entwicklung eines klaren Verständnisses für funktionale und nicht funktionale Anforderungen.",
+        "AnswerText": "Entwicklung eines klaren Verst\u00E4ndnisses f\u00FCr funktionale und nicht funktionale Anforderungen.",
         "IsCorrect": true
       },
       {
@@ -740,11 +740,11 @@
         "IsCorrect": false
       },
       {
-        "AnswerText": "Identifizierung von Unklarheiten und Lücken in den Anforderungen.",
+        "AnswerText": "Identifizierung von Unklarheiten und L\u00FCcken in den Anforderungen.",
         "IsCorrect": true
       },
       {
-        "AnswerText": "Vollständige Umsetzung aller Anforderungen, ohne diese kritisch zu hinterfragen.",
+        "AnswerText": "Vollst\u00E4ndige Umsetzung aller Anforderungen, ohne diese kritisch zu hinterfragen.",
         "IsCorrect": false
       }
     ]
@@ -769,32 +769,32 @@
         "IsCorrect": false
       },
       {
-        "AnswerText": "Die physikalischen Einschränkungen der Hardwareplattform.",
+        "AnswerText": "Die physikalischen Einschr\u00E4nkungen der Hardwareplattform.",
         "IsCorrect": false
       }
     ]
   },
   {
-    "QuestionText": "Welche Verantwortung trägt eine Softwarearchitekt:in bei der Implementierung der Architektur?",
+    "QuestionText": "Welche Verantwortung tr\u00E4gt eine Softwarearchitekt:in bei der Implementierung der Architektur?",
     "Points": 1,
     "QuestionType": "Auswahl",
     "Header1": "",
     "Header2": "",
     "Answers": [
       {
-        "AnswerText": "Sicherstellen, dass die Architekturentscheidungen in der Implementierung berücksichtigt werden.",
+        "AnswerText": "Sicherstellen, dass die Architekturentscheidungen in der Implementierung ber\u00FCcksichtigt werden.",
         "IsCorrect": true
       },
       {
-        "AnswerText": "Erstellung aller Quellcodes eigenständig durchzuführen.",
+        "AnswerText": "Erstellung aller Quellcodes eigenst\u00E4ndig durchzuf\u00FChren.",
         "IsCorrect": false
       },
       {
-        "AnswerText": "Entscheidungen während der Implementierung an das Entwicklungsteam zu delegieren.",
+        "AnswerText": "Entscheidungen w\u00E4hrend der Implementierung an das Entwicklungsteam zu delegieren.",
         "IsCorrect": false
       },
       {
-        "AnswerText": "Überwachung der Projektfinanzen.",
+        "AnswerText": "\u00DCberwachung der Projektfinanzen.",
         "IsCorrect": false
       }
     ]
@@ -825,7 +825,7 @@
     ]
   },
   {
-    "QuestionText": "Welche zwei der folgenden Maßnahmen gehört zur Dokumentation von Architekturentscheidungen?",
+    "QuestionText": "Welche zwei der folgenden Ma\u00DFnahmen geh\u00F6rt zur Dokumentation von Architekturentscheidungen?",
     "Points": 1,
     "QuestionType": "Pick",
     "Header1": "",
@@ -836,28 +836,28 @@
         "IsCorrect": true
       },
       {
-        "AnswerText": "Einfache Erläuterung der Entscheidungen ohne jegliche Visualisierung.",
+        "AnswerText": "Einfache Erl\u00E4uterung der Entscheidungen ohne jegliche Visualisierung.",
         "IsCorrect": false
       },
       {
-        "AnswerText": "Dokumentation nur für das Entwicklungsteam zugänglich machen.",
+        "AnswerText": "Dokumentation nur f\u00FCr das Entwicklungsteam zug\u00E4nglich machen.",
         "IsCorrect": false
       },
       {
-        "AnswerText": "Aufnahme von Rückmeldungen der Stakeholder in die Dokumentation.",
+        "AnswerText": "Aufnahme von R\u00FCckmeldungen der Stakeholder in die Dokumentation.",
         "IsCorrect": true
       }
     ]
   },
   {
-    "QuestionText": "Wie können Softwarearchitekt:innen sicherstellen, dass Quellcode und Architektur konsistent sind?",
+    "QuestionText": "Wie k\u00F6nnen Softwarearchitekt:innen sicherstellen, dass Quellcode und Architektur konsistent sind? (Zwei Antworten)",
     "Points": 1,
     "QuestionType": "Pick",
     "Header1": "",
     "Header2": "",
     "Answers": [
       {
-        "AnswerText": "Durch regelmäßige Architekturprüfungen und Code-Reviews.",
+        "AnswerText": "Durch regelm\u00E4\u00DFige Architekturpr\u00FCfungen und Code-Reviews.",
         "IsCorrect": true
       },
       {
@@ -865,11 +865,11 @@
         "IsCorrect": false
       },
       {
-        "AnswerText": "Durch den Verzicht auf regelmäßige Abstimmungen mit dem Team.",
+        "AnswerText": "Durch den Verzicht auf regelm\u00E4\u00DFige Abstimmungen mit dem Team.",
         "IsCorrect": false
       },
       {
-        "AnswerText": "Durch begleitende Rückmeldungen während der Implementierung.",
+        "AnswerText": "Durch begleitende R\u00FCckmeldungen w\u00E4hrend der Implementierung.",
         "IsCorrect": true
       }
     ]
@@ -886,11 +886,11 @@
         "IsCorrect": false
       },
       {
-        "AnswerText": "Risiken in Bezug auf Qualität, Budget und Zeitplan.",
+        "AnswerText": "Risiken in Bezug auf Qualit\u00E4t, Budget und Zeitplan.",
         "IsCorrect": true
       },
       {
-        "AnswerText": "Erhöhte Motivation im Team.",
+        "AnswerText": "Erh\u00F6hte Motivation im Team.",
         "IsCorrect": false
       },
       {
@@ -907,19 +907,819 @@
     "Header2": "",
     "Answers": [
       {
-        "AnswerText": "Die Architektur gegenüber Stakeholdern argumentieren und erklären.",
+        "AnswerText": "Die Architektur gegen\u00FCber Stakeholdern argumentieren und erkl\u00E4ren.",
         "IsCorrect": true
       },
       {
-        "AnswerText": "Anforderungen und Randbedingungen klären und bei Bedarf verfeinern.",
+        "AnswerText": "Anforderungen und Randbedingungen kl\u00E4ren und bei Bedarf verfeinern.",
         "IsCorrect": true
       },
       {
-        "AnswerText": "Entscheidungen ausschließlich intern treffen, ohne externe Kommunikation.",
+        "AnswerText": "Entscheidungen ausschlie\u00DFlich intern treffen, ohne externe Kommunikation.",
         "IsCorrect": false
       },
       {
-        "AnswerText": "Finanzielle Entscheidungen für das Projekt treffen.",
+        "AnswerText": "Finanzielle Entscheidungen f\u00FCr das Projekt treffen.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Was ist der Unterschied zwischen einer Sicht (View) und einem Standpunkt (Viewpoint)?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Eine Sicht zeigt, wie ein System aus einer spezifischen Perspektive beschrieben wird, w\u00E4hrend ein Standpunkt die allgemeinen Prinzipien definiert, die dieser Perspektive zugrunde liegen.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Eine Sicht beschreibt die Architektur auf technischer Ebene, w\u00E4hrend ein Standpunkt nur auf organisatorischer Ebene existiert.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Eine Sicht zeigt die internen Details eines Systems, ein Standpunkt zeigt nur externe Schnittstellen.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Beide Begriffe sind synonym.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Sicht w\u00FCrde ein Fluglotse typischerweise auf ein System haben?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Fachliche Sicht auf Prozesse und Tarifierung.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Technische Sicht auf Routen, Wetterbedingungen und Reiseflugh\u00F6hen.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Detaillierte Sicht auf die internen Algorithmen eines Systems.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Sicht auf die Nutzerinteraktion mit der Software.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Was ist der Unterschied zwischen strategischen und taktischen Architekturentscheidungen?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Strategische Entscheidungen haben langfristige Auswirkungen, w\u00E4hrend taktische Entscheidungen kurzfristig orientiert sind.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Taktische Entscheidungen betreffen nur die Entwickler:innen, strategische Entscheidungen betreffen die Stakeholder.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Strategische Entscheidungen betreffen nur die Wahl der Programmiersprache, taktische Entscheidungen die Datenbank.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Es gibt keinen Unterschied zwischen strategischen und taktischen Entscheidungen.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Warum sollten Architekturentscheidungen dokumentiert werden?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Um die Architektur besser verkaufen zu k\u00F6nnen.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Um sp\u00E4ter nachvollziehen zu k\u00F6nnen, welche Alternativen abgewogen wurden und welche Anforderungen diese beeinflusst haben.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Um unn\u00F6tige Diskussionen mit dem Entwicklungsteam zu vermeiden.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Weil Dokumentation gesetzlich vorgeschrieben ist.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche der folgenden Eigenschaften ist kein typisches Qualit\u00E4tsmerkmal einer Softwarearchitektur?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Skalierbarkeit.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Bedienbarkeit.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Dokumentationsumfang.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Wartbarkeit.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Wie kann eine Architektur zur Erreichung hoher Zuverl\u00E4ssigkeit beitragen? (zwei Antworten)",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Durch die Anwendung von Stabilit\u00E4tsmustern wie Circuit Breaker.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Durch Verzicht auf Tests in fr\u00FChen Entwicklungsphasen.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Durch klare Trennung von Verantwortlichkeiten.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Durch das Implementieren eines monolithischen Ansatzes.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche zwei technologischen Randbedingungen sollten bei der Architektur eines verteilten Systems ber\u00FCcksichtigt werden?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Bestehende oder geplante Hardware- und Software-Infrastruktur.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Lokale Datenschutzgesetze.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Technologische Beschr\u00E4nkungen f\u00FCr Datenstrukturen und Schnittstellen.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Pers\u00F6nliche Pr\u00E4ferenzen der Entwickler:innen.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche regulatorischen Randbedingungen k\u00F6nnen die Architektur eines Cloud-nativen Systems beeinflussen?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Referenzarchitekturen.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Datenschutzgesetze wie DSGVO.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Programmiersprachenstandards.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Budgetplanung.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Was ist der Hauptvorteil einer Referenzarchitektur?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Sie eliminiert die Notwendigkeit, Architekturentscheidungen zu treffen.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Sie dient als Vorlage, um typische Probleme zu l\u00F6sen und das Zusammenspiel verschiedener Softwareartefakte sichtbar zu machen.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Sie reduziert die Kosten f\u00FCr die Entwicklung neuer Systeme auf null.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Sie ersetzt die gesamte Dokumentation im Projekt.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Aussage beschreibt ein Cloud-natives System korrekt?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Es nutzt monolithische Architekturen zur Reduktion von Abh\u00E4ngigkeiten.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Es basiert auf unabh\u00E4ngigen Microservices und nutzt Containerisierung.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Es erfordert keine Automatisierung in der Bereitstellung und \u00DCberwachung.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Es ist vollst\u00E4ndig unabh\u00E4ngig von Cloud-Diensten.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Warum ist die Architektur bei KI/ML-Systemen besonders wichtig?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Sie bestimmt die Geschwindigkeit, mit der Modelle trainiert werden k\u00F6nnen.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Sie erlaubt es, Trainingseffizienz und Datenverarbeitung durch geeignete Schichten zu maximieren.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Sie reduziert die Anforderungen an Datenqualit\u00E4t.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Sie verhindert den Einsatz von Cloud-Technologien.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Eigenschaft kann laut dem CAP-Theorem in einem verteilten System nicht gleichzeitig mit den anderen beiden Eigenschaften garantiert werden?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Konsistenz.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Modularit\u00E4t.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Verf\u00FCgbarkeit.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Partitionstoleranz.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche zwei methoden unterst\u00FCtzen die Bewertung der Qualit\u00E4t einer Softwarearchitektur?",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Prototyping zur Validierung der wichtigsten Architekturentscheidungen.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Regelm\u00E4\u00DFige Lasttests und Architekturreviews.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Reduktion der Dokumentation zur Minimierung von Analysezeit.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Verzicht auf R\u00FCckmeldungen von Stakeholdern.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Warum sind Architekturreviews ein wichtiger Bestandteil der Qualit\u00E4tssicherung?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Sie verhindern jegliche Fehler in der Implementierung.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Sie helfen, Schwachstellen fr\u00FChzeitig zu erkennen und zu beheben.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Sie ersetzen die Dokumentation der Architektur.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Sie werden nur f\u00FCr Marketingzwecke verwendet.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Modelle eignen sich zur Darstellung technischer Schnittstellen in der Architektur?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Blackbox- und Whitebox-Sichten.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "SWOT-Analysen.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Kosten-Nutzen-Diagramme.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Projektmanagement-Charts.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Warum sind Architektursichten wichtig f\u00FCr die Kommunikation mit Stakeholdern? (zwei antworten)",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Sie erm\u00F6glichen die Visualisierung spezifischer Anliegen einzelner Stakeholder.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Sie reduzieren die Komplexit\u00E4t durch gezielte Abstraktion.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Sie eliminieren die Notwendigkeit von Diskussionen \u00FCber Anforderungen.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Sie erm\u00F6glichen detaillierte Finanzanalysen.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Wie unterscheidet sich eine Gesch\u00E4ftsprozessarchitektur von einer Softwarearchitektur?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Eine Gesch\u00E4ftsprozessarchitektur beschreibt die technischen Details von IT-Systemen.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Eine Gesch\u00E4ftsprozessarchitektur fokussiert auf Abl\u00E4ufe und betriebliche Funktionen, nicht auf technische Implementierungen.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Beide sind identisch in ihrer Definition und Anwendung.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Eine Gesch\u00E4ftsprozessarchitektur betrachtet ausschlie\u00DFlich Datenfl\u00FCsse.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Rolle spielt die Unternehmens-IT-Architektur in der Softwareentwicklung?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Sie definiert die Programmiersprachenstandards.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Sie sorgt f\u00FCr die Abstimmung zwischen Business-Strategie und IT-Landschaft.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Sie ersetzt die detaillierte Architekturplanung auf Projektebene.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Sie dient ausschlie\u00DFlich der Dokumentation von Netzwerktopologien.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche besonderen Anforderungen haben Batch-Systeme an die Architektur?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Hohe Echtzeitanforderungen.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Optimierung f\u00FCr Verarbeitung gro\u00DFer Datenmengen au\u00DFerhalb der Hauptnutzungszeit.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Minimaler Speicherverbrauch.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Fokus auf interaktive Benutzeroberfl\u00E4chen.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Was ist ein typisches Merkmal eines mobilen Systems?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Hohe Interaktionsanforderungen und h\u00E4ufige Synchronisation mit station\u00E4ren Systemen.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Verarbeitung gro\u00DFer Datenmengen in Batch-Jobs.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Nutzung von monolithischen Architekturen.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Keine Notwendigkeit f\u00FCr Offline-Funktionalit\u00E4t.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Warum ist die Anpassung des Detailgrads von Architekturbeschreibungen an das Publikum wichtig? (zwei antworten)",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Um sicherzustellen, dass unterschiedliche Stakeholder die Architektur verstehen und akzeptieren.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Um komplexe Themen effizienter zu kommunizieren.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Um technische Diskussionen zu vermeiden.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Um R\u00FCckmeldungen und Verbesserungsvorschl\u00E4ge zu f\u00F6rdern.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Kommunikationsmittel k\u00F6nnen Softwarearchitekt:innen nutzen, um ihre Entscheidungen zu vermitteln?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Sichten und Architekturmodelle.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Pers\u00F6nliche Pr\u00E4ferenzen und Meinungen.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Finanzberichte und Marketingmaterial.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Verzicht auf technische Visualisierungen.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Methode ist besonders geeignet, um Architekturentscheidungen iterativ zu validieren? (zwei Antworten)",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Prototyping zur \u00DCberpr\u00FCfung kritischer Architekturentscheidungen.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Code-Refactoring w\u00E4hrend der Implementierungsphase.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Architektur-Reviews durch ein unabh\u00E4ngiges Team.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Reduzierung der Anforderungen, um Tests zu minimieren.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Wie k\u00F6nnen Lasttests die Qualit\u00E4t einer Softwarearchitektur sichern?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Durch Validierung der Performance unter realistischen Bedingungen.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Durch Reduzierung der ben\u00F6tigten Dokumentation.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Durch Vermeidung der Nutzung von Monitoring-Tools.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Indem sie Anforderungen an Hardware ignorieren.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Was ist ein Risiko von zu fr\u00FChen Architekturentscheidungen in agilen Projekten?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Einschr\u00E4nkung der Flexibilit\u00E4t bei sich \u00E4ndernden Anforderungen.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Verbesserung der Time-to-Market.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Reduktion von Unsicherheiten im Entwicklungsprozess.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "F\u00F6rderung der Zusammenarbeit zwischen Teams.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Wie k\u00F6nnen iterative Entwicklungsmethoden die Architekturqualit\u00E4t verbessern? (zwei Antworten)",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Durch regelm\u00E4\u00DFiges Einholen von Feedback zu Architekturentscheidungen.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Durch die Vermeidung von Dokumentation in fr\u00FChen Projektphasen.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Durch gezielte Anpassung der Architektur an ge\u00E4nderte Anforderungen.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Durch vollst\u00E4ndigen Verzicht auf Prototyping.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Architektursicht eignet sich am besten, um die Performance eines Systems zu bewerten?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Die technische Sicht, da sie die Interaktionen zwischen Bausteinen und Schnittstellen zeigt.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Die fachliche Sicht, da sie die Nutzerbed\u00FCrfnisse beschreibt.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Die organisatorische Sicht, da sie die Teamstrukturen reflektiert.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Die modulare Sicht, da sie die Kostenstruktur eines Systems darstellt.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Wie k\u00F6nnen Blackbox- und Whitebox-Sichten zusammen die Architekturqualit\u00E4t unterst\u00FCtzen?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Blackbox-Sichten f\u00F6rdern die Verst\u00E4ndlichkeit durch Abstraktion.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Whitebox-Sichten zeigen detaillierte technische Abl\u00E4ufe und Abh\u00E4ngigkeiten.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Beide Sichten verhindern vollst\u00E4ndig die Notwendigkeit von Tests.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Beide Sichten minimieren die Interaktion mit Stakeholdern.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Ma\u00DFnahmen k\u00F6nnen die Zusammenarbeit zwischen Softwarearchitekt:innen und Tester:innen f\u00F6rdern?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Gemeinsame Definition von Testkriterien basierend auf Architekturentscheidungen.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Bereitstellung von Prototypen zur Validierung der Testbarkeit.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Verzicht auf detaillierte Testszenarien, um Zeit zu sparen.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Reduzierung der Testabdeckung zugunsten schnellerer Entwicklung.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Wie k\u00F6nnen Softwarearchitekt:innen sicherstellen, dass Stakeholder in Qualit\u00E4tssicherungsma\u00DFnahmen einbezogen werden?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Durch regelm\u00E4\u00DFige Workshops und Architektur-Reviews.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Durch vollst\u00E4ndigen Verzicht auf Stakeholder-Feedback.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Durch ausschlie\u00DFliche Dokumentation technischer Details.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Durch Minimierung der Interaktionen w\u00E4hrend der Implementierung.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Wie beeinflussen strategische Architekturentscheidungen die langfristige Qualit\u00E4t eines Systems?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Sie legen die Basis f\u00FCr Skalierbarkeit und Wartbarkeit.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Sie k\u00F6nnen die Flexibilit\u00E4t des Systems einschr\u00E4nken, wenn Anforderungen sich \u00E4ndern.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Sie vermeiden vollst\u00E4ndig die Notwendigkeit zuk\u00FCnftiger Anpassungen.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Sie reduzieren den Aufwand f\u00FCr Prototyping und Tests.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "arum ist es wichtig, Architekturentscheidungen in der Dokumentation explizit zu machen, insbesondere in Bezug auf nicht-funktionale Anforderungen?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Um Missverst\u00E4ndnisse zwischen Stakeholdern zu vermeiden.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Um sicherzustellen, dass Anforderungen wie Performance und Sicherheit messbar bleiben.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Um den Entwicklungsaufwand f\u00FCr das Team zu minimieren.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Um Diskussionen zwischen Teams zu vermeiden.",
         "IsCorrect": false
       }
     ]

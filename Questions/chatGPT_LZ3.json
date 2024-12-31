@@ -1,0 +1,1711 @@
+[
+  {
+    "QuestionText": "Welche Qualit\u00E4tsmerkmale sollte eine technische Dokumentation aufweisen, um von der Zielgruppe akzeptiert zu werden? (4 Antworten)",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Zielgruppenad\u00E4quat",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Korrektheit",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Verst\u00E4ndlichkeit",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Angemessenheit und Effizienz",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Modularit\u00E4t der Software",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Redundanzfreiheit",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Warum ist Dokumentation f\u00FCr Softwarearchitekturen wichtig?",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Sie erm\u00F6glicht die Einhaltung konzeptioneller Integrit\u00E4t.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Sie ersetzt den Quellcode vollst\u00E4ndig als Referenz.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Sie dient als Kommunikationsmittel zwischen Stakeholdern.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Sie hilft, Soll-/Ist-Abgleiche durchzuf\u00FChren.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Sie garantiert, dass keine Fehler in der Umsetzung entstehen.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Faktoren beeinflussen die Eigenschaften von Architekturdokumentation?",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Systemanforderungen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Entwicklungsprozess",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Organisatorische Vorgaben",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Pers\u00F6nliche Pr\u00E4ferenzen der Architekten",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Risiken und Qualit\u00E4tsanforderungen",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Methoden k\u00F6nnen verwendet werden, um Zielgruppen in der Architekturdokumentation zu ber\u00FCcksichtigen? (4 Antworten)",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Verwendung von Templates/Schablonen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Anpassung des Detaillierungsgrads",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Fokus auf visuelle Darstellungen (Diagramme)",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Vernachl\u00E4ssigung von Stakeholder-Interessen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Kombination aus m\u00FCndlicher und schriftlicher Kommunikation",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche UML-Diagrammtypen sind f\u00FCr die Beschreibung von Softwarearchitekturen relevant? (3 Antworten)",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Klassendiagramm",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Verteilungsdiagramm",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Sequenzdiagramm",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Objektdiagramm",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Use-Case-Diagramm",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Alternativen zur UML k\u00F6nnen verwendet werden, um Softwarearchitektur zu beschreiben?",
+    "Points": 3,
+    "QuestionType": "Kreuz",
+    "Header1": "alternative",
+    "Header2": "keine alternative",
+    "Answers": [
+      {
+        "AnswerText": "ArchiMate",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "BPMN",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Flowcharts",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "PlantUML",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "ER-Modelle",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Sichten geh\u00F6ren zu den Basis-Architektursichten?",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Kontextsicht",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Bausteinsicht",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Laufzeitsicht",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Verteilungssicht",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Prozesssicht",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Was beschreibt die Kontextsicht einer Architektur?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "System als Blackbox",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Dynamische Abl\u00E4ufe des Systems",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Technische Umgebung und Schnittstellen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Interaktionen zwischen Bausteinen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Risiken und Unsicherheiten im System",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Aspekte sollten in einem Kontextdiagramm dargestellt werden?",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Externe Systeme und Akteure",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Schnittstellen zur Au\u00DFenwelt",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Systeminterne Prozesse",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Fachlicher und technischer Kontext",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Schritte geh\u00F6ren zur Dokumentation von Querschnittskonzepten?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Identifikation relevanter Themen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Priorisierung der Themen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Konzeption und Dokumentation",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Ignorieren technischer Unsicherheiten",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Was sollte eine Schnittstellendokumentation nicht enthalten?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Funktionsbeschreibung",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Syntax und Semantik",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Fehlerbehandlung",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Beispiele f\u00FCr die Nutzung",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Pers\u00F6nliche Notizen des Entwicklers",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Bestandteile geh\u00F6ren zu einem Architecture Decision Record (ADR)?",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Titel",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Kontext",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Entscheidung",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Historie der Entscheidung",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Konsequenzen",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Warum ist die Dokumentation von Architekturentscheidungen wichtig?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Sie erh\u00F6ht die Nachvollziehbarkeit.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Sie ersetzt die Notwendigkeit von Code-Kommentaren.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Sie unterst\u00FCtzt das Stakeholder-Management.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Sie erleichtert k\u00FCnftige \u00C4nderungen und Erweiterungen.",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche DREI Faktoren beeinflussen die Verst\u00E4ndlichkeit einer technischen Dokumentation?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Einheitliche Begriffsverwendung",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Verwendung von Diagrammen und Abbildungen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Zielgerichtete Modularit\u00E4t des Systems",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Feedback von Stakeholdern",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Vermeidung jeglicher technischer Fachbegriffe",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Regel sollte f\u00FCr die Strukturierung von Diagrammen in der Dokumentation angewendet werden?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Maximal 7 \u002B/- 2 Elemente pro Diagramm",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Nur standardisierte Notationen verwenden",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "M\u00F6glichst viele Details aufnehmen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Diagramme als einzige Quelle f\u00FCr Informationen nutzen",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Zielgruppen profitieren besonders von einer templatebasierten Architekturdokumentation?",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Entwickler:innen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Projektleiter:innen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Tester:innen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Management",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Kund:innen",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Was ist ein wesentlicher Vorteil der Verwendung von Templates f\u00FCr die Dokumentation?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Reduzierung des Arbeitsaufwands",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Einheitlichkeit der Dokumentation",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Verbesserung der Navigierbarkeit",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Vollst\u00E4ndige Automatisierung des Dokumentationsprozesses",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welches ZWEI Modellierungsmittel eignen sich besonders f\u00FCr die Beschreibung dynamischer Systemabl\u00E4ufe?",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Sequenzdiagramme",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Klassendiagramme",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Verteilungsdiagramme",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Aktivit\u00E4tsdiagramme",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Modellierungsmethoden k\u00F6nnen anstelle der UML f\u00FCr Laufzeitsichten verwendet werden?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "BPMN",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Textuelle Beschreibung",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "ArchiMate",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Entity-Relationship-Diagramme",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Aspekte sollten in einer Laufzeitsicht dargestellt werden?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Interaktionen zwischen Bausteinen zur Laufzeit",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Ablaufdiagramme der Gesch\u00E4ftsprozesse",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Zustands\u00E4nderungen von Bausteinen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Hardwarekomponenten des Systems",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Was ist der Hauptzweck der Verteilungssicht in der Softwarearchitektur?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Darstellung der statischen Struktur von Bausteinen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Beschreibung der Zuordnung von Softwareartefakten zu Hardwarekomponenten",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Modellierung von Zustands\u00E4nderungen in den Bausteinen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Definition von Softwareentwicklungsrichtlinien",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche ZWEI Typen von Kontextdiagrammen sind relevant?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Technischer Systemkontext",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Fachlicher Systemkontext",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Prozesskontext",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Organisatorischer Kontext",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche DREI Risiken sollten in einer Kontextsicht analysiert werden?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Systeme mit hoher \u00C4nderungsrate",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Technisch komplexe Umsysteme",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Fachlich irrelevante Schnittstellen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Systeme mit strengen Qualit\u00E4tsanforderungen",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche VIER Querschnittskonzepte sind in der Softwarearchitektur besonders relevant?",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Persistenz",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Ablaufsteuerung",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Benutzeroberfl\u00E4chen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Sicherheitsanforderungen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Hardwarebeschaffung",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Was beschreibt das Vier-Quadranten-Modell f\u00FCr die Dokumentation von Querschnittskonzepten?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Aufgabenstellung und Kontext",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "L\u00F6sung und Anwendung",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Zukunftsvision und Alternativen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Fehleranalyse und Abh\u00E4ngigkeiten",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Arten von Schnittstellen sollten in einer Softwarearchitektur dokumentiert werden?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Externe Schnittstellen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Interne Schnittstellen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Dynamische Schnittstellen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Kontextabh\u00E4ngige Schnittstellen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Infrastruktur-Schnittstellen",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Qualit\u00E4tsmerkmale k\u00F6nnen bei der Dokumentation von Schnittstellen ber\u00FCcksichtigt werden?",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Antwortzeit",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Sicherheit",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Fehlertoleranz",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Skalierbarkeit",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Modularit\u00E4t",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche VIER Informationen geh\u00F6ren zu einer vollst\u00E4ndigen Schnittstellenbeschreibung laut der Schablone?",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Interaktionen (Funktion/Methode und Nachrichten-Payload)",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Datentypen und Konstanten",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Konfigurationsm\u00F6glichkeiten der Schnittstelle",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Eine historische \u00DCbersicht aller \u00C4nderungen an der Schnittstelle",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Qualit\u00E4tsmerkmale wie Antwortzeit und Sicherheit",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Schritte geh\u00F6ren zur Anwendung des Vier-Quadranten-Modells nach Vigenschow?",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Kontext und Einflussfaktoren beschreiben",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Beschreibung der Zukunftsvorstellung des Konzepts",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Konzeption eines zentralisierten Architekturmodells",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Darstellung der Relevanz f\u00FCr Qualit\u00E4tsziele und Anforderungen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Bereitstellung von Beispielcode und Tutorials",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche technischen Aspekte sind typische Querschnittskonzepte?",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Protokollierung (Logging)",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Sicherheitskonzepte",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Ablaufsteuerung",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Hardwareverwaltung",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Datenpersistenz",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Bestandteile sollte ein Architecture Decision Record (ADR) enthalten?",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Titel",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Status",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Budget des Projekts",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Konsequenzen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Kontext der Entscheidung",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche typischen Fragestellungen werden bei Architekturentscheidungen behandelt?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Make-or-Buy-Entscheidungen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Integration von Umsystemen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Auswahl der Entwicklungsumgebung",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "L\u00F6sung von Querschnittsthemen wie Logging und Caching",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Vorteile bietet ArchiMate als Modellierungssprache im Vergleich zu UML?",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "H\u00F6here Abstraktionsebene f\u00FCr Enterprise-Architektur",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Integration von Laufzeitsichten mit dynamischen Prozessen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Bessere Unterst\u00FCtzung f\u00FCr technische Details von Softwarebausteinen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Unterst\u00FCtzung f\u00FCr flussbasierte Diagramme",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Was unterscheidet Modellierung von Dokumentation?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Modellierung erfolgt vor oder w\u00E4hrend der Implementierung, Dokumentation danach.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Dokumentation wird iterativ verbessert, Modellierung bleibt statisch.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Dokumentation vermittelt Probleml\u00F6sungen, Modellierung experimentiert mit L\u00F6sungsans\u00E4tzen.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Dokumentation nutzt ausschlie\u00DFlich Text, Modellierung ausschlie\u00DFlich Diagramme.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Was zeigt ein Kontextdiagramm in der Architektur?",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "System als Blackbox und seine Umgebung",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Alle internen Softwarebausteine eines Systems",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Technische und fachliche Schnittstellen zu externen Systemen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Hardware-Komponenten des Systems",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Inhalte geh\u00F6ren typischerweise in eine Verteilungssicht?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Die Verteilung von Softwareartefakten auf physische Hardware",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Verbindungen zwischen Standorten und Prozessoren",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Ablaufbeschreibungen f\u00FCr Benutzerinteraktionen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Qualit\u00E4ts- und Leistungsmerkmale der Infrastruktur",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Wie k\u00F6nnen Unsicherheiten in der Kontextsicht dokumentiert werden?",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Beschreibung von Variabilit\u00E4ten und Konfigurationsm\u00F6glichkeiten",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Auslassen von riskanten Schnittstellen, um Verwirrung zu vermeiden",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Erg\u00E4nzung durch Annahmen und Ergebnisse von Prototypen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Nutzung standardisierter Schablonen f\u00FCr \u00C4nderungen",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Kriterien sollten bei der Risikoanalyse von Schnittstellen ber\u00FCcksichtigt werden?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Fachliche und technische Komplexit\u00E4t",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Hohe \u00C4nderungsraten von Umsystemen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Vorhandensein eines Service Level Agreements",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Anzahl der Benutzer des Systems",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Was zeichnet das arc42-Framework f\u00FCr Architekturdokumentation aus?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Fokus auf eine Checkliste statt vollst\u00E4ndige Dokumentation",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Kostenlos verf\u00FCgbar in unterschiedlichen Formaten",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Konzentration auf rein technische Inhalte ohne Stakeholder-Bedarf",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Unterst\u00FCtzung der Zielgruppen-Optimierung von Dokumenten",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Sichten bietet das arc42-Framework?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Kontextsicht",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Bausteinsicht",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Prozesssicht",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Verteilungssicht",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Zielgruppe hat prim\u00E4r Interesse an der Dokumentation technischer Details wie Architekturentscheidungen und Schnittstellen?",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Projektleiter:innen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Entwickler:innen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Management",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Betrieb",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Tester:innen",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Was sind typische Interessen des Managements in der Architekturdokumentation?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Nachvollziehbarkeit von Entscheidungen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Detaillierte technische Spezifikationen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Verst\u00E4ndnis f\u00FCr das gro\u00DFe Ganze der L\u00F6sung",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Pr\u00FCfung von Einflussfaktoren",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Dokumentationsformate sind besonders geeignet, um die Bed\u00FCrfnisse von Projektleiter:innen zu erf\u00FCllen?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Technische Berichte",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Architekturtapeten",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Kurzberichte (\u003C30 Seiten)",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Pr\u00E4sentationen (\u003C60 Minuten)",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Architektursicht zeigt die Verbindungen zwischen Softwarebausteinen und der Hardware, auf der sie ausgef\u00FChrt werden?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Kontextsicht",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Laufzeitsicht",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Bausteinsicht",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Verteilungssicht",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Elemente sollten in der Bausteinsicht beschrieben werden?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Beziehungen und Abh\u00E4ngigkeiten zwischen Bausteinen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Interaktionen zwischen externen und internen Systemen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Dynamische Abl\u00E4ufe von Prozessen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Schnittstellen der Bausteine",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Vorteile bietet die Kontextsicht f\u00FCr Stakeholder?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Sie zeigt die Systemumgebung als Blackbox.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Sie erm\u00F6glicht eine klare Abgrenzung von Verantwortlichkeiten.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Sie beschreibt detaillierte interne Abl\u00E4ufe.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Sie f\u00F6rdert das Verst\u00E4ndnis f\u00FCr technische Risiken.",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Was bedeutet der Ansatz \u0022Document Continuously\u0022?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Dokumentation und Entwicklung sind eng verzahnt.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Alle Details m\u00FCssen zu Projektbeginn dokumentiert sein.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Dokumentation wird schrittweise in jeder Iteration aktualisiert.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Nur zentrale Elemente werden dokumentiert.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Regel sollte bei der Erstellung von Diagrammen beachtet werden, um die Wartbarkeit zu verbessern?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Keine redundanten Informationen aufnehmen.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Alle Details unabh\u00E4ngig vom Risiko darstellen.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Komplexe Diagramme vermeiden, um Lesbarkeit zu f\u00F6rdern.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Diagramme durch kurze Texte erg\u00E4nzen.",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Wechselwirkungen bestehen typischerweise zwischen Laufzeitsicht und Bausteinsicht?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Laufzeitsicht zeigt ineffiziente Abl\u00E4ufe, die eine Anpassung der Bausteinsicht erfordern k\u00F6nnen.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Bausteinsicht wird automatisch aus der Laufzeitsicht abgeleitet.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Laufzeitsicht zeigt die Abbildung der Software auf Hardware.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Bausteinsicht definiert, welche Bausteine zur Laufzeit interagieren.",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Wie k\u00F6nnen \u00C4nderungen in einer Sicht eine andere beeinflussen?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "\u00C4nderungen in der Kontextsicht wirken sich direkt auf die Verteilungssicht aus.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "\u00C4nderungen an Schnittstellen in der Bausteinsicht beeinflussen Laufzeitmodelle.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "\u00C4nderungen in der Verteilungssicht bestimmen die Anforderungen an UML-Diagramme.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "\u00C4nderungen in der Laufzeitsicht haben keine Auswirkungen auf andere Sichten.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Anforderungen sollte eine zielgruppenorientierte Dokumentation erf\u00FCllen?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Zielgruppenad\u00E4quate Inhalte bereitstellen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Einheitliche Begriffe und Definitionen verwenden",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "\u00DCbersichtliche und klare Diagramme bereitstellen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Detaillierte technische Spezifikationen f\u00FCr jede Zielgruppe einf\u00FCgen",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche ZWEI Stakeholder profitieren am meisten von einer Pr\u00E4sentation der Architektur in Form von Diagrammen?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Management",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Entwickler:innen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Tester:innen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Kund:innen",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Strukturdiagramme geh\u00F6ren zur Unified Modeling Language (UML)?",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Klassendiagramm",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Komponentendiagramm",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Verteilungsdiagramm",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Sequenzdiagramm",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Modellierungsalternative unterst\u00FCtzt die Beschreibung von Abl\u00E4ufen in Gesch\u00E4ftsprozessen besonders gut?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "ArchiMate",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "UML",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "BPMN",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Entity-Relationship-Model",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Werkzeuge eignen sich f\u00FCr Documentation as Code?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Markdown",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "PlantUML",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Wiki-Systeme wie Confluence",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Miro",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Vorteile bietet das arc42-Framework?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Es ist kostenlos verf\u00FCgbar.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Es bietet Checklisten f\u00FCr zielgruppenorientierte Inhalte.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Es ersetzt alle anderen Frameworks vollst\u00E4ndig.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Es hilft, Stakeholder-gerechte Dokumentation zu strukturieren.",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Wie beeinflusst die Kontextsicht die Dokumentation von Schnittstellen?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Sie definiert die externen Schnittstellen eines Systems.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Sie beschreibt detailliert die internen Schnittstellen zwischen Bausteinen.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Sie identifiziert externe Systeme und Akteure, die Schnittstellen erfordern.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Sie spezifiziert technische Anforderungen an die interne Kommunikation.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Sichten tragen zur Definition von Schnittstellen und deren Dokumentation bei?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Kontextsicht f\u00FCr externe Schnittstellen.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Bausteinsicht f\u00FCr interne Schnittstellen.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Laufzeitsicht f\u00FCr dynamische Interaktionen zwischen Bausteinen.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Verteilungssicht f\u00FCr Schnittstellen zwischen Hardwarekomponenten.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Architektursicht ist besonders relevant f\u00FCr folgende Stakeholder? Entwickler:innen:",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Kontextsicht",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Laufzeitsicht",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Bausteinsicht",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Verteilungssicht",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Architektursicht ist besonders relevant f\u00FCr folgende Stakeholder? Management",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Kontextsicht",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Verteilungssicht",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Kurzberichte oder Architekturtapeten",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Bausteinsicht",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Wie unterst\u00FCtzt die Bausteinsicht das Management und die Entwickler:innen?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Sie bietet technische Details f\u00FCr Entwickler:innen.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Sie liefert eine Blackbox-Perspektive f\u00FCr das Management.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Sie dokumentiert Risiken und Abh\u00E4ngigkeiten zwischen Bausteinen.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Sie stellt die Grundlage f\u00FCr die Verteilungssicht dar.",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Sichten eignen sich zur Dokumentation von Querschnittskonzepten?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Bausteinsicht f\u00FCr die Implementierung von Logging oder Persistenz.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Kontextsicht zur Darstellung externer Protokollierungsanforderungen.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Laufzeitsicht f\u00FCr Ablaufsteuerung und Performance-Aspekte.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Verteilungssicht zur Ber\u00FCcksichtigung von Sicherheit und Datenverf\u00FCgbarkeit.",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Wie beeinflussen Querschnittskonzepte wie Logging die Laufzeitsicht?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Sie zeigen, welche Informationen Bausteine austauschen m\u00FCssen.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Sie definieren technische Protokolle f\u00FCr externe Kommunikation.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Sie optimieren Abl\u00E4ufe durch einheitliche Fehlerprotokollierung.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Sie reduzieren die Komplexit\u00E4t von Schnittstellenbeschreibungen.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Wie beeinflusst die Zielgruppenorientierung die Wahl der Dokumentationsmethoden?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Entwickler:innen profitieren von detaillierten Schnittstellendokumenten.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Tester:innen ben\u00F6tigen detaillierte Ablaufdiagramme aus der Laufzeitsicht.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Management bevorzugt Diagramme mit minimalen technischen Details.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Betrieb ben\u00F6tigt spezifische Dokumentation zur Verteilungssicht.",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Aussagen zu den Qualit\u00E4tsmerkmalen einer Dokumentation und deren Einfluss auf die Akzeptanz bei Stakeholdern sind zutreffend?",
+    "Points": 2,
+    "QuestionType": "Kreuz",
+    "Header1": "richtig",
+    "Header2": "falsch",
+    "Answers": [
+      {
+        "AnswerText": "Korrektheit erh\u00F6ht die Fehlerfreiheit in der Umsetzung.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Verst\u00E4ndlichkeit erleichtert das Feedback von Stakeholdern.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Zielgruppenad\u00E4quatheit f\u00F6rdert die Nutzung durch Management.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Redundanzfreiheit senkt die \u00C4nderungsaufw\u00E4nde.",
+        "IsCorrect": true
+      }
+    ]
+  }
+]

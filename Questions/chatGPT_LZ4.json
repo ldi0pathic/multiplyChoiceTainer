@@ -1,0 +1,1110 @@
+[
+  {
+    "QuestionText": "Welches der folgenden Qualit\u00E4tsmerkmale wird nicht durch die DIN ISO/IEC 25010 definiert?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Funktionale Eignung",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Zuverl\u00E4ssigkeit",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Skalierbarkeit",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Gebrauchtauglichkeit",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "\u00DCbertragbarkeit",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Informationssicherheit",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Aussage \u00FCber Wechselwirkungen zwischen Qualit\u00E4tsmerkmalen ist korrekt?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Konfigurierbarkeit kann die Zuverl\u00E4ssigkeit negativ beeinflussen.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "H\u00F6here Leistungseffizienz erfordert immer mehr Speicher.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Analysierbarkeit verschlechtert immer die Interoperabilit\u00E4t.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Sicherheit kann die Benutzbarkeit einschr\u00E4nken.",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Methode wird zur Kl\u00E4rung und Dokumentation von Qualit\u00E4tsanforderungen empfohlen?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Qualit\u00E4tsbaum",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Qualit\u00E4tsszenarien",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Architekturentscheidungen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Statische Analyse",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche ZWEI der folgenden Aussagen zu Qualit\u00E4tsszenarien ist korrekt?",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Qualit\u00E4tsszenarien sind spezifisch und fokussieren auf nicht-funktionale Anforderungen.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Qualit\u00E4tsszenarien beschreiben Architekturziele abstrakt und allgemein.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Qualit\u00E4tsszenarien konkretisieren Qualit\u00E4tsmerkmale wie Effizienz oder Zuverl\u00E4ssigkeit.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Qualit\u00E4tsszenarien sind keine Grundlage f\u00FCr Architekturbewertungen.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Methode wird h\u00E4ufig f\u00FCr die qualitative Architekturbewertung verwendet?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "ATAM (Architecture Tradeoff Analysis Method)",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Szenariobasierte Analyse",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Funktionale Tests",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Prototyping",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Informationen sind hilfreich f\u00FCr die qualitative Analyse einer Softwarearchitektur?",
+    "Points": 2,
+    "QuestionType": "Kreuz",
+    "Header1": "hilfreich",
+    "Header2": "nicht hilfreich",
+    "Answers": [
+      {
+        "AnswerText": "Quellcode und Metriken",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Architektur- und Entwurfsmodelle",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Qualit\u00E4tsanforderungen in Form von Qualit\u00E4tsb\u00E4umen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Automatisierte Testberichte",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Aussage zu quantitativer Bewertung ist korrekt?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Quantitative Bewertung zeigt, warum ein Problem besteht.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Quantitative Bewertung ben\u00F6tigt messbare Artefakte.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Die statische Codeanalyse ist eine Methode zur qualitativen Bewertung.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Architekturmetriken wie zyklomatische Komplexit\u00E4t k\u00F6nnen automatisiert ermittelt werden.",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Qualit\u00E4tsmetriken werden typischerweise in der Codeanalyse verwendet?",
+    "Points": 2,
+    "QuestionType": "Kreuz",
+    "Header1": "verwendet",
+    "Header2": "nicht verwendet",
+    "Answers": [
+      {
+        "AnswerText": "Zyklomatische Komplexit\u00E4t",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Lines of Code (LOC)",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Kognitive Komplexit\u00E4t",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "\u00C4nderungsfrequenz",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Qualit\u00E4tsmerkmale stehen oft in einem Zielkonflikt zueinander?",
+    "Points": 2,
+    "QuestionType": "Kreuz",
+    "Header1": "richtig",
+    "Header2": "falsch",
+    "Answers": [
+      {
+        "AnswerText": "Sicherheit und Benutzbarkeit",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Modularit\u00E4t und Leistungseffizienz",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Skalierbarkeit und Zuverl\u00E4ssigkeit",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Anpassbarkeit und Zeitverhalten",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Was sind typische Vorteile einer Investition in Softwarequalit\u00E4t?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Verbesserung der Wartbarkeit",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Reduktion der Kosten f\u00FCr Hardware",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Verbesserung der Benutzbarkeit",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Reduktion von Fehlern",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Diese Bestandteile geh\u00F6ren zu einem Qualit\u00E4tsszenario.",
+    "Points": 2,
+    "QuestionType": "Kreuz",
+    "Header1": "richtig",
+    "Header2": "falsch",
+    "Answers": [
+      {
+        "AnswerText": "Quelle des Ausl\u00F6sers",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Systemumgebung",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Reaktionszeit des Systems",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Antwortmetrik",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Arten von Qualit\u00E4tsszenarien werden typischerweise unterschieden?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Anwendungsszenarien",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "\u00C4nderungsszenarien",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Skalierungsszenarien",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Stress- und Grenzszenarien",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Vorteile bietet die ATAM-Methode?",
+    "Points": 1,
+    "QuestionType": "Kreuz",
+    "Header1": "richtig",
+    "Header2": "falsch",
+    "Answers": [
+      {
+        "AnswerText": "Kl\u00E4rung und Dokumentation von Qualit\u00E4tsanforderungen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Integration von Stakeholdern",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Vollst\u00E4ndige Analyse des Quellcodes",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Identifikation von Risiken",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Phase geh\u00F6rt nicht zur ATAM-Methode?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Kick-off",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Bewertung",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Abschluss",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Implementierung",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Aussage zu zyklomatischer Komplexit\u00E4t ist korrekt?",
+    "Points": 2,
+    "QuestionType": "Kreuz",
+    "Header1": "korrekt",
+    "Header2": "inkorrekt",
+    "Answers": [
+      {
+        "AnswerText": "Zyklomatische Komplexit\u00E4t ist ein Ma\u00DF f\u00FCr die Anzahl von linearen, unabh\u00E4ngigen Pfaden im Code.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Ein h\u00F6herer Wert der zyklomatischen Komplexit\u00E4t ist immer besser.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Sie wird auf Anwendungsebene gemessen (z. B. Methode, Klasse, Projekt).",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Gro\u00DFe Modularit\u00E4t f\u00FChrt zu einem niedrigeren Wert der zyklomatischen Komplexit\u00E4t.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Was bedeutet Instabilit\u00E4t im Zusammenhang mit Architekturanalyse?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Verh\u00E4ltnis von ausgehenden zu eingehenden Abh\u00E4ngigkeiten.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Ma\u00DF f\u00FCr die Widerstandsf\u00E4higkeit eines Systems gegen \u00C4nderungen.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Ein Instabilit\u00E4tswert von 1 bedeutet, dass das System vollst\u00E4ndig stabil ist.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Abh\u00E4ngigkeiten sollten immer von instabileren Bausteinen zu stabileren verlaufen.",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche der folgenden Wechselwirkungen zwischen Qualit\u00E4tsmerkmalen ist korrekt?",
+    "Points": 1,
+    "QuestionType": "Kreuz",
+    "Header1": "richtig",
+    "Header2": "falsch",
+    "Answers": [
+      {
+        "AnswerText": "Analysierbarkeit erleichtert die Interoperabilit\u00E4t.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Skalierbarkeit verbessert immer die Sicherheit.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Funktionale Richtigkeit f\u00F6rdert die Zuverl\u00E4ssigkeit.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "H\u00F6here Anpassbarkeit verbessert das Zeitverhalten.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Was ist ein typisches Beispiel f\u00FCr eine negative Wechselwirkung zwischen Qualit\u00E4tsmerkmalen?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "H\u00F6here Leistungseffizienz erfordert h\u00E4ufig mehr Speicherplatz.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Modularit\u00E4t verbessert die Energieeffizienz.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Sicherheitselemente wie CAPTCHAs reduzieren die Benutzbarkeit.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Anpassbarkeit verschlechtert das Zeitverhalten.",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche der folgenden Aussagen beschreibt den Einfluss von Energieeffizienz auf Qualit\u00E4tsmerkmale korrekt?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Modularit\u00E4t kann aufgrund zus\u00E4tzlicher Indirektionen die Energieeffizienz verschlechtern.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Energieeffizienz steht immer in direktem Zusammenhang mit der Informationssicherheit.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Verbesserte Verbrauchsverhalten-Metriken korrelieren oft mit h\u00F6herer Energieeffizienz.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Der Schutz vor Fehleingaben wirkt sich immer positiv auf die Energieeffizienz aus.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Vorteile bieten automatisierte Pr\u00FCfungen von Architekturregeln?",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Fr\u00FCherkennung von Architekturproblemen.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Reduktion technischer Schulden.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Eliminierung von Abh\u00E4ngigkeiten im Code.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Verbesserung der Testabdeckung.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welches der folgenden Tools wird h\u00E4ufig f\u00FCr die Pr\u00FCfung von Architekturregeln verwendet?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "SonarQube",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "ArchUnit",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Prototyping-Tools",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Sonargraph",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Methoden geh\u00F6ren zur qualitativen Analyse und Bewertung von Architekturen?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Szenariobasierte Architekturanalyse",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Performance-Tests",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Last- und Stresstests",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Abgleich mit Qualit\u00E4tsb\u00E4umen",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Was sind typische Bestandteile der statischen Codeanalyse?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Ermittlung von Codeduplizierungen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Erkennung von Zyklen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Analyse von Laufzeitverhalten",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Pr\u00FCfung von Architekturregeln",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche der folgenden Metriken k\u00F6nnen bei der quantitativen Architekturbewertung helfen?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Cumulated Component Dependency (CCD)",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Lines of Code (LOC)",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Instabilit\u00E4tsindex",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Benutzerfreundlichkeitsindex",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Warum kann ein hoher Wert der zyklomatischen Komplexit\u00E4t problematisch sein?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Er f\u00FChrt zu schwer verst\u00E4ndlichem Code.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Er deutet auf eine hohe Modularit\u00E4t hin.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Er erh\u00F6ht den Aufwand f\u00FCr Tests.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Er reduziert die Wiederverwendbarkeit von Code.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Aussage beschreibt den Begriff \u0022Qualit\u00E4t\u0022 im Softwarekontext korrekt?",
+    "Points": 2,
+    "QuestionType": "Kreuz",
+    "Header1": "richtig",
+    "Header2": "falsch",
+    "Answers": [
+      {
+        "AnswerText": "Qualit\u00E4t ist eine rein subjektive Bewertung durch Stakeholder.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Qualit\u00E4t basiert auf objektiv messbaren Merkmalen eines Systems.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Qualit\u00E4t umfasst sowohl funktionale als auch nicht-funktionale Anforderungen.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Qualit\u00E4t hat keinen direkten Einfluss auf die Wartbarkeit eines Systems.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Bestandteile sind typisch f\u00FCr einen Qualit\u00E4tsbaum?",
+    "Points": 2,
+    "QuestionType": "Kreuz",
+    "Header1": "typisch",
+    "Header2": "untypisch",
+    "Answers": [
+      {
+        "AnswerText": "Wurzel, die ein \u00FCbergeordnetes Qualit\u00E4tsmerkmal repr\u00E4sentiert",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "\u00C4ste, die die Unterteilung in Teilmerkmale darstellen",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Bl\u00E4tter, die konkrete Qualit\u00E4tsszenarien beschreiben",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Gewichtungen, die die Priorit\u00E4t von Qualit\u00E4tsmerkmalen festlegen",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welcher Aspekt geh\u00F6rt zu einem \u00C4nderungsszenario?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Wie schnell sich das System an ge\u00E4nderte Anforderungen anpassen kann",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Die F\u00E4higkeit, unter normalen Betriebsbedingungen zu funktionieren",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Der Ressourcenverbrauch w\u00E4hrend einer Skalierung",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Die Zeit, die ben\u00F6tigt wird, um neue Features zu implementieren",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Was beschreibt die Antwortmetrik eines Qualit\u00E4tsszenarios?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Die erwartete Reaktion des Systems auf einen Ausl\u00F6ser",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Die messbare Gr\u00F6\u00DFe, die das Systemverhalten bewertet",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Die maximale Ausf\u00FChrungszeit eines Prozesses",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Die ben\u00F6tigte Systemumgebung zur Erf\u00FCllung des Szenarios",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Ma\u00DFnahmen k\u00F6nnen zur Verbesserung der Energieeffizienz beitragen?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Verwendung von gRPC statt REST",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Einf\u00FChrung von Datenredundanzen",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Reduktion von Kommunikation zwischen Komponenten",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Nutzung von Protobuf zur Serialisierung",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Wechselwirkungen k\u00F6nnen zwischen Energieeffizienz und anderen Qualit\u00E4tsmerkmalen auftreten?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Modularit\u00E4t kann die Energieeffizienz durch zus\u00E4tzliche Indirektionen verringern.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Verbesserte Energieeffizienz f\u00FChrt immer zu h\u00F6herer Sicherheit.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Der Schutz vor Fehleingaben kann die Energieeffizienz negativ beeinflussen.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Energieeffizienz steht oft in Konflikt mit Leistungseffizienz.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Kritikpunkte gibt es an der zyklomatischen Komplexit\u00E4t?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Sie vereinfacht unterschiedliche Programmmerkmale stark.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Sie ber\u00FCcksichtigt nicht die Modularit\u00E4t des Systems.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Sie misst nur das Programmger\u00FCst, nicht die Logik.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Hohe Werte sind immer positiv, da sie Flexibilit\u00E4t anzeigen.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Was besagt Goodharts Gesetz in Bezug auf Metriken?",
+    "Points": 2,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Eine Messgr\u00F6\u00DFe verliert an Aussagekraft, wenn sie zum Ziel gemacht wird.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Metriken k\u00F6nnen zur Erkennung von Schwachstellen in Systemen genutzt werden.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Entwickelnde k\u00F6nnen Metriken manipulieren, um die gemessenen Ziele zu erreichen.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Eine Metrik ist immer ein objektiver Indikator f\u00FCr Systemqualit\u00E4t.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Phasen geh\u00F6ren zur ATAM-Methode?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Kick-off",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Bewertung",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Abschluss",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Implementierung der \u00C4nderungen",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche DREI Informationen werden in der Bewertungsphase von ATAM gesammelt?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Welche Informationen werden in der Bewertungsphase von ATAM gesammelt?",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Ma\u00DFnahmen zur Verhinderung von Risiken",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Abgleich der Architekturziele mit der Architektur",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Codeabh\u00E4ngigkeiten und deren Visualisierung",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Was ist ein Sensitivit\u00E4tspunkt in der Architekturanalyse?",
+    "Points": 1,
+    "QuestionType": "Kreuz",
+    "Header1": "richtig",
+    "Header2": "falsch",
+    "Answers": [
+      {
+        "AnswerText": "Ein Architekturteil, dessen \u00C4nderung weitreichende Folgen hat.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Ein Bestandteil, der leicht an neue Anforderungen angepasst werden kann.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Ein kritischer Punkt, der das Systemverhalten stark beeinflusst.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Ein Punkt, der keinerlei Risiko f\u00FCr das System darstellt.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Architekturentscheidung kann die Leistungseffizienz eines Systems verbessern?",
+    "Points": 1,
+    "QuestionType": "Kreuz",
+    "Header1": "ja",
+    "Header2": "nein",
+    "Answers": [
+      {
+        "AnswerText": "Verringerung der Kommunikation zwischen Komponenten",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Einf\u00FChrung von Datenredundanzen (z. B. durch Caching)",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Einsatz von Proxy-Pattern",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Verwendung von REST statt gRPC",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Auswirkungen hat die Einf\u00FChrung von Modularit\u00E4t auf Qualit\u00E4tsmerkmale?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Modularit\u00E4t verbessert die Wartbarkeit des Systems.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Modularit\u00E4t kann die Energieeffizienz durch zus\u00E4tzliche Indirektionen verschlechtern.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Modularit\u00E4t verbessert die Interoperabilit\u00E4t automatisch.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Modularit\u00E4t reduziert den Aufwand f\u00FCr Testbarkeit.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Wechselwirkungen k\u00F6nnen bei der Verbesserung der Sicherheit auftreten?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Sicherheitselemente wie CAPTCHA k\u00F6nnen die Benutzbarkeit negativ beeinflussen.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "H\u00F6here Sicherheitsma\u00DFnahmen erh\u00F6hen immer die Leistungseffizienz.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Verbesserte Sicherheit kann die Zuverl\u00E4ssigkeit durch Schutz vor Fehlern f\u00F6rdern.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Sicherheit hat keine Wechselwirkung mit der Skalierbarkeit.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Wie beeinflusst die Verwendung von Caching die Qualit\u00E4tsmerkmale eines Systems?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Es verbessert die Leistungseffizienz, da h\u00E4ufig ben\u00F6tigte Daten schneller verf\u00FCgbar sind.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Es kann die Wartbarkeit erschweren, da zus\u00E4tzliche Datenstrukturen verwaltet werden m\u00FCssen.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Es erh\u00F6ht die Zuverl\u00E4ssigkeit, da bei einem Cache-Ausfall Daten automatisch neu geladen werden.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Es kann die Energieeffizienz negativ beeinflussen, wenn viele redundante Daten gespeichert werden.",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Vorteile bietet die Verwendung von gRPC gegen\u00FCber REST in Bezug auf Qualit\u00E4tsmerkmale?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Geringere Latenzzeit (Zeitverhalten) aufgrund von HTTP/2 und Protobuf.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Verbesserte Wartbarkeit durch einfacheren Datenabgleich.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "H\u00F6here Energieeffizienz durch effizientere Serialisierung und \u00DCbertragung.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Kompatibilit\u00E4t mit REST-APIs ohne Anpassungen.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Architekturentscheidungen k\u00F6nnen die Benutzbarkeit eines Systems verbessern?",
+    "Points": 1,
+    "QuestionType": "Kreuz",
+    "Header1": "ja",
+    "Header2": "nein",
+    "Answers": [
+      {
+        "AnswerText": "Einf\u00FChrung eines intuitiven Benutzeroberfl\u00E4chendesigns (UI/UX).",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Reduktion der Flexibilit\u00E4t zugunsten einfacher Bedienbarkeit.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Erh\u00F6hung der Sicherheit durch zus\u00E4tzliche Authentifizierungsma\u00DFnahmen.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Verbesserung der Erreichbarkeit f\u00FCr Screenreader-Nutzung.",
+        "IsCorrect": true
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche negativen Auswirkungen kann die Einf\u00FChrung von Redundanz in der Architektur haben?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Erh\u00F6hter Speicherbedarf kann die Leistungseffizienz verringern.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Redundanz verbessert immer die Zuverl\u00E4ssigkeit, hat aber keine weiteren Effekte.",
+        "IsCorrect": false
+      },
+      {
+        "AnswerText": "Redundanz kann die Wartbarkeit erschweren, da komplexere Systeme schwerer zu verstehen sind.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "Redundanz erh\u00F6ht die Modifizierbarkeit durch parallele Datenpfade.",
+        "IsCorrect": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Wie beeinflusst die Wahl der Inter-Process Communication (IPC)-Technologie die Qualit\u00E4tsmerkmale eines Systems?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "REST eignet sich f\u00FCr einfache Kommunikation, jedoch mit h\u00F6herem Ressourcenverbrauch.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "gRPC reduziert den Energieverbrauch durch effiziente \u00DCbertragungsprotokolle.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "GraphQL verbessert die Leistungseffizienz durch Vermeidung von Overfetching.",
+        "IsCorrect": true
+      },
+      {
+        "AnswerText": "REST verbessert die Skalierbarkeit durch horizontale Parallelisierung.",
+        "IsCorrect": false
+      }
+    ]
+  }
+]

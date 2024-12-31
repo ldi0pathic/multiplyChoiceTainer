@@ -480,7 +480,7 @@
     ]
   },
   {
-    "QuestionText": "Welche Begriffe sind Bestandteile einer Whitebox-Sicht eines Bausteins",
+    "QuestionText": "Welche DREI Begriffe sind Bestandteile einer Whitebox-Sicht eines Bausteins",
     "Points": 1,
     "QuestionType": "Pick",
     "Header1": "",
