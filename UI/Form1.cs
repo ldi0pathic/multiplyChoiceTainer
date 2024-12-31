@@ -300,6 +300,7 @@ public partial class Form1 : Form
                 var firstCheckbox = new CheckBox
                 {
                     AutoSize = true,
+                    Padding = new Padding(5),
                     Anchor = AnchorStyles.Left,
                     BackColor = Color.Transparent,
                     Name = $"checkbox_{answer.Id}_first" // Eindeutiger Name für die erste Checkbox
@@ -308,6 +309,7 @@ public partial class Form1 : Form
                 var secondCheckbox = new CheckBox
                 {
                     AutoSize = true,
+                    Padding = new Padding(5),
                     Anchor = AnchorStyles.Left,
                     BackColor = Color.Transparent,
                     Name = $"checkbox_{answer.Id}_second" // Eindeutiger Name für die zweite Checkbox
@@ -544,6 +546,12 @@ public partial class Form1 : Form
                                 {
                                     hasIncorrectAnswers = true;
                                     totalScore -= pointsPerAnswer;
+                                }
+
+                                if (testMode)
+                                {
+                                    firstCheckbox.BackColor = Color.IndianRed;
+                                    secondCheckbox.BackColor = Color.LightGreen;
                                 }
                             }
                         }
