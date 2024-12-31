@@ -369,15 +369,15 @@ public partial class Form1 : Form
 
             btnSubmit.Click += async (_, _) =>
             {
-                var totalCorrectAnswers = answers.Count(a => a.IsCorrect);
-                var pointsPerAnswer = question.Points / (decimal)totalCorrectAnswers;
-
                 decimal totalScore = 0;
                 var hasIncorrectAnswers = false;
+                var totalCorrectAnswers = 1;
                 var ok = 0;
                 foreach (var answer in answers)
                     if (question.QuestionType == QuestionType.Kreuz)
                     {
+                        totalCorrectAnswers = answers.Count();
+                        var pointsPerAnswer = question.Points / (decimal)totalCorrectAnswers;
                         var firstCheckbox = answerTable.Controls
                             .OfType<CheckBox>()
                             .FirstOrDefault(cb => cb.Name == $"checkbox_{answer.Id}_first");
@@ -436,6 +436,9 @@ public partial class Form1 : Form
                     }
                     else
                     {
+                        totalCorrectAnswers = answers.Count(a => a.IsCorrect);
+                        var pointsPerAnswer = question.Points / (decimal)totalCorrectAnswers;
+
                         var selectedAnswer = answerTable.Controls.OfType<CheckBox>()
                             .FirstOrDefault(cb => cb.Name == $"checkbox_{answer.Id}");
 
@@ -499,19 +502,21 @@ public partial class Form1 : Form
 
             btnSubmit.Click += async (_, _) =>
             {
-                var totalCorrectAnswers = answers.Count(a => a.IsCorrect);
-                var pointsPerAnswer = question.Points / (decimal)totalCorrectAnswers;
-
+                var totalCorrectAnswers = 0;
                 decimal totalScore = 0;
                 var hasIncorrectAnswers = false;
                 var ok = 0;
                 foreach (var answer in answers)
                     if (question.QuestionType == QuestionType.Kreuz)
                     {
-                        var firstCheckbox = _dynamicPanel.Controls.OfType<CheckBox>()
+                        totalCorrectAnswers = answers.Count();
+                        var pointsPerAnswer = question.Points / (decimal)totalCorrectAnswers;
+                        var firstCheckbox = answerTable.Controls
+                            .OfType<CheckBox>()
                             .FirstOrDefault(cb => cb.Name == $"checkbox_{answer.Id}_first");
 
-                        var secondCheckbox = _dynamicPanel.Controls.OfType<CheckBox>()
+                        var secondCheckbox = answerTable.Controls
+                            .OfType<CheckBox>()
                             .FirstOrDefault(cb => cb.Name == $"checkbox_{answer.Id}_second");
 
                         if (firstCheckbox != null && secondCheckbox != null)
@@ -527,12 +532,13 @@ public partial class Form1 : Form
                                 {
                                     hasIncorrectAnswers = true;
                                     totalScore -= pointsPerAnswer;
+                                    ok--;
                                 }
 
                                 if (testMode)
                                 {
-                                    firstCheckbox.BackColor = Color.IndianRed;
-                                    secondCheckbox.BackColor = Color.LightGreen;
+                                    firstCheckbox.BackColor = Color.LightGreen;
+                                    secondCheckbox.BackColor = Color.IndianRed;
                                 }
                             }
                             else
@@ -541,11 +547,16 @@ public partial class Form1 : Form
                                 {
                                     totalScore += pointsPerAnswer;
                                     ok++;
+                                    if (testMode)
+                                        secondCheckbox.BackColor = Color.LightGreen;
                                 }
                                 else if (firstCheckbox.Checked)
                                 {
                                     hasIncorrectAnswers = true;
                                     totalScore -= pointsPerAnswer;
+                                    ok--;
+                                    if (testMode)
+                                        firstCheckbox.BackColor = Color.IndianRed;
                                 }
 
                                 if (testMode)
@@ -558,7 +569,10 @@ public partial class Form1 : Form
                     }
                     else
                     {
-                        var selectedAnswer = _dynamicPanel.Controls.OfType<CheckBox>()
+                        totalCorrectAnswers = answers.Count(a => a.IsCorrect);
+                        var pointsPerAnswer = question.Points / (decimal)totalCorrectAnswers;
+
+                        var selectedAnswer = answerTable.Controls.OfType<CheckBox>()
                             .FirstOrDefault(cb => cb.Name == $"checkbox_{answer.Id}");
 
                         if (selectedAnswer != null)
@@ -567,21 +581,19 @@ public partial class Form1 : Form
                             if (answer.IsCorrect && !selectedAnswer.Checked)
                             {
                                 hasIncorrectAnswers = true;
+                                ok--;
                             }
                             else if (!answer.IsCorrect && selectedAnswer.Checked)
                             {
                                 hasIncorrectAnswers = true;
                                 totalScore -= pointsPerAnswer;
+                                ok--;
                             }
                             else if (answer.IsCorrect && selectedAnswer.Checked)
                             {
                                 totalScore += pointsPerAnswer;
                                 ok++;
                             }
-                        }
-                        else if (answer.IsCorrect)
-                        {
-                            hasIncorrectAnswers = true;
                         }
                     }
 
