@@ -205,6 +205,7 @@ public partial class Form1 : Form
         var usedTime = DateTime.Now - _startTime;
         var questionHeaderPanel = CreatePanel(new Point(10, _currentY), _dynamicPanel.Width - 20, 30);
         questionHeaderPanel.Controls.Add(CreateLabel($"Zeit: {usedTime.Minutes}m", 10, FontStyle.Regular, 50));
+        questionHeaderPanel.Controls.Add(CreateLabel($"Antworten: {(question.QuestionType != QuestionType.Kreuz ? answers.Count(c => c.IsCorrect) : answers.Count())}", 10, FontStyle.Regular, 120));
         questionHeaderPanel.Controls.Add(CreateLabel($"Typ: {question.QuestionType.GetDescription()}", 10, FontStyle.Regular, questionHeaderPanel.Width - 210));
         questionHeaderPanel.Controls.Add(CreateLabel($"Punkte: {question.Points}", 10, FontStyle.Regular, questionHeaderPanel.Width - 100));
 
