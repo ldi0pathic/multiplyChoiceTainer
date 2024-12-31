@@ -23,6 +23,14 @@ public class QuestionService
         _logger = loggerFactory.CreateLogger<QuestionService>();
     }
 
+    public async Task<int> GetQuestionCountAsync()
+    {
+        const string whereClause = "IsDeleted != true";
+        var questions = await _questionRepository.GetAllAsync(whereClause);
+
+        return questions.Count();
+    }
+
     public async Task<Result> SaveQuestionAsync(Question question, List<Answer> answers)
     {
         var validationResult = ValidateQuestion(question, answers);
@@ -112,59 +120,74 @@ public class QuestionService
         _askedQuestions.Clear();
     }
 
+    public void AddAskedQuestions(long questinId)
+    {
+        _askedQuestions.Add(questinId);
+    }
+
+    public async Task<Result<Question>> GetRandomQuestionAsync()
+    {
+        const string whereClause = "IsDeleted != true";
+        var questions = await _questionRepository.GetAllAsync(whereClause);
+
+        if (!questions.Any()) return Result<Question>.Fail("Es konnte keine Frage ausgewählt werden.");
+        var random = questions.Where(q => !_askedQuestions.Contains(q.Id) && !q.IsDeleted).OrderBy(_ => Guid.NewGuid()).ToList();
+
+        if (random.Count == 0) return Result<Question>.Fail("Es konnte keine Frage ausgewählt werden.");
+
+        var question = random.First();
+
+        question.LastAskedDate = DateTime.Now;
+        await _questionRepository.UpdateAsync(question);
+
+        _askedQuestions.Add(question.Id);
+
+        return Result<Question>.Success(random.First());
+    }
+
     public async Task<Result<Question>> GetWeightedRandomQuestionAsync()
     {
         try
         {
+            // Alle Fragen abrufen
             var questions = await _questionRepository.GetAllAsync();
 
-            // Filtere Fragen, die bereits gestellt wurden oder die als gelöscht markiert sind
-            IEnumerable<Question> enumerable = questions
+            // Filtere gültige Fragen
+            var validQuestions = questions
                 .Where(q => !_askedQuestions.Contains(q.Id) && !q.IsDeleted)
                 .ToList();
 
-            if (!enumerable.Any())
+            if (!validQuestions.Any())
                 return Result<Question>.Fail("Keine neuen Fragen in der Datenbank verfügbar.");
 
-            var weightedQuestions = enumerable.Select(q =>
+            // Gewichtung berechnen
+            var weightedQuestions = validQuestions.Select(q =>
             {
-                var incorrectCount = q.IncorrectAnswerCount;
-                var lastAsked = q.LastAskedDate ?? DateTime.MinValue;
-                var timeSinceLastAsked = (DateTime.Now - lastAsked).TotalDays;
+                var incorrectCount = q.IncorrectAnswerCount + 1;
+                var lastWrong = q.LastIncorrectAnswerDate ?? DateTime.MinValue;
 
-                var weight = (incorrectCount + 1) * (timeSinceLastAsked + 1);
-
-                var lastIncorrectAnswerDate = q.LastIncorrectAnswerDate ?? DateTime.MinValue;
-                var timeSinceLastIncorrectAnswer = (DateTime.Now - lastIncorrectAnswerDate).TotalDays * _random.NextDouble();
-
-                var incorrectAnswerWeightFactor = Math.Max(0, 1 - timeSinceLastIncorrectAnswer / 30);
-
-                weight *= incorrectAnswerWeightFactor;
+                // Gewicht basiert auf Anzahl der falschen Antworten und Zeit seit dem letzten Fehler
+                var weight = incorrectCount * (DateTime.MaxValue - lastWrong).TotalMinutes;
 
                 return new { Question = q, Weight = weight };
-            }).OrderBy(_ => Guid.NewGuid()).ToList();
+            }).ToList();
 
-            var totalWeight = weightedQuestions.Sum(wq => wq.Weight);
-            var randomValue = _random.NextDouble() * totalWeight;
+            Question selectedQuestion;
+            if (_random.Next(3) != 2)
+                selectedQuestion = weightedQuestions
+                    .OrderByDescending(q => q.Weight) // Behalte hohe Gewichtungen vorne
+                    .ThenBy(_ => Guid.NewGuid()) // Zufälligkeit innerhalb derselben Gewichtung
+                    .First().Question;
+            else
+                selectedQuestion = weightedQuestions
+                    .OrderByDescending(q => Guid.NewGuid())
+                    .First().Question;
 
-            foreach (var weightedQuestion in weightedQuestions)
-            {
-                randomValue -= weightedQuestion.Weight;
+            // Frage aktualisieren
+            selectedQuestion.LastAskedDate = DateTime.UtcNow;
+            await _questionRepository.UpdateAsync(selectedQuestion);
 
-                if (!(randomValue <= 0))
-                    continue;
-
-                var selectedQuestion = weightedQuestion.Question;
-
-                selectedQuestion.LastAskedDate = DateTime.Now;
-                await _questionRepository.UpdateAsync(selectedQuestion);
-
-                _askedQuestions.Add(selectedQuestion.Id);
-
-                return Result<Question>.Success(selectedQuestion);
-            }
-
-            return Result<Question>.Fail("Es konnte keine Frage ausgewählt werden.");
+            return Result<Question>.Success(selectedQuestion);
         }
         catch (Exception ex)
         {
@@ -172,6 +195,7 @@ public class QuestionService
             return Result<Question>.Exception(ex);
         }
     }
+
 
     public async Task<Result<IEnumerable<Answer>>> GetQuestionAnswersAsync(long questionId)
     {

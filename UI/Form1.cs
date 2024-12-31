@@ -16,6 +16,7 @@ public partial class Form1 : Form
     private int _currentQuestions;
     private int _currentY;
     private int _maxQuestions;
+    private int _maxTime;
 
     private decimal _score;
     private DateTime _startTime;
@@ -25,7 +26,7 @@ public partial class Form1 : Form
     {
         _score = 0;
         _totalPoints = 0;
-        _maxQuestions = 30;
+        _maxQuestions = 0;
         _currentQuestions = 0;
         _questionService = questionService ?? throw new ArgumentNullException(nameof(questionService));
         _importExportService = importExportService;
@@ -35,18 +36,20 @@ public partial class Form1 : Form
         _dynamicPanel = new Panel { Dock = DockStyle.Fill };
         Controls.Add(_dynamicPanel);
 
-        StartPage();
+        _ = StartPage();
     }
 
-    private void StartPage()
+    private async Task StartPage()
     {
         Reset();
         _questionService.ResetAskedQuestions();
 
         // TextBox für die Eingabe der maximalen Fragenanzahl
         var questionCountLabel = CreateLabel("Maximale Fragen pro Runde:", 12, FontStyle.Regular, 12);
+
         questionCountLabel.Location = new Point(10, _currentY);
         _dynamicPanel.Controls.Add(questionCountLabel);
+        _maxQuestions = await _questionService.GetQuestionCountAsync();
 
         var questionCountTextBox = new TextBox
         {
@@ -57,9 +60,26 @@ public partial class Form1 : Form
         _dynamicPanel.Controls.Add(questionCountTextBox);
         _currentY += questionCountTextBox.Height + 10; // Update _currentY nach der TextBox
 
+        //------
+
+        var questionTimeLabel = CreateLabel("Maximale Zeit (min) pro Runde:", 12, FontStyle.Regular, 12);
+        questionTimeLabel.Location = new Point(10, _currentY);
+        _dynamicPanel.Controls.Add(questionTimeLabel);
+        var questionTimeTextBox = new TextBox
+        {
+            Text = "15",
+            Width = 50,
+            Location = new Point(20 + questionTimeLabel.Width, _currentY)
+        };
+        _dynamicPanel.Controls.Add(questionTimeTextBox);
+        _currentY += questionTimeTextBox.Height + 10; // Update _currentY nach der TextBox
+
+        //------
+
         var newQuestionButton = CreateButton("Neue Fragen Hinzufügen", 150, 30, (ClientSize.Width - 150) / 2, _currentY);
         newQuestionButton.Click += (_, _) => CreateQuestionPage();
         _dynamicPanel.Controls.Add(newQuestionButton);
+
 
         _currentY += newQuestionButton.Height + 10; // Update _currentY nach dem Button
 
@@ -83,19 +103,36 @@ public partial class Form1 : Form
 
         _currentY += importButton.Height + 10; // Update _currentY nach dem Button
 
-        var startQuizButton = CreateButton("Start", 50, 30, (ClientSize.Width - 50) / 2, _currentY);
-        startQuizButton.Click += async (_, _) =>
+        var startQuizButton2 = CreateButton("Start Übung", 100, 30, (ClientSize.Width - 100) / 2, _currentY);
+        startQuizButton2.Click += async (_, _) =>
         {
-            if (int.TryParse(questionCountTextBox.Text, out var maxQuestions) && maxQuestions > 0)
-            {
-                _maxQuestions = maxQuestions;
-                _startTime = DateTime.Now;
-                await QuizPageAsync();
-            }
-            else
+            if (!int.TryParse(questionCountTextBox.Text, out var maxQuestions) && maxQuestions > 0)
             {
                 MessageBox.Show("Bitte geben Sie eine gültige Anzahl von Fragen ein (positive Zahl).", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
+            if (!int.TryParse(questionTimeTextBox.Text, out var maxTime) && maxTime > 1)
+            {
+                MessageBox.Show("Bitte geben Sie eine gültige Zeit ein (positive Zahl).", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            _maxQuestions = maxQuestions;
+            _maxTime = maxTime;
+            _startTime = DateTime.Now;
+            await QuizPageAsync(true);
+        };
+        _dynamicPanel.Controls.Add(startQuizButton2);
+        _currentY += startQuizButton2.Height + 10; // Update _currentY nach dem Button
+
+        var startQuizButton = CreateButton("Start Prüfung", 100, 30, (ClientSize.Width - 100) / 2, _currentY);
+        startQuizButton.Click += async (_, _) =>
+        {
+            _maxQuestions = 40;
+            _maxTime = 70;
+            _startTime = DateTime.Now;
+            await QuizPageAsync();
         };
         _dynamicPanel.Controls.Add(startQuizButton);
     }
@@ -109,7 +146,7 @@ public partial class Form1 : Form
         if (frequentMistakesResult.IsFailure || frequentMistakesResult.Value == null)
         {
             MessageBox.Show("Fehler beim Abrufen der häufigsten Fehler: " + frequentMistakesResult.Message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            StartPage();
+            await StartPage();
             return;
         }
 
@@ -170,24 +207,27 @@ public partial class Form1 : Form
         };
     }
 
-    private async Task QuizPageAsync()
+    private async Task QuizPageAsync(bool testMode = false)
     {
         Reset();
-        _currentQuestions++;
 
-        var questionResult = await _questionService.GetWeightedRandomQuestionAsync();
+        var usedTime = DateTime.Now - _startTime;
+
+        if (usedTime.TotalMinutes > _maxTime)
+            if (MessageBox.Show($"Die Zeit ist abgelaufen\r\nDU hast {_score}/ {_totalPoints} Punkte ({_score / _totalPoints * 100}%) erreicht!\r\n {_currentQuestions}/{_maxQuestions} Fragen bearbeitet", "Fertig :)", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+            {
+                await StartPage();
+                return;
+            }
+
+        _currentQuestions++;
+        var questionResult = testMode ? await _questionService.GetWeightedRandomQuestionAsync() : await _questionService.GetRandomQuestionAsync();
 
         if (questionResult.IsFailure || questionResult.Value == null)
         {
-            if (_totalPoints > 0)
-            {
-                if (MessageBox.Show($"Keine weiteren Fragen verfügbar\r\nDU hast {_score}/ {_totalPoints} Punkte ({_score / _totalPoints * 100}%) erreicht!", "Fertig :)", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK) StartPage();
-            }
-            else
-            {
-                if (MessageBox.Show("Keine weiteren Fragen verfügbar", "Fertig :)", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK) StartPage();
-            }
+            if (_totalPoints < 1) _totalPoints = 1;
 
+            if (MessageBox.Show($"Keine weiteren Fragen verfügbar\r\nDU hast {_score}/ {_totalPoints} Punkte ({_score / _totalPoints * 100}%) erreicht!", "Fertig :)", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK) await StartPage();
             return;
         }
 
@@ -202,10 +242,14 @@ public partial class Form1 : Form
         }
 
         var answers = answersResult.Value;
-        var usedTime = DateTime.Now - _startTime;
+
         var questionHeaderPanel = CreatePanel(new Point(10, _currentY), _dynamicPanel.Width - 20, 30);
-        questionHeaderPanel.Controls.Add(CreateLabel($"Zeit: {usedTime.Minutes}m", 10, FontStyle.Regular, 50));
-        questionHeaderPanel.Controls.Add(CreateLabel($"Antworten: {(question.QuestionType != QuestionType.Kreuz ? answers.Count(c => c.IsCorrect) : answers.Count())}", 10, FontStyle.Regular, 120));
+        var tLabel = CreateLabel($"Zeit: {usedTime.Minutes}/{_maxTime}", 10, FontStyle.Regular, 50);
+        var fLabel = CreateLabel($"Frage: {_currentQuestions}/{_maxQuestions}", 10, FontStyle.Regular, tLabel.Width + 50);
+        var alabel = CreateLabel($"Antworten: {(question.QuestionType != QuestionType.Kreuz ? answers.Count(c => c.IsCorrect) : answers.Count())}", 10, FontStyle.Regular, tLabel.Width + fLabel.Width + 50);
+        questionHeaderPanel.Controls.Add(tLabel);
+        questionHeaderPanel.Controls.Add(fLabel);
+        questionHeaderPanel.Controls.Add(alabel);
         questionHeaderPanel.Controls.Add(CreateLabel($"Typ: {question.QuestionType.GetDescription()}", 10, FontStyle.Regular, questionHeaderPanel.Width - 210));
         questionHeaderPanel.Controls.Add(CreateLabel($"Punkte: {question.Points}", 10, FontStyle.Regular, questionHeaderPanel.Width - 100));
 
@@ -236,30 +280,21 @@ public partial class Form1 : Form
         };
         answerTable.CellPaint += (sender, e) => { e.Graphics.FillRectangle(e.Row % 2 == 1 ? Brushes.LightGray : Brushes.Transparent, e.CellBounds); };
 
+        var minSize = 0;
         if (question.QuestionType == QuestionType.Kreuz)
         {
             answerTable.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
-            answerTable.Controls.Add(CreateLabel(question.Header1 ?? "", 12, FontStyle.Regular));
-            answerTable.Controls.Add(CreateLabel(question.Header2 ?? "", 12, FontStyle.Regular));
+            var h1 = CreateLabel(question.Header1 ?? "", 12, FontStyle.Regular);
+            answerTable.Controls.Add(h1);
+            minSize += h1.Width;
+            var h2 = CreateLabel(question.Header2 ?? "", 12, FontStyle.Regular);
+            answerTable.Controls.Add(h2);
+            minSize += h2.Width;
             answerTable.Controls.Add(CreateLabel("", 12, FontStyle.Regular));
         }
 
-        var rowIndex = 0;
+        var minsize2 = 0;
         foreach (var answer in answers)
-        {
-            var checkbox = new CheckBox
-            {
-                AutoSize = true,
-                Padding = new Padding(5),
-                Anchor = AnchorStyles.Left,
-                BackColor = Color.Transparent,
-                Name = $"checkbox_{answer.Id}" // Setze den Namen basierend auf der Antwort-ID
-            };
-
-            var label = CreateLabel(answer.AnswerText, 12, FontStyle.Regular, 0, checkbox.Width);
-            label.Click += (_, _) => checkbox.Checked = !checkbox.Checked;
-
-
             if (question.QuestionType == QuestionType.Kreuz)
             {
                 var firstCheckbox = new CheckBox
@@ -294,15 +329,27 @@ public partial class Form1 : Form
                 // Kreuz-Typ spezifische Einträge
                 answerTable.Controls.Add(firstCheckbox);
                 answerTable.Controls.Add(secondCheckbox);
-                answerTable.Controls.Add(CreateLabel(answer.AnswerText, 12, FontStyle.Regular, 0, firstCheckbox.Width + secondCheckbox.Width + 10));
+                minsize2 = minsize2 > firstCheckbox.Width + secondCheckbox.Width + 10 ? minsize2 : firstCheckbox.Width + secondCheckbox.Width + 10;
+
+                answerTable.Controls.Add(CreateLabel(answer.AnswerText, 12, FontStyle.Regular, 0, minsize2 + minSize));
             }
             else
             {
-                // Andere Frage-Typen
+                var checkbox = new CheckBox
+                {
+                    AutoSize = true,
+                    Padding = new Padding(5),
+                    Anchor = AnchorStyles.Left,
+                    BackColor = Color.Transparent,
+                    Name = $"checkbox_{answer.Id}" // Setze den Namen basierend auf der Antwort-ID
+                };
+                minsize2 = minsize2 > checkbox.Width ? minsize2 : checkbox.Width;
+                var label = CreateLabel(answer.AnswerText, 12, FontStyle.Regular, 0, minsize2 + minSize);
+                label.Click += (_, _) => checkbox.Checked = !checkbox.Checked;
+
                 answerTable.Controls.Add(checkbox);
                 answerTable.Controls.Add(label);
             }
-        }
 
         _dynamicPanel.Controls.Add(answerTable);
         _currentY += answerTable.Height + 10;
@@ -352,6 +399,12 @@ public partial class Form1 : Form
                                     totalScore -= pointsPerAnswer;
                                     ok--;
                                 }
+
+                                if (testMode)
+                                {
+                                    firstCheckbox.BackColor = Color.LightGreen;
+                                    secondCheckbox.BackColor = Color.IndianRed;
+                                }
                             }
                             else
                             {
@@ -359,12 +412,22 @@ public partial class Form1 : Form
                                 {
                                     totalScore += pointsPerAnswer;
                                     ok++;
+                                    if (testMode)
+                                        secondCheckbox.BackColor = Color.LightGreen;
                                 }
                                 else if (firstCheckbox.Checked)
                                 {
                                     hasIncorrectAnswers = true;
                                     totalScore -= pointsPerAnswer;
                                     ok--;
+                                    if (testMode)
+                                        firstCheckbox.BackColor = Color.IndianRed;
+                                }
+
+                                if (testMode)
+                                {
+                                    firstCheckbox.BackColor = Color.IndianRed;
+                                    secondCheckbox.BackColor = Color.LightGreen;
                                 }
                             }
                         }
@@ -376,6 +439,7 @@ public partial class Form1 : Form
 
                         if (selectedAnswer != null)
                         {
+                            if (testMode && answer.IsCorrect) selectedAnswer.BackColor = Color.LightGreen;
                             if (answer.IsCorrect && !selectedAnswer.Checked)
                             {
                                 hasIncorrectAnswers = true;
@@ -396,13 +460,25 @@ public partial class Form1 : Form
                     }
 
                 totalScore = Math.Min(Math.Max(0, totalScore), question.Points);
-                if (totalCorrectAnswers == ok) totalScore = question.Points;
+                if (totalCorrectAnswers == ok)
+                {
+                    totalScore = question.Points;
+                    //richtig beantwortete fragen solölöen nicht nochmal gefragt werden
+                    _questionService.AddAskedQuestions(question.Id);
+                }
 
                 _score += Math.Round(totalScore, 2);
 
                 if (hasIncorrectAnswers) await _questionService.IncrementIncorrectAnswerCountAsync(question.Id);
-
-                await QuizPageAsync();
+                if (testMode)
+                {
+                    if (MessageBox.Show($"{totalScore}/ {question.Points} Punkte", "Weiter", MessageBoxButtons.OK, MessageBoxIcon.Question) == DialogResult.OK)
+                        await QuizPageAsync(testMode);
+                }
+                else
+                {
+                    await QuizPageAsync(testMode);
+                }
             };
 
             _dynamicPanel.Controls.Add(btnSubmit);
@@ -450,6 +526,12 @@ public partial class Form1 : Form
                                     hasIncorrectAnswers = true;
                                     totalScore -= pointsPerAnswer;
                                 }
+
+                                if (testMode)
+                                {
+                                    firstCheckbox.BackColor = Color.IndianRed;
+                                    secondCheckbox.BackColor = Color.LightGreen;
+                                }
                             }
                             else
                             {
@@ -473,6 +555,7 @@ public partial class Form1 : Form
 
                         if (selectedAnswer != null)
                         {
+                            if (testMode && answer.IsCorrect) selectedAnswer.BackColor = Color.LightGreen;
                             if (answer.IsCorrect && !selectedAnswer.Checked)
                             {
                                 hasIncorrectAnswers = true;
@@ -501,7 +584,7 @@ public partial class Form1 : Form
 
                 if (hasIncorrectAnswers) await _questionService.IncrementIncorrectAnswerCountAsync(question.Id);
 
-                if (MessageBox.Show($"DU hast {_score}/ {_totalPoints} Punkte ({_score / _totalPoints * 100}%) erreicht!", "Fertig :)", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK) StartPage();
+                if (MessageBox.Show($"DU hast {_score}/ {_totalPoints} Punkte ({_score / _totalPoints * 100}%) erreicht!", "Fertig :)", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK) await StartPage();
             };
 
             _dynamicPanel.Controls.Add(btnSubmit);
