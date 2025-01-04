@@ -21,11 +21,22 @@ public class ImportExportService
         _logger = loggerFactory.CreateLogger<ImportExportService>();
     }
 
-    public async Task ExportQuestionsToJsonAsync(string filePath)
+
+    public async Task ExportIncorrectQuestionsToJsonAsync(string filePath)
+    {
+        await ExportQuestionsToJsonAsync(filePath, "IncorrectAnswerCount > 0 AND IsDeleted != true");
+    }
+
+    public async Task ExportActivQuestionsToJsonAsync(string filePath)
+    {
+        await ExportQuestionsToJsonAsync(filePath, "IsDeleted != true");
+    }
+
+    private async Task ExportQuestionsToJsonAsync(string filePath, string where)
     {
         try
         {
-            var questions = await _questionRepository.GetAllAsync("IsDeleted = false");
+            var questions = await _questionRepository.GetAllAsync(where);
             var answers = await _answerRepository.GetAllAsync();
 
             var exportData = questions.Select(question => new
@@ -39,7 +50,7 @@ public class ImportExportService
                     .Select(answer => new
                     {
                         answer.AnswerText,
-                        answer.IsCorrect,
+                        answer.IsCorrect
                     })
             });
 
@@ -84,7 +95,7 @@ public class ImportExportService
                 var result = await _questionService.SaveQuestionAsync(question, item.Answers.Select(a => new Answer
                 {
                     AnswerText = a.AnswerText,
-                    IsCorrect = a.IsCorrect,
+                    IsCorrect = a.IsCorrect
                 }).ToList());
 
                 if (result.IsFailure)

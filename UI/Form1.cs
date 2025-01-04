@@ -157,6 +157,12 @@ public partial class Form1 : Form
         _dynamicPanel.Controls.Add(titleLabel);
         _currentY += titleLabel.Height + 20;
 
+        var exportButton = CreateButton("Exportieren", 150, 30, (ClientSize.Width - 150) / 2, _currentY);
+        exportButton.Click += btnExportWrong_Click;
+        _dynamicPanel.Controls.Add(exportButton);
+
+        _currentY += exportButton.Height + 10;
+
         var enumerable = frequentMistakes as Question[] ?? frequentMistakes.ToArray();
         if (enumerable.Length != 0)
         {
@@ -867,7 +873,7 @@ public partial class Form1 : Form
         }
     }
 
-    private async void btnExport_Click(object sender, EventArgs e)
+    private async void btnExport_Click(object? sender, EventArgs e)
     {
         using var saveFileDialog = new SaveFileDialog();
         saveFileDialog.Filter = "JSON files (*.json)|*.json";
@@ -875,7 +881,20 @@ public partial class Form1 : Form
 
         if (saveFileDialog.ShowDialog() == DialogResult.OK)
         {
-            await _importExportService.ExportQuestionsToJsonAsync(saveFileDialog.FileName);
+            await _importExportService.ExportActivQuestionsToJsonAsync(saveFileDialog.FileName);
+            MessageBox.Show("Export abgeschlossen!", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+    }
+
+    private async void btnExportWrong_Click(object? sender, EventArgs e)
+    {
+        using var saveFileDialog = new SaveFileDialog();
+        saveFileDialog.Filter = "JSON files (*.json)|*.json";
+        saveFileDialog.Title = "Exportieren von Fragen und Antworten, die Falsch beantwortet wurden";
+
+        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+        {
+            await _importExportService.ExportIncorrectQuestionsToJsonAsync(saveFileDialog.FileName);
             MessageBox.Show("Export abgeschlossen!", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
