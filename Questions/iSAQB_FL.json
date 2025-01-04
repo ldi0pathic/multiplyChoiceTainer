@@ -1972,7 +1972,7 @@
     ]
   },
   {
-    "QuestionText": "arum ist es wichtig, Architekturentscheidungen in der Dokumentation explizit zu machen, insbesondere in Bezug auf nicht-funktionale Anforderungen?",
+    "QuestionText": "Warum ist es wichtig, Architekturentscheidungen in der Dokumentation explizit zu machen, insbesondere in Bezug auf nicht-funktionale Anforderungen?",
     "Points": 1,
     "QuestionType": "Pick",
     "Header1": "",
@@ -9216,7 +9216,7 @@
     "Header2": "",
     "Answers": [
       {
-        "AnswerText": "Security / Anwendende / Projektleitung / Analyst / Personal / Technische Mitarbeiter / Support",
+        "AnswerText": "Security / Anwendende / Projektleitung / Analyst / Personal / Technische Mitarbeitende Support",
         "IsCorrect": false,
         "canReorder": true
       },
@@ -10228,7 +10228,7 @@
         "canReorder": false
       },
       {
-        "AnswerText": "Ist ein Idikator f\u00FCr Komplexit\u00E4t ermittelt anhand der Gr\u00F6\u00DFe des Elements, wie z.B. die Anzahl der Methoden oder die Azahl der Codezeilen",
+        "AnswerText": "Ist ein Idikator f\u00FCr Komplexit\u00E4t ermittelt anhand der Gr\u00F6\u00DFe des Elements, wie z.B. die Anzahl der Methoden oder die Anzahl der Codezeilen",
         "IsCorrect": false,
         "canReorder": false
       },
@@ -10293,6 +10293,818 @@
       {
         "AnswerText": "Wenn sie 1 ist, da dies ein fehlerfreies System garantiert",
         "IsCorrect": false,
+        "canReorder": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Was ist eine wesentliche Eigenschaft von Bausteinen in der Softwarearchitektur?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Sie existieren unabh\u00E4ngig voneinander und interagieren nicht.",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Sie definieren konkrete Implementierungsdetails, ohne Schnittstellen bereitzustellen.",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Sie k\u00F6nnen sowohl Schnittstellen bereitstellen als auch die Schnittstellen anderer Bausteine nutzen.",
+        "IsCorrect": true,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Sie sind ausschlie\u00DFlich f\u00FCr die grafische Darstellung eines Systems verantwortlich.",
+        "IsCorrect": false,
+        "canReorder": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Wie tragen Bausteine zur Modularit\u00E4t eines Systems bei?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Durch die klare Trennung von Verantwortlichkeiten und die Definition von Schnittstellen.",
+        "IsCorrect": true,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Durch die Vermeidung von Redundanzen zwischen verschiedenen Komponenten.",
+        "IsCorrect": true,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Durch die Eliminierung aller Abh\u00E4ngigkeiten zwischen Bausteinen.",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Durch die Bereitstellung von Hardware-Anforderungen.",
+        "IsCorrect": false,
+        "canReorder": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Warum ist die Definition von Schnittstellen bei Bausteinen entscheidend?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Um sicherzustellen, dass Bausteine unabh\u00E4ngig implementiert und getestet werden k\u00F6nnen.",
+        "IsCorrect": true,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Um die Abh\u00E4ngigkeiten zwischen Teams vollst\u00E4ndig zu eliminieren.",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Um die Architektur flexibler f\u00FCr zuk\u00FCnftige Erweiterungen zu machen.",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Um die Anzahl der Bausteine in einem System zu maximieren.",
+        "IsCorrect": false,
+        "canReorder": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Konsequenz hat eine fehlerhafte Schnittstellendefinition eines Bausteins?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Der Baustein wird automatisch korrigiert.",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Es k\u00F6nnen Integrationsprobleme zwischen den Bausteinen auftreten.",
+        "IsCorrect": true,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Die Performance des Systems steigt deutlich an.",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Die Anzahl der ben\u00F6tigten Tests wird reduziert.",
+        "IsCorrect": false,
+        "canReorder": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Sichtweise beschreibt die Beziehung eines Bausteins zu anderen am besten?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Die Blackbox-Sicht beschreibt, welche Funktionalit\u00E4ten der Baustein bereitstellt, ohne interne Details offenzulegen.",
+        "IsCorrect": true,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Die Whitebox-Sicht zeigt die interne Struktur des Bausteins sowie seine Abh\u00E4ngigkeiten zu anderen Bausteinen.",
+        "IsCorrect": true,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Die Greybox-Sicht konzentriert sich nur auf die Benutzeroberfl\u00E4che eines Bausteins.",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Es gibt keine standardisierte Sichtweise f\u00FCr Bausteine.",
+        "IsCorrect": false,
+        "canReorder": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Was unterscheidet einen Baustein mit einer gut definierten Schnittstelle von einem ohne?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Ein Baustein mit einer gut definierten Schnittstelle ist einfacher wiederverwendbar und testbar.",
+        "IsCorrect": true,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Bausteine mit definierten Schnittstellen haben h\u00F6here Hardwareanforderungen.",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Bausteine ohne Schnittstellen k\u00F6nnen keine Funktionalit\u00E4ten bereitstellen.",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Gut definierte Schnittstellen eliminieren die Notwendigkeit von Dokumentation.",
+        "IsCorrect": false,
+        "canReorder": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Wie kann ein Softwarearchitekt sicherstellen, dass Bausteine effektiv miteinander kommunizieren?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Durch die Verwendung wohldefinierter Schnittstellen mit klar beschriebenen Inputs und Outputs.",
+        "IsCorrect": true,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Durch die Eliminierung aller Abh\u00E4ngigkeiten zwischen den Bausteinen.",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Durch die regelm\u00E4\u00DFige \u00DCberpr\u00FCfung der Schnittstellen w\u00E4hrend des Entwicklungsprozesses.",
+        "IsCorrect": true,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Durch Verzicht auf Dokumentation, um die Architektur flexibler zu gestalten.",
+        "IsCorrect": false,
+        "canReorder": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Was ist ein typisches Beispiel f\u00FCr eine Schnittstelle eines Bausteins?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Eine API, die von anderen Bausteinen genutzt werden kann.",
+        "IsCorrect": true,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Ein interner Algorithmus, der nur innerhalb des Bausteins genutzt wird.",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Eine Tabelle, die nur f\u00FCr die Datenbank sichtbar ist.",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Eine Benutzerschnittstelle (GUI) f\u00FCr den Endanwender.",
+        "IsCorrect": false,
+        "canReorder": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Eigenschaft beschreibt eine gute Architektursicht?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Sie ist so detailliert, dass sie ausschlie\u00DFlich von Entwickler:innen verstanden wird.",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Sie ist auf die Interessen und das technische Verst\u00E4ndnis der jeweiligen Stakeholder zugeschnitten.",
+        "IsCorrect": true,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Sie ersetzt die Notwendigkeit von regelm\u00E4\u00DFigen Stakeholder-Meetings.",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Sie beschreibt alle Aspekte des Systems gleichzeitig, um Vollst\u00E4ndigkeit sicherzustellen.",
+        "IsCorrect": false,
+        "canReorder": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Rolle spielen Architektursichten im Kontext von nicht-funktionalen Anforderungen?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Sie helfen dabei, Qualit\u00E4tsmerkmale wie Skalierbarkeit oder Sicherheit auf spezifische Systembereiche abzubilden.",
+        "IsCorrect": true,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Sie sind ausschlie\u00DFlich f\u00FCr die Darstellung von funktionalen Anforderungen relevant.",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Sie unterst\u00FCtzen die Validierung von nicht-funktionalen Anforderungen durch gezielte Visualisierung.",
+        "IsCorrect": true,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Sie eliminieren die Notwendigkeit einer expliziten Dokumentation nicht-funktionaler Anforderungen.",
+        "IsCorrect": false,
+        "canReorder": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Warum ist die Blackbox-Sicht in der Kommunikation mit Stakeholdern hilfreich?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Sie zeigt die internen Implementierungsdetails eines Systems.",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Sie fokussiert sich auf die bereitgestellten Funktionalit\u00E4ten und Schnittstellen, ohne die internen Abl\u00E4ufe zu zeigen.",
+        "IsCorrect": true,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Sie ersetzt die technische Dokumentation eines Systems vollst\u00E4ndig.",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Sie beschreibt ausschlie\u00DFlich die Interaktionen zwischen Entwicklern und dem System.",
+        "IsCorrect": false,
+        "canReorder": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Wie k\u00F6nnen unterschiedliche Architektursichten Konflikte zwischen Stakeholdern reduzieren?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Sie stellen sicher, dass alle Stakeholder eine auf ihre Perspektive angepasste Darstellung der Architektur erhalten.",
+        "IsCorrect": true,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Sie erm\u00F6glichen es, technische Details auf einer Abstraktionsebene zu pr\u00E4sentieren, die f\u00FCr alle verst\u00E4ndlich ist.",
+        "IsCorrect": true,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Sie eliminieren die Notwendigkeit, Kompromisse zwischen widerspr\u00FCchlichen Anforderungen zu finden.",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Sie reduzieren die Anzahl der Meetings, indem sie alle Informationen in einem einzigen Dokument zusammenfassen.",
+        "IsCorrect": false,
+        "canReorder": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Sichten k\u00F6nnten f\u00FCr den IT-Betrieb besonders relevant sein?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Sichten, die die internen Datenfl\u00FCsse und Kommunikationsprotokolle zwischen Bausteinen darstellen.",
+        "IsCorrect": true,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Sichten, die sich ausschlie\u00DFlich auf die Nutzeroberfl\u00E4che konzentrieren.",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Sichten, die auf die Business-Prozesse und organisatorische Abl\u00E4ufe abzielen.",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Sichten, die die Architektur ohne technische Details beschreiben.",
+        "IsCorrect": false,
+        "canReorder": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Probleme k\u00F6nnen entstehen, wenn keine auf Stakeholder zugeschnittenen Architektursichten verwendet werden?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Stakeholder k\u00F6nnen ihre Anforderungen nicht klar kommunizieren.",
+        "IsCorrect": true,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Die Architektur wird automatisch flexibler und wartbarer.",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Die Zahl der Beteiligten an der Architekturplanung wird reduziert.",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Es entstehen keine Auswirkungen, da die Architektur alle Perspektiven abdeckt.",
+        "IsCorrect": false,
+        "canReorder": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welche Architektursicht w\u00E4re f\u00FCr ein Team, das Lasttests durchf\u00FChrt, am hilfreichsten?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Eine Sicht, die die fachlichen Anforderungen an das System zeigt.",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Eine technische Sicht, die den Datenfluss und die Interaktionen zwischen Systemkomponenten darstellt.",
+        "IsCorrect": true,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Eine organisatorische Sicht, die die Teamstrukturen widerspiegelt.",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Eine Sicht, die ausschlie\u00DFlich die Benutzeroberfl\u00E4che darstellt.",
+        "IsCorrect": false,
+        "canReorder": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Warum ist es wichtig, Architektursichten w\u00E4hrend des gesamten Entwicklungsprozesses zu aktualisieren?",
+    "Points": 1,
+    "QuestionType": "Pick",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Um sicherzustellen, dass sie weiterhin den aktuellen Stand der Architektur widerspiegeln.",
+        "IsCorrect": true,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Um die Kommunikation mit neuen Stakeholdern im Projektverlauf zu erleichtern.",
+        "IsCorrect": true,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Um die Notwendigkeit von Architekturentscheidungen vollst\u00E4ndig zu eliminieren.",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Um sicherzustellen, dass keine technischen Details \u00FCbersehen werden.",
+        "IsCorrect": false,
+        "canReorder": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welches Prinzip f\u00F6rdert die Trennung von Verantwortlichkeiten innerhalb einer Klasse oder eines Moduls?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Open-/Closed-Prinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Liskov-Substitutionsprinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Single-Responsibility-Prinzip",
+        "IsCorrect": true,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Dependency-Inversion-Prinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welches Prinzip zielt darauf ab, \u00C4nderungen an einer Klasse aufgrund von \u00C4nderungen in anderen Modulen zu minimieren?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Open-/Closed-Prinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Liskov-Substitutionsprinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Single-Responsibility-Prinzip",
+        "IsCorrect": true,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Dependency-Inversion-Prinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welches Prinzip wird verletzt, wenn eine Klasse sowohl f\u00FCr die Datenbankkommunikation als auch f\u00FCr die GUI-Logik verantwortlich ist?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Open-/Closed-Prinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Liskov-Substitutionsprinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Single-Responsibility-Prinzip",
+        "IsCorrect": true,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Dependency-Inversion-Prinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welches Prinzip besagt, dass Klassen offen f\u00FCr Erweiterungen, aber geschlossen f\u00FCr \u00C4nderungen sein sollten?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Open-/Closed-Prinzip",
+        "IsCorrect": true,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Liskov-Substitutionsprinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Single-Responsibility-Prinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Dependency-Inversion-Prinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welches Prinzip stellt sicher, dass Objekte einer abgeleiteten Klasse anstelle ihrer Basisklasse verwendet werden k\u00F6nnen, ohne das Verhalten zu ver\u00E4ndern?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Open-/Closed-Prinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Liskov-Substitutionsprinzip",
+        "IsCorrect": true,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Single-Responsibility-Prinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Dependency-Inversion-Prinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welches Prinzip fordert, dass High-Level-Module nicht von Low-Level-Modulen abh\u00E4ngen, sondern beide von Abstraktionen?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Open-/Closed-Prinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Liskov-Substitutionsprinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Single-Responsibility-Prinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Dependency-Inversion-Prinzip",
+        "IsCorrect": true,
+        "canReorder": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welches Prinzip wird verletzt, wenn f\u00FCr jede neue Anforderung der Quellcode einer bestehenden Klasse ge\u00E4ndert werden muss?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Open-/Closed-Prinzip",
+        "IsCorrect": true,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Liskov-Substitutionsprinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Single-Responsibility-Prinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Dependency-Inversion-Prinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welches Prinzip f\u00F6rdert die Erweiterbarkeit eines Systems, ohne bestehende Klassen oder Module direkt \u00E4ndern zu m\u00FCssen?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Open-/Closed-Prinzip",
+        "IsCorrect": true,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Liskov-Substitutionsprinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Single-Responsibility-Prinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Dependency-Inversion-Prinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welches Prinzip wird verletzt, wenn abgeleitete Klassen zus\u00E4tzliche Anforderungen einf\u00FChren, die von der Basisklasse nicht erf\u00FCllt werden?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Open-/Closed-Prinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Liskov-Substitutionsprinzip",
+        "IsCorrect": true,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Single-Responsibility-Prinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Dependency-Inversion-Prinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welches Prinzip stellt sicher, dass Subtypen dieselben Eigenschaften wie ihre Basistypen aufweisen, ohne dass das Verhalten unerwartet abweicht?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Open-/Closed-Prinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Liskov-Substitutionsprinzip",
+        "IsCorrect": true,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Single-Responsibility-Prinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Dependency-Inversion-Prinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welches Prinzip fordert die Verwendung von Schnittstellen oder abstrakten Klassen, um Abh\u00E4ngigkeiten zwischen High-Level- und Low-Level-Modulen zu minimieren?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Open-/Closed-Prinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Liskov-Substitutionsprinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Single-Responsibility-Prinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Dependency-Inversion-Prinzip",
+        "IsCorrect": true,
+        "canReorder": false
+      }
+    ]
+  },
+  {
+    "QuestionText": "Welches Prinzip wird verletzt, wenn High-Level-Module direkt von Low-Level-Implementierungen abh\u00E4ngen?",
+    "Points": 1,
+    "QuestionType": "Auswahl",
+    "Header1": "",
+    "Header2": "",
+    "Answers": [
+      {
+        "AnswerText": "Open-/Closed-Prinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Liskov-Substitutionsprinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Single-Responsibility-Prinzip",
+        "IsCorrect": false,
+        "canReorder": false
+      },
+      {
+        "AnswerText": "Dependency-Inversion-Prinzip",
+        "IsCorrect": true,
         "canReorder": false
       }
     ]
