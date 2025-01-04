@@ -87,6 +87,17 @@ public class QuestionService
                 break;
         }
 
+        foreach (var answer in answers)
+            if (answer.canReorder)
+            {
+                var spilt = answer.AnswerText.Split('/');
+                if (spilt.Length <= 1)
+                {
+                    msg.Add("Antworten, die mit Reorder markiert sind, müssen ein '/' zum spliten enthalten!");
+                    break;
+                }
+            }
+
         return msg.Count != 0
             ? Result.Fail(msg)
             : Result.Success();
@@ -142,7 +153,7 @@ public class QuestionService
 
         _askedQuestions.Add(question.Id);
 
-        return Result<Question>.Success(random.First());
+        return Result<Question>.Success(question);
     }
 
     public async Task<Result<Question>> GetWeightedRandomQuestionAsync()
@@ -203,7 +214,8 @@ public class QuestionService
         {
             var answers = await _answerRepository.GetAllAsync($"QuestionId = {questionId}");
 
-            var randomAnswers = answers.OrderBy(_ => Guid.NewGuid()).ToList();
+
+            var randomAnswers = answers.OrderBy(_ => Guid.NewGuid()).Select(Reorder).ToList();
 
             return randomAnswers.Count == 0
                 ? Result<IEnumerable<Answer>>.Fail($"Keine Antworten für Frage mit Id {questionId} in der Datenbank verfügbar.")
@@ -214,6 +226,21 @@ public class QuestionService
             _logger.LogError(ex, "Fehler beim Abrufen der Antwortmöglichkeiten der Frage mit id {questionId}", questionId);
             return Result<IEnumerable<Answer>>.Exception(ex);
         }
+    }
+
+    private static Answer Reorder(Answer answer)
+    {
+        if (!answer.canReorder) return answer;
+
+        var split = answer.AnswerText.Split('/');
+
+        for (var i = 0; i < split.Length - 1; i++)
+            split[i] = split[i].Trim();
+
+        split = split.OrderBy(_ => Guid.NewGuid()).ToArray();
+        answer.AnswerText = string.Join(" / ", split).Trim();
+
+        return answer;
     }
 
     public async Task<Result<IEnumerable<Question>>> GetMostIncorrectlyAnsweredQuestionsAsync()

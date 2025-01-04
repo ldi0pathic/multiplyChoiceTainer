@@ -7,7 +7,7 @@ namespace multiplyChoiceTainer;
 
 public partial class Form1 : Form
 {
-    private readonly List<(TextBox AnswerTextBox, CheckBox IsCorrectCheckBox)> _answerFields = new();
+    private readonly List<(TextBox AnswerTextBox, CheckBox IsCorrectCheckBox, CheckBox canReorder)> _answerFields = new();
     private readonly Panel _dynamicPanel;
     private readonly ImportExportService _importExportService;
     private readonly QuestionService _questionService;
@@ -662,7 +662,15 @@ public partial class Form1 : Form
         _currentY = 10;
 
         var backButton = CreateButton("Zurück", 100, 30, 10, _dynamicPanel.Height - 40);
-        backButton.Click += (_, _) => StartPage();
+        backButton.Click += (_, _) => _ = StartPage();
+        backButton.Click += (_, _) =>
+        {
+            _score = 0;
+            _totalPoints = 0;
+            _maxQuestions = 0;
+            _currentQuestions = 0;
+        };
+
         _dynamicPanel.Controls.Add(backButton);
     }
 
@@ -806,21 +814,28 @@ public partial class Form1 : Form
     {
         var answerTextBox = new TextBox
         {
-            Location = new Point(60, _currentY),
-            Width = _dynamicPanel.Width - 70,
+            Location = new Point(40, _currentY),
+            Width = _dynamicPanel.Width - 100,
             Multiline = true
         };
 
         var answerCheckBox = new CheckBox
         {
-            Location = new Point(10, _currentY)
+            Location = new Point(15, _currentY),
+            Size = new Size(20, answerTextBox.Height) // Feste Größe festlegen
         };
 
-        _answerFields.Add((answerTextBox, answerCheckBox));
+        var canReorder = new CheckBox
+        {
+            Location = new Point(_dynamicPanel.Width - 40, _currentY),
+            Size = new Size(20, answerTextBox.Height) // Feste Größe festlegen
+        };
+
 
         _dynamicPanel.Controls.Add(answerTextBox);
         _dynamicPanel.Controls.Add(answerCheckBox);
-
+        _dynamicPanel.Controls.Add(canReorder);
+        _answerFields.Add((answerTextBox, answerCheckBox, canReorder));
         _currentY += answerTextBox.Height + 10;
     }
 
@@ -831,7 +846,7 @@ public partial class Form1 : Form
         if (string.IsNullOrWhiteSpace(txtQuestion.Text)) errorMessages.Add("Bitte geben Sie eine Frage ein.");
         if (!int.TryParse(txtPoints.Text, out var points) || points <= 0) errorMessages.Add("Bitte geben Sie eine gültige Punktzahl größer als 0 ein.");
 
-        foreach (var (answerTextBox, _) in _answerFields)
+        foreach (var (answerTextBox, _, _) in _answerFields)
             if (string.IsNullOrWhiteSpace(answerTextBox.Text))
             {
                 errorMessages.Add("Alle Antworttexte müssen ausgefüllt werden.");
@@ -857,7 +872,8 @@ public partial class Form1 : Form
         var answers = _answerFields.Select(field => new Answer
         {
             AnswerText = field.AnswerTextBox.Text.Trim().Replace("\r", " ").Replace("\n", "").Replace("  ", " "),
-            IsCorrect = field.IsCorrectCheckBox.Checked
+            IsCorrect = field.IsCorrectCheckBox.Checked,
+            canReorder = field.canReorder.Checked
         }).ToList();
 
         var result = await _questionService.SaveQuestionAsync(question, answers);

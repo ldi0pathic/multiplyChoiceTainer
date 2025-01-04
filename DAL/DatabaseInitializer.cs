@@ -148,6 +148,9 @@ public class DatabaseInitializer
                     "),
             new("241226_02_AddHeadersToQuestions", @"
                         ALTER TABLE Questions ADD COLUMN Header2 TEXT NULL
+                    "),
+            new("250104_reorderAnswer", @"
+                        ALTER TABLE Answers ADD COLUMN CanReorder INTEGER DEFAULT 0;
                     ")
         };
     }

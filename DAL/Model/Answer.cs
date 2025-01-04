@@ -10,4 +10,5 @@ public class Answer
     public required string AnswerText { get; set; }
     public bool IsCorrect { get; set; }
     public DateTime CreatedAt { get; set; }
+    public bool canReorder { get; set; }
 }

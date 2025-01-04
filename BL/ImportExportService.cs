@@ -95,7 +95,8 @@ public class ImportExportService
                 var result = await _questionService.SaveQuestionAsync(question, item.Answers.Select(a => new Answer
                 {
                     AnswerText = a.AnswerText,
-                    IsCorrect = a.IsCorrect
+                    IsCorrect = a.IsCorrect,
+                    canReorder = a.canReorder ?? false
                 }).ToList());
 
                 if (result.IsFailure)
