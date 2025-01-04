@@ -50,7 +50,8 @@ public class ImportExportService
                     .Select(answer => new
                     {
                         answer.AnswerText,
-                        answer.IsCorrect
+                        answer.IsCorrect,
+                        answer.canReorder
                     })
             });
 
