@@ -23,10 +23,12 @@ public class QuestionService
         _logger = loggerFactory.CreateLogger<QuestionService>();
     }
 
-    public async Task<int> GetQuestionCountAsync()
+    public async Task<int> GetQuestionCountAsync(bool ungefragt = false)
     {
         const string whereClause = "IsDeleted != true";
         var questions = await _questionRepository.GetAllAsync(whereClause);
+
+        if (ungefragt) questions = questions.Where(w => !w.LastAskedDate.HasValue);
 
         return questions.Count();
     }
@@ -156,7 +158,7 @@ public class QuestionService
         return Result<Question>.Success(question);
     }
 
-    public async Task<Result<Question>> GetWeightedRandomQuestionAsync()
+    public async Task<Result<Question>> GetWeightedRandomQuestionAsync(bool neverasked = false)
     {
         try
         {
@@ -164,9 +166,13 @@ public class QuestionService
             var questions = await _questionRepository.GetAllAsync();
 
             // Filtere gültige Fragen
-            var validQuestions = questions
-                .Where(q => !_askedQuestions.Contains(q.Id) && !q.IsDeleted)
-                .ToList();
+            var validQuestionsquery = questions
+                .Where(q => !_askedQuestions.Contains(q.Id) && !q.IsDeleted);
+
+
+            if (neverasked) validQuestionsquery = validQuestionsquery.Where(q => !q.LastAskedDate.HasValue);
+
+            var validQuestions = validQuestionsquery.ToList();
 
             if (!validQuestions.Any())
                 return Result<Question>.Fail("Keine neuen Fragen in der Datenbank verfügbar.");

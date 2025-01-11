@@ -17,6 +17,7 @@ public partial class Form1 : Form
     private int _currentY;
     private int _maxQuestions;
     private int _maxTime;
+    private int _neverQuestions;
 
     private decimal _score;
     private DateTime _startTime;
@@ -27,6 +28,7 @@ public partial class Form1 : Form
         _score = 0;
         _totalPoints = 0;
         _maxQuestions = 0;
+        _neverQuestions = 0;
         _currentQuestions = 0;
         _questionService = questionService ?? throw new ArgumentNullException(nameof(questionService));
         _importExportService = importExportService;
@@ -42,6 +44,9 @@ public partial class Form1 : Form
     private async Task StartPage()
     {
         Reset();
+        _score = 0;
+        _totalPoints = 0;
+        _currentQuestions = 0;
         _questionService.ResetAskedQuestions();
 
         // TextBox für die Eingabe der maximalen Fragenanzahl
@@ -50,6 +55,7 @@ public partial class Form1 : Form
         questionCountLabel.Location = new Point(10, _currentY);
         _dynamicPanel.Controls.Add(questionCountLabel);
         _maxQuestions = await _questionService.GetQuestionCountAsync();
+        _neverQuestions = await _questionService.GetQuestionCountAsync(true);
 
         var questionCountTextBox = new TextBox
         {
@@ -58,6 +64,8 @@ public partial class Form1 : Form
             Location = new Point(20 + questionCountLabel.Width, _currentY)
         };
         _dynamicPanel.Controls.Add(questionCountTextBox);
+        var never = CreateLabel("Nie gefragt: " + _neverQuestions, 12, FontStyle.Regular, questionCountLabel.Width + questionCountLabel.Width + 40);
+        _dynamicPanel.Controls.Add(never);
         _currentY += questionCountTextBox.Height + 10; // Update _currentY nach der TextBox
 
         //------
@@ -125,6 +133,28 @@ public partial class Form1 : Form
         };
         _dynamicPanel.Controls.Add(startQuizButton2);
         _currentY += startQuizButton2.Height + 10; // Update _currentY nach dem Button
+        var startQuizButton3 = CreateButton("Start Übung nur Ungefragt", 200, 30, (ClientSize.Width - 200) / 2, _currentY);
+        startQuizButton3.Click += async (_, _) =>
+        {
+            if (!int.TryParse(questionCountTextBox.Text, out var maxQuestions) && maxQuestions > 0)
+            {
+                MessageBox.Show("Bitte geben Sie eine gültige Anzahl von Fragen ein (positive Zahl).", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!int.TryParse(questionTimeTextBox.Text, out var maxTime) && maxTime > 1)
+            {
+                MessageBox.Show("Bitte geben Sie eine gültige Zeit ein (positive Zahl).", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            _maxQuestions = maxQuestions;
+            _maxTime = maxTime;
+            _startTime = DateTime.Now;
+            await QuizPageAsync(true, true);
+        };
+        _dynamicPanel.Controls.Add(startQuizButton3);
+        _currentY += startQuizButton3.Height + 10; // Update _currentY nach dem Button
 
         var startQuizButton = CreateButton("Start Prüfung", 100, 30, (ClientSize.Width - 100) / 2, _currentY);
         startQuizButton.Click += async (_, _) =>
@@ -213,7 +243,7 @@ public partial class Form1 : Form
         };
     }
 
-    private async Task QuizPageAsync(bool testMode = false)
+    private async Task QuizPageAsync(bool testMode = false, bool neverasked = false)
     {
         Reset();
 
@@ -227,7 +257,7 @@ public partial class Form1 : Form
             }
 
         _currentQuestions++;
-        var questionResult = testMode ? await _questionService.GetWeightedRandomQuestionAsync() : await _questionService.GetRandomQuestionAsync();
+        var questionResult = testMode ? await _questionService.GetWeightedRandomQuestionAsync(neverasked) : await _questionService.GetRandomQuestionAsync();
 
         if (questionResult.IsFailure || questionResult.Value == null)
         {
@@ -484,11 +514,11 @@ public partial class Form1 : Form
                 if (testMode)
                 {
                     if (MessageBox.Show($"{totalScore}/ {question.Points} Punkte", "Weiter", MessageBoxButtons.OK, MessageBoxIcon.Question) == DialogResult.OK)
-                        await QuizPageAsync(testMode);
+                        await QuizPageAsync(testMode, neverasked);
                 }
                 else
                 {
-                    await QuizPageAsync(testMode);
+                    await QuizPageAsync(testMode, neverasked);
                 }
             };
 
