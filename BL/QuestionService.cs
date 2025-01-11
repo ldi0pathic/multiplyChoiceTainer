@@ -105,26 +105,33 @@ public class QuestionService
             : Result.Success();
     }
 
-    public async Task<Result> IncrementIncorrectAnswerCountAsync(long questionId)
+    public async Task UpdateQuestionMeta(long questionId, bool wrongAnswer = false)
     {
         try
         {
             var question = await _questionRepository.GetByIdAsync(questionId);
 
             if (question == null)
-                return Result.Fail("Frage konnte nicht gefunden werden.");
+            {
+                Result.Fail("Frage konnte nicht gefunden werden.");
+                return;
+            }
 
-            question.IncorrectAnswerCount++;
-            question.LastIncorrectAnswerDate = DateTime.Now;
+            _askedQuestions.Add(questionId);
+            if (wrongAnswer)
+            {
+                question.IncorrectAnswerCount++;
+                question.LastIncorrectAnswerDate = DateTime.Now;
+            }
+
+            question.LastAskedDate = DateTime.Now;
+
 
             await _questionRepository.UpdateAsync(question);
-
-            return Result.Success();
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Fehler beim Erhöhen des Zählers für falsche Antworten für Frage mit Id {questionId}", questionId);
-            return Result.Exception(ex);
         }
     }
 
@@ -149,11 +156,6 @@ public class QuestionService
         if (random.Count == 0) return Result<Question>.Fail("Es konnte keine Frage ausgewählt werden.");
 
         var question = random.First();
-
-        question.LastAskedDate = DateTime.Now;
-        await _questionRepository.UpdateAsync(question);
-
-        _askedQuestions.Add(question.Id);
 
         return Result<Question>.Success(question);
     }
@@ -201,8 +203,8 @@ public class QuestionService
                     .First().Question;
 
             // Frage aktualisieren
-            selectedQuestion.LastAskedDate = DateTime.UtcNow;
-            await _questionRepository.UpdateAsync(selectedQuestion);
+            // selectedQuestion.LastAskedDate = DateTime.UtcNow;
+            // await _questionRepository.UpdateAsync(selectedQuestion);
 
             return Result<Question>.Success(selectedQuestion);
         }

@@ -510,7 +510,7 @@ public partial class Form1 : Form
 
                 _score += Math.Round(totalScore, 2);
 
-                if (hasIncorrectAnswers) await _questionService.IncrementIncorrectAnswerCountAsync(question.Id);
+                await _questionService.UpdateQuestionMeta(question.Id, hasIncorrectAnswers);
                 if (testMode)
                 {
                     if (MessageBox.Show($"{totalScore}/ {question.Points} Punkte", "Weiter", MessageBoxButtons.OK, MessageBoxIcon.Question) == DialogResult.OK)
@@ -638,7 +638,7 @@ public partial class Form1 : Form
 
                 _score += Math.Round(totalScore, 2);
 
-                if (hasIncorrectAnswers) await _questionService.IncrementIncorrectAnswerCountAsync(question.Id);
+                await _questionService.UpdateQuestionMeta(question.Id, hasIncorrectAnswers);
 
                 if (MessageBox.Show($"DU hast {_score}/ {_totalPoints} Punkte ({_score / _totalPoints * 100}%) erreicht!", "Fertig :)", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK) await StartPage();
             };
